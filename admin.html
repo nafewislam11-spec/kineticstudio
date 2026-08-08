@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Kinetic Studio — Full CMS Control Panel</title>
+  <link href="assets/kinetic_favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="css/styles.css?v=20" rel="stylesheet" type="text/css"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    WebFont.load({
+      google: { families: ["Inter:300,400,500,600,700","Syne:400,600,700,800"] }
+    });
+  </script>
+  <style>
+    body.admin-body {
+      background-color: #0D0D0F;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .admin-login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 13, 15, 0.96);
+      backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .admin-login-card {
+      background: #14141A;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(124, 58, 237, 0.2);
+      text-align: center;
+    }
+
+    .admin-login-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .admin-login-sub {
+      color: #A1A1A2;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .admin-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+      transition: all 0.25s ease;
+      margin-bottom: 12px;
+    }
+
+    .admin-input:focus {
+      border-color: #7C3AED;
+      box-shadow: 0 0 16px rgba(124, 58, 237, 0.4);
+    }
+
+    .admin-btn {
+      width: 100%;
+      background: #7C3AED;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .admin-btn:hover {
+      background: #8B5CF6;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.5);
+    }
+
+    .admin-login-error {
+      color: #EF4444;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .align-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #A1A1A2;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .align-btn.active, .align-btn:hover {
+      background: #7C3AED;
+      color: #FFFFFF;
+      border-color: #7C3AED;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+    }
+
+    .typo-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 8px;
+    }
+
+    .typo-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .typo-label {
+      font-size: 13px;
+      color: #C4B5FD;
+      font-weight: 600;
+    }
+
+    .typo-size-input {
+      width: 75px !important;
+      padding: 6px 10px !important;
+      margin-bottom: 0 !important;
+      text-align: center;
+      font-weight: 700;
+      color: #C4B5FD !important;
+      background: rgba(124, 58, 237, 0.15) !important;
+      border-color: rgba(124, 58, 237, 0.4) !important;
+    }
+
+    .typo-unit {
+      color: #A1A1A2;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .cms-container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .cms-sidebar {
+      width: 270px;
+      background: #121217;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 28px 16px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .cms-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding-left: 8px;
+    }
+
+    .cms-nav-item {
+      padding: 11px 14px;
+      border-radius: 10px;
+      color: #A1A1A2;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .cms-nav-item:hover, .cms-nav-item.active {
+      background: rgba(124, 58, 237, 0.15);
+      color: #C4B5FD;
+      font-weight: 600;
+    }
+
+    .cms-content {
+      flex: 1;
+      padding: 36px 44px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      max-width: 1100px;
+    }
+
+    .cms-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .cms-section {
+      display: none;
+    }
+
+    .cms-section.active {
+      display: block;
+    }
+
+    .cms-card {
+      background: #14141A;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+
+    .cms-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #F3F4F6;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #9CA3AF;
+      margin-bottom: 6px;
+    }
+
+    textarea.admin-input {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .cms-toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #10B981;
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 10000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- LOGIN OVERLAY -->
+  <div class="admin-login-overlay" id="loginOverlay">
+    <div class="admin-login-card">
+      <div style="margin-bottom: 16px;">
+        <svg width="48" height="48" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="2" width="16" height="40" fill="#3D2D63"/>
+          <polygon points="16,22 32,2 54,2 27,22" fill="#B497FF"/>
+          <polygon points="21,18 54,42 32,42 16,29" fill="#7C3AED"/>
+        </svg>
+      </div>
+      <div class="admin-login-title">Kinetic CMS Admin</div>
+      <div class="admin-login-sub">Enter your admin password to log in</div>
+      <form id="loginForm">
+        <input type="password" class="admin-input" id="passwordInput" placeholder="Admin Password" required />
+        <button type="submit" class="admin-btn">Login to CMS Dashboard 🔒</button>
+      </form>
+      <div class="admin-login-error" id="loginError">Incorrect password. Please try again.</div>
+    </div>
+  </div>
+
+  <!-- CMS DASHBOARD CONTAINER -->
+  <div class="cms-container">
+    <!-- SIDEBAR -->
+    <div class="cms-sidebar">
+      <div class="cms-brand">
+        <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="2" width="16" height="40" fill="#3D2D63"/>
+          <polygon points="16,22 32,2 54,2 27,22" fill="#B497FF"/>
+          <polygon points="21,18 54,42 32,42 16,29" fill="#7C3AED"/>
+        </svg>
+        <span style="font-weight: 800; font-size: 17px; color: #fff;">Kinetic CMS</span>
+      </div>
+
+      <div class="cms-nav-item active" data-target="sec-hero">⚡ Header & Hero</div>
+      <div class="cms-nav-item" data-target="sec-vsl">📹 VSL & Stat Pills</div>
+      <div class="cms-nav-item" data-target="sec-creators">🌟 Creators Showcase</div>
+      <div class="cms-nav-item" data-target="sec-portfolio">🎬 Portfolio & Videos Grid</div>
+      <div class="cms-nav-item" data-target="sec-bento">🚀 Features & Bento Box</div>
+      <div class="cms-nav-item" data-target="sec-reviews">⭐ Reviews & Testimonials</div>
+      <div class="cms-nav-item" data-target="sec-process">🔄 Process & Proof</div>
+      <div class="cms-nav-item" data-target="sec-pricing">💳 Pricing & Plans</div>
+      <div class="cms-nav-item" data-target="sec-faq">❓ FAQ Manager</div>
+      <div class="cms-nav-item" data-target="sec-general">🌐 General & Footer</div>
+      <div class="cms-nav-item" data-target="sec-settings">🔒 Password & Backup</div>
+
+      <div style="margin-top: auto; padding-top: 20px;">
+        <a href="index.html" target="_blank" style="color: #A1A1A2; text-decoration: none; font-size: 13px; display: block; margin-bottom: 12px;">↗ View Live Website</a>
+        <button class="admin-btn" id="logoutBtn" style="background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.4);">Logout</button>
+      </div>
+    </div>
+
+    <!-- CONTENT AREA -->
+    <div class="cms-content">
+      <div class="cms-header">
+        <div>
+          <h1 style="font-size: 24px; font-weight: 800; margin: 0;">Kinetic Studio Full CMS Manager</h1>
+          <p style="color: #9CA3AF; margin: 4px 0 0 0; font-size: 14px;">Edit all text, media, images, videos, pricing & testimonials in real-time.</p>
+        </div>
+        <button class="admin-btn" id="saveAllBtn" style="width: auto; padding: 12px 28px;">💾 Publish Changes Live</button>
+      </div>
+
+      <!-- 1. HEADER & HERO -->
+      <div class="cms-section active" id="sec-hero">
+        <div class="cms-card">
+          <div class="cms-card-title">📌 Navbar & Header Settings</div>
+          <div class="form-group">
+            <label class="form-label">Brand Name Text (Logo Text)</label>
+            <input type="text" class="admin-input" id="cms-brand-name" value="Kinetic Studio" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Browser Tab Favicon Logo (URL or Upload File)</label>
+            <div class="media-picker-group">
+              <input type="text" class="admin-input" id="cms-brand-favicon" value="assets/kinetic_favicon.png" />
+              <label class="media-upload-btn">
+                📁 Upload
+                <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-brand-favicon" style="display:none;" />
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Header CTA Button Text</label>
+            <input type="text" class="admin-input" id="cms-nav-cta-text" value="LET'S TALK!" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Header CTA Target Link</label>
+            <input type="text" class="admin-input" id="cms-nav-cta-link" value="#pb-cta" />
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">🎬 Hero Section Copy & Typography</div>
+          
+          <div class="form-group">
+            <label class="form-label">Top Badge Text</label>
+            <input type="text" class="admin-input" id="cms-hero-badge" value="50+ top creators served ↗" />
+            <div class="typo-toolbar">
+              <div class="typo-control">
+                <span class="typo-label">Badge Font Size:</span>
+                <input type="number" class="admin-input typo-size-input" id="cms-hero-badge-size" value="13" min="10" max="24" />
+                <span class="typo-unit">px</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Main Headline H1 (Press enter for breaks)</label>
+            <textarea class="admin-input" id="cms-hero-h1">We make creators
+impossible to ignore</textarea>
+            <div class="typo-toolbar">
+              <div class="typo-control">
+                <span class="typo-label">Alignment:</span>
+                <div class="align-btn-group" data-target-field="h1">
+                  <button type="button" class="align-btn active" data-align="left">Left ◄</button>
+                  <button type="button" class="align-btn" data-align="center">Center ☰</button>
+                  <button type="button" class="align-btn" data-align="right">Right ►</button>
+                </div>
+              </div>
+              <div class="typo-control">
+                <span class="typo-label">Font Size:</span>
+                <input type="number" class="admin-input typo-size-input" id="cms-hero-h1-size" value="64" min="20" max="120" />
+                <span class="typo-unit">px</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Subtitle Description</label>
+            <textarea class="admin-input" id="cms-hero-sub">Your largest growth starts with Kinetic Studio</textarea>
+            <div class="typo-toolbar">
+              <div class="typo-control">
+                <span class="typo-label">Alignment:</span>
+                <div class="align-btn-group" data-target-field="sub">
+                  <button type="button" class="align-btn active" data-align="left">Left ◄</button>
+                  <button type="button" class="align-btn" data-align="center">Center ☰</button>
+                  <button type="button" class="align-btn" data-align="right">Right ►</button>
+                </div>
+              </div>
+              <div class="typo-control">
+                <span class="typo-label">Font Size:</span>
+                <input type="number" class="admin-input typo-size-input" id="cms-hero-sub-size" value="18" min="12" max="48" />
+                <span class="typo-unit">px</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Hero Button CTA Text</label>
+            <input type="text" class="admin-input" id="cms-hero-cta" value="Book A Quick Call" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hero Watch Video Link Text</label>
+            <input type="text" class="admin-input" id="cms-hero-watch-text" value="▶ Watch How We Do · 2 mins" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hero Watch Video Link Target / Video URL</label>
+            <input type="text" class="admin-input" id="cms-hero-watch-url" value="#pb-work" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Hero Marquee 3 Creator Images (URL or Upload File)</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+              <div>
+                <label class="form-label">Image 1</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-hero-c1-img" value="assets/hero_creator_1.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-hero-c1-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label class="form-label">Image 2</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-hero-c2-img" value="assets/hero_creator_ai1.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-hero-c2-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label class="form-label">Image 3</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-hero-c3-img" value="assets/hero_creator_ai2.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-hero-c3-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hero 3D Keycap Letter</label>
+            <input type="text" class="admin-input" id="cms-hero-keycap" value="K" style="max-width: 100px; text-align: center; font-weight: 700;" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. VSL & STAT PILLS -->
+      <div class="cms-section" id="sec-vsl">
+        <div class="cms-card">
+          <div class="cms-card-title">🎥 VSL & Stat Banner</div>
+          <div class="form-group">
+            <label class="form-label">VSL Section Title</label>
+            <textarea class="admin-input" id="cms-vsl-title">Built For Your Growth With The System You Always Wanted.</textarea>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label">Stat Pill 1</label>
+              <input type="text" class="admin-input" id="cms-vsl-p1" value="220k" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Stat Pill 2</label>
+              <input type="text" class="admin-input" id="cms-vsl-p2" value="11.2m" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Stat Pill 3</label>
+              <input type="text" class="admin-input" id="cms-vsl-p3" value="220k" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">VSL 3D Keycaps Image (URL or Upload File)</label>
+            <div class="media-picker-group">
+              <input type="text" class="admin-input" id="cms-vsl-img" value="assets/kinetic_3d_keycaps_collage.png" />
+              <label class="media-upload-btn">
+                📁 Upload Image
+                <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-vsl-img" style="display:none;" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">💬 VSL Review Tabs</div>
+          <div class="form-group">
+            <label class="form-label">Review Banner Heading</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev-title" value="Newest Fresh client's loves 🤍" />
+          </div>
+          
+          <div class="form-group" style="background: rgba(255,255,255,0.02); padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 14px;">
+            <label class="form-label" style="color:#C4B5FD; font-weight:700;">Review Tab 1</label>
+            <label class="form-label">Client Photo Image (URL or Upload File)</label>
+            <div class="media-picker-group" style="margin-bottom: 10px;">
+              <input type="text" class="admin-input" id="cms-vsl-rev1-img" placeholder="assets/..." />
+              <label class="media-upload-btn">
+                📁 Upload
+                <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-vsl-rev1-img" style="display:none;" />
+              </label>
+            </div>
+            <label class="form-label">Quote Text</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev1-txt" value="Absolutely loved it!" />
+            <label class="form-label">Video URL (Popup Video)</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev1-url" placeholder="https://www.youtube.com/embed/..." />
+          </div>
+
+          <div class="form-group" style="background: rgba(255,255,255,0.02); padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 14px;">
+            <label class="form-label" style="color:#C4B5FD; font-weight:700;">Review Tab 2</label>
+            <label class="form-label">Client Photo Image (URL or Upload File)</label>
+            <div class="media-picker-group" style="margin-bottom: 10px;">
+              <input type="text" class="admin-input" id="cms-vsl-rev2-img" placeholder="assets/..." />
+              <label class="media-upload-btn">
+                📁 Upload
+                <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-vsl-rev2-img" style="display:none;" />
+              </label>
+            </div>
+            <label class="form-label">Quote Text</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev2-txt" value="Banger videos they do!" />
+            <label class="form-label">Video URL (Popup Video)</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev2-url" placeholder="https://www.youtube.com/embed/..." />
+          </div>
+
+          <div class="form-group" style="background: rgba(255,255,255,0.02); padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 14px;">
+            <label class="form-label" style="color:#C4B5FD; font-weight:700;">Review Tab 3</label>
+            <label class="form-label">Client Photo Image (URL or Upload File)</label>
+            <div class="media-picker-group" style="margin-bottom: 10px;">
+              <input type="text" class="admin-input" id="cms-vsl-rev3-img" placeholder="assets/..." />
+              <label class="media-upload-btn">
+                📁 Upload
+                <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-vsl-rev3-img" style="display:none;" />
+              </label>
+            </div>
+            <label class="form-label">Quote Text</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev3-txt" value="10/10 motions stuffs!" />
+            <label class="form-label">Video URL (Popup Video)</label>
+            <input type="text" class="admin-input" id="cms-vsl-rev3-url" placeholder="https://www.youtube.com/embed/..." />
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CREATORS SHOWCASE -->
+      <div class="cms-section" id="sec-creators">
+        <div class="cms-card">
+          <div class="cms-card-title">🌟 Creators Showcase Cards</div>
+          <div class="form-group">
+            <label class="form-label">Section Title Label</label>
+            <input type="text" class="admin-input" id="cms-creators-label" value="Ultra big Creators we worked with ✦" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bottom Badge Text</label>
+            <input type="text" class="admin-input" id="cms-creators-badge" value="50+ top creators served ↗" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Creator Card 1</div>
+              <div class="form-group">
+                <label class="form-label">Creator Image (URL or Upload)</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-c1-img" placeholder="assets/creator1.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-c1-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Video URL (Plays on click)</label>
+                <input type="text" class="admin-input" id="cms-c1-video" placeholder="https://www.youtube.com/embed/..." />
+              </div>
+            </div>
+
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Creator Card 2</div>
+              <div class="form-group">
+                <label class="form-label">Creator Image (URL or Upload)</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-c2-img" placeholder="assets/creator2.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-c2-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Video URL (Plays on click)</label>
+                <input type="text" class="admin-input" id="cms-c2-video" placeholder="https://www.youtube.com/embed/..." />
+              </div>
+            </div>
+
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Creator Card 3</div>
+              <div class="form-group">
+                <label class="form-label">Creator Image (URL or Upload)</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-c3-img" placeholder="assets/creator3.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-c3-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Video URL (Plays on click)</label>
+                <input type="text" class="admin-input" id="cms-c3-video" placeholder="https://www.youtube.com/embed/..." />
+              </div>
+            </div>
+
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Creator Card 4</div>
+              <div class="form-group">
+                <label class="form-label">Creator Image (URL or Upload)</label>
+                <div class="media-picker-group">
+                  <input type="text" class="admin-input" id="cms-c4-img" placeholder="assets/creator4.png" />
+                  <label class="media-upload-btn">
+                    📁 Upload
+                    <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-c4-img" style="display:none;" />
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Video URL (Plays on click)</label>
+                <input type="text" class="admin-input" id="cms-c4-video" placeholder="https://www.youtube.com/embed/..." />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. PORTFOLIO & VIDEOS GRID -->
+      <div class="cms-section" id="sec-portfolio">
+        <div class="cms-card">
+          <div class="cms-card-title">🎬 Portfolio & Latest Videos Section</div>
+          <div class="form-group">
+            <label class="form-label">Section Title</label>
+            <input type="text" class="admin-input" id="cms-port-title" value="Previous Projects" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Section Subtitle</label>
+            <input type="text" class="admin-input" id="cms-port-sub" value="Our three Element Framework for top notch product videos" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category Tabs (Comma separated)</label>
+            <input type="text" class="admin-input" id="cms-port-tabs" value="Longform, Shortform" />
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">🎬 Video Grid Cards (Longform & Shortform)</div>
+          <p style="color: #999; font-size: 13px; margin-bottom: 16px; line-height: 1.5;">
+            Add, edit, or delete video cards below. Set the Category to <strong>Longform</strong> or <strong>Shortform</strong> to group them under the website tabs.
+          </p>
+          <div id="portfolioCardsList">
+            <!-- Dynamically populated video cards -->
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;">
+            <button type="button" class="admin-btn" id="addPortfolioBtn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">+ Add Portfolio Video Card</button>
+            <button type="button" class="admin-btn" id="resetPortfolioBtn" style="background: rgba(255, 100, 100, 0.12); border: 1px solid rgba(255, 100, 100, 0.3); color: #ff8888;">🔄 Reset Portfolio to Framer Videos</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. FEATURES & BENTO BOX -->
+      <div class="cms-section" id="sec-bento">
+        <div class="cms-card">
+          <div class="cms-card-title">💡 4 Key Feature Info Cards</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Feature 1</div>
+              <input type="text" class="admin-input" id="cms-feat1-title" value="Audience Research" />
+              <input type="text" class="admin-input" id="cms-feat1-desc" value="We research your audience before anything else." />
+            </div>
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Feature 2</div>
+              <input type="text" class="admin-input" id="cms-feat2-title" value="Content Calendar" />
+              <input type="text" class="admin-input" id="cms-feat2-desc" value="Your largest growth starts with Kinetic Studio" />
+            </div>
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Feature 3</div>
+              <input type="text" class="admin-input" id="cms-feat3-title" value="Growth Automation" />
+              <input type="text" class="admin-input" id="cms-feat3-desc" value="Your largest growth starts with Kinetic Studio" />
+            </div>
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Feature 4</div>
+              <input type="text" class="admin-input" id="cms-feat4-title" value="Ready for 10X Growth" />
+              <input type="text" class="admin-input" id="cms-feat4-desc" value="Your largest growth starts with Kinetic Studio" />
+            </div>
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">🍱 Bento Box Section</div>
+          <div class="form-group">
+            <label class="form-label">Bento Section Title</label>
+            <textarea class="admin-input" id="cms-bento-title">The Massive Creator
+Growth Is Here</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bento Subtitle</label>
+            <input type="text" class="admin-input" id="cms-bento-sub" value="Our three Element Framework for top notch product videos" />
+          </div>
+          
+          <!-- Bento Box 1 -->
+          <div class="cms-repeater-card">
+            <div class="cms-repeater-title">Card 1: Case Study & Stat</div>
+            <div class="form-group">
+              <label class="form-label">Quote Text</label>
+              <textarea class="admin-input" id="cms-bento1-quote">“With just 5,000 subscribers, Spencer now generates $350K per month”</textarea>
+            </div>
+            <div style="display: flex; gap: 16px;">
+              <div style="flex: 1;">
+                <label class="form-label">Stat Value</label>
+                <input type="text" class="admin-input" id="cms-bento1-stat" value="250%" />
+              </div>
+              <div style="flex: 1;">
+                <label class="form-label">Stat Subtitle</label>
+                <input type="text" class="admin-input" id="cms-bento1-stat-sub" value="Revenue Growth" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Video URL (Popup on click)</label>
+              <input type="text" class="admin-input" id="cms-bento1-video" placeholder="https://www.youtube.com/embed/..." />
+            </div>
+          </div>
+
+          <!-- Bento Box 2 -->
+          <div class="cms-repeater-card">
+            <div class="cms-repeater-title">Card 2: Growth Pack Tag & Image</div>
+            <div class="form-group">
+              <label class="form-label">Chip Badge Text</label>
+              <input type="text" class="admin-input" id="cms-bento2-chip" value="👑 20% Discounted" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Card Title</label>
+              <input type="text" class="admin-input" id="cms-bento2-title" value="Creator's Growth Pack" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Background Image (URL or Upload)</label>
+              <div class="media-picker-group">
+                <input type="text" class="admin-input" id="cms-bento2-img" placeholder="assets/bento2.png" />
+                <label class="media-upload-btn">
+                  📁 Upload
+                  <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-bento2-img" style="display:none;" />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Box 3 -->
+          <div class="cms-repeater-card">
+            <div class="cms-repeater-title">Card 3: Big Number & CTA</div>
+            <div style="display: flex; gap: 16px;">
+              <div style="flex: 1;">
+                <label class="form-label">Big Stat Number</label>
+                <input type="text" class="admin-input" id="cms-bento3-num" value="200+" />
+              </div>
+              <div style="flex: 1;">
+                <label class="form-label">Sub Label</label>
+                <input type="text" class="admin-input" id="cms-bento3-sub" value="Awesome case studies" />
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px;">
+              <div style="flex: 1;">
+                <label class="form-label">Button Text</label>
+                <input type="text" class="admin-input" id="cms-bento3-btn-text" value="Check em out!" />
+              </div>
+              <div style="flex: 1;">
+                <label class="form-label">Button Target Link</label>
+                <input type="text" class="admin-input" id="cms-bento3-btn-link" value="#pb-work" />
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; margin-top: 16px;">
+            <div style="flex: 1;">
+              <label class="form-label">Slots Badge 1</label>
+              <input type="text" class="admin-input" id="cms-bento-slots1" value="5/10 slots left" />
+            </div>
+            <div style="flex: 1;">
+              <label class="form-label">Slots Badge 2</label>
+              <input type="text" class="admin-input" id="cms-bento-slots2" value="Add your Project ✋" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. REVIEWS & TESTIMONIALS -->
+      <div class="cms-section" id="sec-reviews">
+        <div class="cms-card">
+          <div class="cms-card-title">⭐ Testimonials & Marquee Reviews</div>
+          <div class="form-group">
+            <label class="form-label">Section Title</label>
+            <textarea class="admin-input" id="cms-rev-title">Creators just
+love us</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Section Subtitle</label>
+            <input type="text" class="admin-input" id="cms-rev-sub" value="Our three Element Framework for top notch product videos" />
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">Testimonial Cards List</div>
+          <div id="testimonialsList">
+            <!-- Dynamically populated testimonial cards -->
+          </div>
+          <button class="admin-btn" id="addTestimonialBtn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">+ Add Testimonial Card</button>
+        </div>
+      </div>
+
+      <!-- 7. PROCESS & PROOF -->
+      <div class="cms-section" id="sec-process">
+        <div class="cms-card">
+          <div class="cms-card-title">🔄 4-Step Process Settings</div>
+          <div class="form-group">
+            <label class="form-label">Process Section Title</label>
+            <input type="text" class="admin-input" id="cms-proc-title" value="Our 4 Step Process" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Process Section Subtitle</label>
+            <input type="text" class="admin-input" id="cms-proc-sub" value="Our three Element Framework for top notch product videos" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Step 1</div>
+              <input type="text" class="admin-input" id="cms-proc1-pill" value="One" placeholder="Pill text" />
+              <input type="text" class="admin-input" id="cms-proc1-title" value="Idea Analysis" placeholder="Step title" />
+            </div>
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Step 2</div>
+              <input type="text" class="admin-input" id="cms-proc2-pill" value="Two" placeholder="Pill text" />
+              <input type="text" class="admin-input" id="cms-proc2-title" value="Writing Content" placeholder="Step title" />
+            </div>
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Step 3</div>
+              <input type="text" class="admin-input" id="cms-proc3-pill" value="Three" placeholder="Pill text" />
+              <input type="text" class="admin-input" id="cms-proc3-title" value="Editing the Video" placeholder="Step title" />
+            </div>
+            <div class="cms-repeater-card">
+              <div class="cms-repeater-title">Step 4</div>
+              <input type="text" class="admin-input" id="cms-proc4-pill" value="Four" placeholder="Pill text" />
+              <input type="text" class="admin-input" id="cms-proc4-title" value="Creating thumbnail" placeholder="Step title" />
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 14px;">
+            <label class="form-label">Bottom Process Bar Text</label>
+            <input type="text" class="admin-input" id="cms-proc-bar-txt" value="▪ Watch Process In detail" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bottom Process Bar Target Link</label>
+            <input type="text" class="admin-input" id="cms-proc-bar-url" value="#pb-work" />
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">✨ Scatter Proof Banner</div>
+          <div style="display: flex; gap: 16px;">
+            <div style="flex: 1;">
+              <label class="form-label">Proof Number</label>
+              <input type="text" class="admin-input" id="cms-proof-num" value="200+" />
+            </div>
+            <div style="flex: 1;">
+              <label class="form-label">Keycap Letter</label>
+              <input type="text" class="admin-input" id="cms-proof-keycap" value="K" />
+            </div>
+            <div style="flex: 2;">
+              <label class="form-label">Label Text</label>
+              <input type="text" class="admin-input" id="cms-proof-label" value="Creators Served" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Scatter Banner Image (URL or Upload)</label>
+            <div class="media-picker-group">
+              <input type="text" class="admin-input" id="cms-proof-img" value="assets/6a5616d5e6ece131416b4697_pb-scatter-right-final.png" />
+              <label class="media-upload-btn">
+                📁 Upload
+                <input type="file" class="media-file-input" accept="image/*" data-target-input="cms-proof-img" style="display:none;" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. PRICING & PLANS -->
+      <div class="cms-section" id="sec-pricing">
+        <div class="cms-card">
+          <div class="cms-card-title">💳 Pricing Section Header</div>
+          <div class="form-group">
+            <label class="form-label">Section Title</label>
+            <input type="text" class="admin-input" id="cms-price-sec-title" value="Pricing" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Section Subtitle</label>
+            <input type="text" class="admin-input" id="cms-price-sec-sub" value="Our three Element Framework for top notch product videos" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <!-- Plan 1 -->
+          <div class="cms-card">
+            <div class="cms-card-title">Card 1: Starter Plan</div>
+            <div class="form-group">
+              <label class="form-label">Plan Name</label>
+              <input type="text" class="admin-input" id="cms-p1-name" value="One off video" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Chosen Badge Subtitle</label>
+              <input type="text" class="admin-input" id="cms-p1-chosen" value="Chosen by Pre-seed Startups" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Price Amount</label>
+              <input type="text" class="admin-input" id="cms-p1-price" value="$5,499" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Slots Remaining Text</label>
+              <input type="text" class="admin-input" id="cms-p1-slots" value="06/10 Slots Left this month" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tagline Description</label>
+              <input type="text" class="admin-input" id="cms-p1-tagline" value="Effortless automation for individuals and small teams." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Button CTA Text</label>
+              <input type="text" class="admin-input" id="cms-p1-btn-text" value="Book a call" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Package Includes Checklist (One item per line)</label>
+              <textarea class="admin-input" id="cms-p1-features" style="min-height: 100px;">Strategy-led video production
+Custom motion design and visuals
+Designed for retention & growth
+Clear timelines and predictable delivery</textarea>
+            </div>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="cms-card">
+            <div class="cms-card-title">Card 2: Scale Plan</div>
+            <div class="form-group">
+              <label class="form-label">Plan Name</label>
+              <input type="text" class="admin-input" id="cms-p2-name" value="Creator Scale Pack" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Chosen Badge Subtitle</label>
+              <input type="text" class="admin-input" id="cms-p2-chosen" value="Chosen by 1M+ Creators" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Price Amount</label>
+              <input type="text" class="admin-input" id="cms-p2-price" value="$15,499" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Slots Remaining Text</label>
+              <input type="text" class="admin-input" id="cms-p2-slots" value="06/10 Slots Left this month" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tagline Description</label>
+              <input type="text" class="admin-input" id="cms-p2-tagline" value="Complete YouTube & social growth automation for scale." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Button CTA Text</label>
+              <input type="text" class="admin-input" id="cms-p2-btn-text" value="Book a call →" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Package Includes Checklist (One item per line)</label>
+              <textarea class="admin-input" id="cms-p2-features" style="min-height: 100px;">Full channel & content strategy
+Weekly high-retention video edits
+Shorts, VSLs & custom thumbnail suite
+Dedicated lead editor & motion designer</textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">💬 Pricing Highlight Testimonial (Wade Warren Card)</div>
+          <div style="display: flex; gap: 16px;">
+            <div style="flex: 1;">
+              <label class="form-label">Author Name</label>
+              <input type="text" class="admin-input" id="cms-price-testi-name" value="Wade Warren" />
+            </div>
+            <div style="flex: 1;">
+              <label class="form-label">Author Role / Title</label>
+              <input type="text" class="admin-input" id="cms-price-testi-role" value="Founder of Castari" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Quote Text</label>
+            <textarea class="admin-input" id="cms-price-testi-quote">Prompt delivery and top-notch quality. Impressed with the speed and accuracy</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Brand Badge Label</label>
+            <input type="text" class="admin-input" id="cms-price-testi-badge" value="✦ Castari" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. FAQ MANAGER -->
+      <div class="cms-section" id="sec-faq">
+        <div class="cms-card">
+          <div class="cms-card-title">❓ FAQ Section Header & Note</div>
+          <div class="form-group">
+            <label class="form-label">Section Title</label>
+            <input type="text" class="admin-input" id="cms-faq-sec-title" value="Frequently Asked Questions" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bottom Button Text</label>
+            <input type="text" class="admin-input" id="cms-faq-btn-text" value="Book A Call" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bottom Button Link</label>
+            <input type="text" class="admin-input" id="cms-faq-btn-url" value="#pb-cta" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Support Contact Email</label>
+            <input type="email" class="admin-input" id="cms-faq-email" value="hello@kineticstudio.co" />
+          </div>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">FAQ Question List</div>
+          <div id="faqList">
+            <!-- Dynamically loaded FAQ items -->
+          </div>
+          <button class="admin-btn" id="addFaqBtn" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);">+ Add New FAQ Item</button>
+        </div>
+      </div>
+
+      <!-- 10. GENERAL & FOOTER -->
+      <div class="cms-section" id="sec-general">
+        <div class="cms-card">
+          <div class="cms-card-title">🌐 Footer & Contact Links</div>
+          <div class="form-group">
+            <label class="form-label">Contact Email</label>
+            <input type="email" class="admin-input" id="cms-email" value="hello@kineticstudio.co" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Footer Headline Text</label>
+            <input type="text" class="admin-input" id="cms-footer-title" value="Ready to ride?" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Copyright Bar Text</label>
+            <input type="text" class="admin-input" id="cms-copyright" value="All Rights Reserved | Kinetic Studio 2026" />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label">Twitter / X Link</label>
+              <input type="text" class="admin-input" id="cms-soc-tw" placeholder="https://x.com/..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">YouTube Link</label>
+              <input type="text" class="admin-input" id="cms-soc-yt" placeholder="https://youtube.com/..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Instagram Link</label>
+              <input type="text" class="admin-input" id="cms-soc-ig" placeholder="https://instagram.com/..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">LinkedIn Link</label>
+              <input type="text" class="admin-input" id="cms-soc-li" placeholder="https://linkedin.com/..." />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. PASSWORD & BACKUP -->
+      <div class="cms-section" id="sec-settings">
+        <div class="cms-card">
+          <div class="cms-card-title">🔒 Admin Password Settings</div>
+          <div class="form-group">
+            <label class="form-label">New Admin Password</label>
+            <input type="password" class="admin-input" id="newAdminPassword" placeholder="Enter new password" />
+          </div>
+          <button class="admin-btn" id="updatePasswordBtn" style="width: auto;">Update Password</button>
+        </div>
+
+        <div class="cms-card">
+          <div class="cms-card-title">📦 Data Backup & Import / Export</div>
+          <p style="color: #9CA3AF; font-size: 13px; margin-bottom: 16px;">Export your complete site settings, text, images and custom videos to a JSON backup file or restore anytime.</p>
+          
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <button class="admin-btn" id="exportBackupBtn" style="width: auto; background: rgba(59, 130, 246, 0.2); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.4);">📥 Export Backup JSON</button>
+            <label class="admin-btn" style="width: auto; background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.4); cursor: pointer;">
+              📤 Import Backup JSON
+              <input type="file" id="importJsonFile" accept=".json" style="display: none;" />
+            </label>
+            <button class="admin-btn" id="resetDefaultsBtn" style="width: auto; background: rgba(239, 68, 68, 0.2); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.4);">🔄 Reset Factory Defaults</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST ALERT -->
+  <div class="cms-toast" id="cmsToast">Changes Published Successfully! 🚀</div>
+
+  <script src="js/admin.js?v=99"></script>
+</body>
+</html>
