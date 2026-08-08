@@ -221,12 +221,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       procTitle: "Our 4 Step Process",
       procSub: "Our three Element Framework for top notch product videos",
-      proc1Pill: "One", proc1Title: "Idea Analysis",
-      proc2Pill: "Two", proc2Title: "Writing Content",
-      proc3Pill: "Three", proc3Title: "Editing the Video",
-      proc4Pill: "Four", proc4Title: "Creating thumbnail",
-      procBarTxt: "▪ Watch Process In detail",
-      procBarUrl: "#pb-work",
+      proc1Pill: "01 Review", proc1Title: "01 — Content Analysis", proc1Desc: "We review the footage, script, references, and requirements to understand the video's direction.",
+      proc2Pill: "02 Edit", proc2Title: "02 — Video Editing", proc2Desc: "We transform raw footage into a clean, engaging, retention-focused video with precise cuts, motion graphics, sound design, and visual effects.",
+      proc3Pill: "03 Polish", proc3Title: "03 — Visual Polish", proc3Desc: "Color grading, audio cleanup, animations, transitions, captions, and final details to make every video feel premium.",
+      proc4Pill: "04 Thumbnail", proc4Title: "04 — Thumbnail Design", proc4Desc: "We create a high-click-through thumbnail that matches the video's topic, style, and target audience.",
 
       proofNum: "200+",
       proofKeycap: "K",
@@ -633,18 +631,23 @@ document.addEventListener('DOMContentLoaded', function () {
       for (var p = 1; p <= 4; p++) {
         var pill = data['proc' + p + 'Pill'];
         var pTitle = data['proc' + p + 'Title'];
-        var sElem = document.querySelector('.pb8-s' + p);
-        if (sElem) {
+        var pDesc = data['proc' + p + 'Desc'];
+        var cardElem = document.querySelector('.pb8-card-item:nth-child(' + p + ')');
+        if (cardElem) {
           if (pill) {
-            var pillSpan = sElem.querySelector('.pb8-pill');
-            if (pillSpan) pillSpan.innerHTML = '<span class="pb8-pic"></span>' + escapeHtml(pill);
+            var pillElem = cardElem.querySelector('.pb8-pill-v2');
+            if (pillElem) pillElem.textContent = pill;
           }
-          if (pTitle) setText('.pb8-s' + p + ' .pb8-t', pTitle);
+          if (pTitle) {
+            var titleElem = cardElem.querySelector('.pb8-title-v2');
+            if (titleElem) titleElem.textContent = pTitle;
+          }
+          if (pDesc) {
+            var descElem = cardElem.querySelector('.pb8-desc-v2');
+            if (descElem) descElem.textContent = pDesc;
+          }
         }
       }
-
-      if (data.procBarTxt) setText('.pb8-btx', data.procBarTxt);
-      if (data.procBarUrl) setAttr('.pb8-bar', 'href', data.procBarUrl);
 
       if (data.proofNum) {
         var proofH1 = document.querySelector('.pb7-row h2:first-child');

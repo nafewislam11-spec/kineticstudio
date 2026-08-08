@@ -215,12 +215,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       procTitle: "Our 4 Step Process",
       procSub: "Our three Element Framework for top notch product videos",
-      proc1Pill: "One", proc1Title: "Idea Analysis",
-      proc2Pill: "Two", proc2Title: "Writing Content",
-      proc3Pill: "Three", proc3Title: "Editing the Video",
-      proc4Pill: "Four", proc4Title: "Creating thumbnail",
-      procBarTxt: "▪ Watch Process In detail",
-      procBarUrl: "#pb-work",
+      proc1Pill: "01 Review", proc1Title: "01 — Content Analysis", proc1Desc: "We review the footage, script, references, and requirements to understand the video's direction.",
+      proc2Pill: "02 Edit", proc2Title: "02 — Video Editing", proc2Desc: "We transform raw footage into a clean, engaging, retention-focused video with precise cuts, motion graphics, sound design, and visual effects.",
+      proc3Pill: "03 Polish", proc3Title: "03 — Visual Polish", proc3Desc: "Color grading, audio cleanup, animations, transitions, captions, and final details to make every video feel premium.",
+      proc4Pill: "04 Thumbnail", proc4Title: "04 — Thumbnail Design", proc4Desc: "We create a high-click-through thumbnail that matches the video's topic, style, and target audience.",
 
       proofNum: "200+",
       proofKeycap: "K",
