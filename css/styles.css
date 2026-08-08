@@ -8838,15 +8838,8 @@ figcaption {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
   overflow: hidden;
-}
-
-.pb8-card-item:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.04);
 }
 
 .pb8-icon-wrap {
