@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
       brandName: "Kinetic Studio",
       brandFavicon: "assets/kinetic_favicon.png",
       navCtaText: "LET'S TALK!",
-      navCtaLink: "#pb-cta",
+      navCtaLink: "https://calendly.com",
       heroBadge: "50+ top creators served ↗",
       heroBadgeSize: "13",
       heroH1: "We make creators\nimpossible to ignore",

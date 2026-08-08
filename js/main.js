@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
       brandName: "Kinetic Studio",
       brandFavicon: "assets/kinetic_favicon.png",
       navCtaText: "LET'S TALK!",
-      navCtaLink: "#pb-cta",
+      navCtaLink: "https://calendly.com",
       heroBadge: "50+ top creators served ↗",
       heroBadgeSize: "13",
       heroH1: "We make creators\nimpossible to ignore",
@@ -331,7 +331,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       if (data.navCtaText) setText('.button-03 .paragraph-02-m', data.navCtaText);
       if (data.navCtaLink) {
-        setAttr('.button-03, .nav-book-call, .pb-btnp, .pb9-btn, .pb10-cta', 'href', data.navCtaLink);
+        var targetLink = data.navCtaLink.trim();
+        var ctaSelector = '.button-03, .nav-book-call, .pb-btnp, .pb9-btn, .pb10-cta';
+        var ctaBtns = document.querySelectorAll(ctaSelector);
+        ctaBtns.forEach(function (btn) {
+          btn.setAttribute('href', targetLink);
+          if (targetLink.indexOf('http') === 0) {
+            btn.setAttribute('target', '_blank');
+            btn.setAttribute('rel', 'noopener noreferrer');
+            btn.onclick = function (e) {
+              e.preventDefault();
+              window.open(targetLink, '_blank');
+            };
+          } else {
+            btn.removeAttribute('target');
+            btn.onclick = null;
+          }
+        });
       }
 
       // --- 2. Hero Section ---
