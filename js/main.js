@@ -330,7 +330,9 @@ document.addEventListener('DOMContentLoaded', function () {
         favicons.forEach(function (f) { f.href = data.brandFavicon; });
       }
       if (data.navCtaText) setText('.button-03 .paragraph-02-m', data.navCtaText);
-      if (data.navCtaLink) setAttr('.button-03', 'href', data.navCtaLink);
+      if (data.navCtaLink) {
+        setAttr('.button-03, .nav-book-call, .pb-btnp, .pb9-btn, .pb10-cta', 'href', data.navCtaLink);
+      }
 
       // --- 2. Hero Section ---
       if (data.heroBadge) setText('.pb-badge', data.heroBadge);
