@@ -186,8 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { title: "FANSLINK STUDIOS VSL Edit", category: "Longform", img: "https://i.vimeocdn.com/video/2153077315-967d7b22515ed51bb7246b6c650100140ebb4efea82b8bda28782862c897baa7-d_960x540?region=us", video: "https://player.vimeo.com/video/1188734977" },
         { title: "The Truth About Cap Rate in Real Estate", category: "Shortform", img: "https://i.vimeocdn.com/video/2153079991-f86869f7d8ddfd0e3c9ce4a392d99c47c7bb03a703a8d52572d3dc072c7cf3c8-d_960x540?region=us", video: "https://player.vimeo.com/video/1188737184" },
         { title: "Short Form Motion Edit", category: "Shortform", img: "https://i.vimeocdn.com/video/2173133541-5ec3cbdb9d5d574bd8315e615c8efdf7919664028594ce8cbde3f070e8a32ebd-d_960x540?region=us", video: "https://player.vimeo.com/video/1204728257" },
-        { title: "High-Converting Short Video", category: "Shortform", img: "https://i.vimeocdn.com/video/2153079128-5cad69da0840358b4aa68c60a273065759d24a839631c4dd5fc4e0ad1ccff48b-d_960x540?region=us", video: "https://player.vimeo.com/video/1188736573" },
-        { title: "TikTok & Shorts Viral Edit", category: "Shortform", img: "https://i.vimeocdn.com/video/2171362518-70d879ad8df60562ac9283fc21505fff56885a4dca023e2b77995bcf1846d1e4-d_960x540?region=us", video: "https://player.vimeo.com/video/1203350991" }
+        { title: "High-Converting Short Video", category: "Shortform", img: "https://i.vimeocdn.com/video/2153079128-5cad69da0840358b4aa68c60a273065759d24a839631c4dd5fc4e0ad1ccff48b-d_960x540?region=us", video: "https://player.vimeo.com/video/1188736573" }
       ],
 
       feat1Title: "Audience Research", feat1Desc: "We research your audience before anything else.",
