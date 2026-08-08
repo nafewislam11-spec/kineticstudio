@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data.p1BtnText) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-btntx', data.p1BtnText);
 
         if (data.p1Features) {
-          var fWrap1 = p1Card.querySelector('div:last-child');
+          var fWrap1 = p1Card.querySelector('.pb9-features');
           if (fWrap1) {
             var items1 = data.p1Features.split('\n');
             var fHtml1 = '<p class="pb9-lbl">Package Includes</p>';
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data.p2BtnText) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-btntxb', data.p2BtnText);
 
         if (data.p2Features) {
-          var fWrap2 = p2Card.querySelector('div:last-child');
+          var fWrap2 = p2Card.querySelector('.pb9-features');
           if (fWrap2) {
             var items2 = data.p2Features.split('\n');
             var fHtml2 = '<p class="pb9-lbl">Package Includes</p>';
