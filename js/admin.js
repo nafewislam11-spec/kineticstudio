@@ -237,11 +237,11 @@ document.addEventListener('DOMContentLoaded', function () {
       p1BtnText: "Book a call",
       p1Features: "Strategy-led video production\nCustom motion design and visuals\nDesigned for retention & growth\nClear timelines and predictable delivery",
       
-      p2Name: "Creator Scale Pack",
-      p2Chosen: "Chosen by 1M+ Creators",
-      p2Price: "$15,499",
-      p2Slots: "06/10 Slots Left this month",
-      p2Tagline: "Complete YouTube & social growth automation for scale.",
+      p2Name: "Custom Growth Pack",
+      p2Chosen: "Chosen by 1M+ Creators & Brands",
+      p2Price: "Custom",
+      p2Slots: "Limited slots left this month",
+      p2Tagline: "Complete YouTube & social growth automation tailored for scale.",
       p2BtnText: "Book a call →",
       p2Features: "Full channel & content strategy\nWeekly high-retention video edits\nShorts, VSLs & custom thumbnail suite\nDedicated lead editor & motion designer",
 

@@ -243,11 +243,11 @@ document.addEventListener('DOMContentLoaded', function () {
       p1BtnText: "Book a call",
       p1Features: "Strategy-led video production\nCustom motion design and visuals\nDesigned for retention & growth\nClear timelines and predictable delivery",
       
-      p2Name: "Creator Scale Pack",
-      p2Chosen: "Chosen by 1M+ Creators",
-      p2Price: "$15,499",
-      p2Slots: "06/10 Slots Left this month",
-      p2Tagline: "Complete YouTube & social growth automation for scale.",
+      p2Name: "Custom Growth Pack",
+      p2Chosen: "Chosen by 1M+ Creators & Brands",
+      p2Price: "Custom",
+      p2Slots: "Limited slots left this month",
+      p2Tagline: "Complete YouTube & social growth automation tailored for scale.",
       p2BtnText: "Book a call →",
       p2Features: "Full channel & content strategy\nWeekly high-retention video edits\nShorts, VSLs & custom thumbnail suite\nDedicated lead editor & motion designer",
 
@@ -317,8 +317,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // --- 1. Header & Navbar ---
       if (data.brandName) {
-        var logoTexts = document.querySelectorAll('.kinetic-logo-svg text:first-of-type');
-        logoTexts.forEach(function (t) { t.textContent = data.brandName; });
+        var parts = data.brandName.trim().split(/\s+/);
+        var firstPart = parts[0] || 'Kinetic';
+        var secondPart = parts.slice(1).join(' ') || '';
+        document.querySelectorAll('.kinetic-logo-svg').forEach(function (svg) {
+          var t1 = svg.querySelector('text:first-of-type');
+          var t2 = svg.querySelector('text:nth-of-type(2)');
+          if (t1) t1.textContent = firstPart;
+          if (t2) t2.textContent = secondPart;
+        });
       }
       if (data.brandFavicon) {
         var favicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
