@@ -434,11 +434,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // --- 5. Portfolio Section ---
-      if (!data.portfolioCards || data.portfolioCards.length === 0 || (data.portfolioCards[0] && data.portfolioCards[0].category === "Youtube videos")) {
+      if (!data.portfolioCards || data.portfolioCards.length === 0 || data.portfolioCards.length > 6 || (data.portfolioCards[0] && data.portfolioCards[0].category === "Youtube videos")) {
         data.portfolioCards = defaultData.portfolioCards;
         data.portTabs = defaultData.portTabs;
         data.portTitle = defaultData.portTitle;
       }
+      data.portfolioCards = data.portfolioCards.filter(function(card) {
+        return !card.video || card.video.indexOf('1203350991') === -1;
+      });
       if (data.portTitle) setText('.pb4-h', data.portTitle);
       if (data.portSub) setText('.pb4-sub', data.portSub);
 

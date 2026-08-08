@@ -334,7 +334,10 @@ document.addEventListener('DOMContentLoaded', function () {
     setVal('cms-port-sub', data.portSub);
     setVal('cms-port-tabs', data.portTabs);
     currentPortfolio = data.portfolioCards || [];
-    if (!currentPortfolio || currentPortfolio.length === 0 || (currentPortfolio[0] && currentPortfolio[0].category === "Youtube videos")) {
+    currentPortfolio = currentPortfolio.filter(function(card) {
+      return !card.video || card.video.indexOf('1203350991') === -1;
+    });
+    if (!currentPortfolio || currentPortfolio.length === 0 || currentPortfolio.length > 6 || (currentPortfolio[0] && currentPortfolio[0].category === "Youtube videos")) {
       currentPortfolio = JSON.parse(JSON.stringify(defaultData.portfolioCards));
     }
     renderPortfolioInputs();
