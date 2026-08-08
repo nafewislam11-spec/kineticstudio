@@ -9075,6 +9075,8 @@ figcaption {
   padding-bottom: 16px;
   font-size: 14px;
   display: flex;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 
 .pb4-tabon {

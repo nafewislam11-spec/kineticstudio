@@ -515,31 +515,37 @@ document.addEventListener('DOMContentLoaded', function () {
         if (row2.children.length > 0) pGrid.appendChild(row2);
       }
 
+      // Ensure portTabs is Longform, Shortform
+      data.portTabs = "Longform, Shortform";
+
       var defaultTabCategory = 'Longform';
-      if (data.portTabs) {
-        var tabsWrap = document.querySelector('.pb4-tabs');
-        if (tabsWrap) {
-          var tabList = data.portTabs.split(',');
-          tabsWrap.innerHTML = '';
-          tabList.forEach(function (tName, tIdx) {
-            var tElem = document.createElement('p');
-            var cleanCat = tName.trim();
-            if (tIdx === 0) defaultTabCategory = cleanCat;
-            tElem.className = 'pb4-tab' + (tIdx === 0 ? ' pb4-tabon' : '');
-            tElem.textContent = cleanCat;
-            tElem.style.cursor = 'pointer';
-            (function (catName, elem) {
-              elem.onclick = function (e) {
-                if (e && e.preventDefault) e.preventDefault();
-                document.querySelectorAll('.pb4-tab').forEach(function (tb) { tb.classList.remove('pb4-tabon'); });
-                elem.classList.add('pb4-tabon');
-                renderPortfolioGrid(catName);
-              };
-            })(cleanCat, tElem);
-            tabsWrap.appendChild(tElem);
-          });
-        }
+      var tabsWrap = document.querySelector('.pb4-tabs');
+      if (tabsWrap) {
+        var tabList = data.portTabs.split(',');
+        tabsWrap.innerHTML = '';
+        tabList.forEach(function (tName, tIdx) {
+          var tElem = document.createElement('p');
+          var cleanCat = tName.trim();
+          if (tIdx === 0) defaultTabCategory = cleanCat;
+          tElem.className = 'pb4-tab' + (tIdx === 0 ? ' pb4-tabon' : '');
+          tElem.textContent = cleanCat;
+          tElem.style.cursor = 'pointer';
+          tabsWrap.appendChild(tElem);
+        });
       }
+
+      // Delegated tab click handler
+      document.addEventListener('click', function (e) {
+        var tab = e.target.closest('.pb4-tab');
+        if (tab && tab.closest('.pb4-tabs')) {
+          if (e && e.preventDefault) e.preventDefault();
+          var allTabs = document.querySelectorAll('.pb4-tab');
+          allTabs.forEach(function (tb) { tb.classList.remove('pb4-tabon'); });
+          tab.classList.add('pb4-tabon');
+          var category = tab.textContent.trim();
+          renderPortfolioGrid(category);
+        }
+      });
 
       if (data.portfolioCards && Array.isArray(data.portfolioCards) && data.portfolioCards.length > 0) {
         renderPortfolioGrid(defaultTabCategory);
