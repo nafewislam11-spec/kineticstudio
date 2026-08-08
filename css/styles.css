@@ -15318,8 +15318,8 @@ figcaption {
   max-width: 900px;
   background: #000000;
   border-radius: 20px;
-  border: 1px solid rgba(124, 58, 237, 0.4);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
   overflow: hidden;
 }
 

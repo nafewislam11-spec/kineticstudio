@@ -443,6 +443,24 @@ document.addEventListener('DOMContentLoaded', function () {
       if (data.portTitle) setText('.pb4-h', data.portTitle);
       if (data.portSub) setText('.pb4-sub', data.portSub);
 
+      function toEmbedUrl(url, autoplay) {
+        if (!url) return '';
+        var embedUrl = url;
+        if (embedUrl.indexOf('youtube.com/watch?v=') !== -1) {
+          embedUrl = embedUrl.replace('watch?v=', 'embed/');
+        } else if (embedUrl.indexOf('youtu.be/') !== -1) {
+          embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
+        } else if (embedUrl.indexOf('vimeo.com/') !== -1 && embedUrl.indexOf('player.vimeo.com') === -1) {
+          embedUrl = embedUrl.replace('vimeo.com/', 'player.vimeo.com/video/');
+        }
+        if (autoplay) {
+          embedUrl += (embedUrl.indexOf('?') !== -1 ? '&' : '?') + 'autoplay=1';
+        } else if (embedUrl.indexOf('player.vimeo.com/video/') !== -1 && embedUrl.indexOf('title=') === -1) {
+          embedUrl += (embedUrl.indexOf('?') !== -1 ? '&' : '?') + 'title=0&byline=0&portrait=0';
+        }
+        return embedUrl;
+      }
+
       function renderPortfolioGrid(activeCategory) {
         var pGrid = document.querySelector('.pb4-grid');
         if (!pGrid || !data.portfolioCards || !Array.isArray(data.portfolioCards)) return;
@@ -464,22 +482,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         filtered.forEach(function (card, idx) {
           var cardEl = document.createElement('div');
-          cardEl.className = 'pb4-card' + (idx >= 3 ? ' pb4-card2' : '');
-
-          var bgStyle = card.img ? 'style="background-image:url(\'' + card.img + '\');background-size:cover;background-position:center;"' : '';
-          cardEl.innerHTML =
-            '<div class="pb4-th pb4-t' + ((idx % 5) + 1) + '" ' + bgStyle + '></div>' +
-            '<div class="pb3-playbox"><div class="pb3-playin"><span class="pb3-playbg"></span></div></div>' +
-            (card.title ? '<div style="position:absolute;bottom:12px;left:12px;right:12px;background:rgba(0,0,0,0.7);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;color:#fff;pointer-events:none;">' + escapeHtml(card.title) + '</div>' : '');
+          var isShort = card.category && card.category.toLowerCase().indexOf('short') !== -1;
+          cardEl.className = 'pb4-card';
+          cardEl.style.height = isShort ? '380px' : '230px';
+          cardEl.style.background = '#000';
+          cardEl.style.borderRadius = '12px';
+          cardEl.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+          cardEl.style.boxShadow = 'none';
 
           if (card.video) {
-            cardEl.style.cursor = 'pointer';
-            (function (vUrl) {
-              cardEl.onclick = function (e) {
-                if (e && e.preventDefault) e.preventDefault();
-                openVideoModal(vUrl);
-              };
-            })(card.video);
+            var embedUrl = toEmbedUrl(card.video, false);
+            cardEl.innerHTML = '<iframe src="' + embedUrl + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;border-radius:12px;display:block;"></iframe>';
+          } else {
+            var bgStyle = card.img ? 'style="background-image:url(\'' + card.img + '\');background-size:cover;background-position:center;"' : '';
+            cardEl.innerHTML =
+              '<div class="pb4-th" ' + bgStyle + '></div>' +
+              (card.title ? '<div style="position:absolute;bottom:12px;left:12px;right:12px;background:rgba(0,0,0,0.7);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;color:#fff;pointer-events:none;">' + escapeHtml(card.title) + '</div>' : '');
           }
 
           if (idx < 3) row1.appendChild(cardEl);
