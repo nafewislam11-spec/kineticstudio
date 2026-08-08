@@ -58,12 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 3. Video Popup Modal Logic
-  var videoModal = document.getElementById('cmsVideoModal');
-  var videoContainer = document.getElementById('cmsVideoContainer');
-  var videoClose = document.getElementById('cmsVideoClose');
-
   function openVideoModal(url) {
-    if (!url || url === '#' || !videoModal || !videoContainer) return;
+    var modal = document.getElementById('cmsVideoModal');
+    var container = document.getElementById('cmsVideoContainer');
+    if (!url || url === '#' || !modal || !container) return;
 
     var embedUrl = url;
     if (embedUrl.indexOf('youtube.com/watch?v=') !== -1) {
@@ -72,25 +70,38 @@ document.addEventListener('DOMContentLoaded', function () {
       embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/') + '?autoplay=1';
     } else if (embedUrl.indexOf('vimeo.com/') !== -1 && embedUrl.indexOf('player.vimeo.com') === -1) {
       embedUrl = embedUrl.replace('vimeo.com/', 'player.vimeo.com/video/') + '?autoplay=1';
+    } else if (embedUrl.indexOf('player.vimeo.com/video/') !== -1 && embedUrl.indexOf('autoplay=') === -1) {
+      embedUrl += (embedUrl.indexOf('?') !== -1 ? '&' : '?') + 'autoplay=1';
     }
 
     if (embedUrl.indexOf('http') === 0) {
-      videoContainer.innerHTML = '<iframe src="' + embedUrl + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      container.innerHTML = '<iframe src="' + embedUrl + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;"></iframe>';
     } else {
-      videoContainer.innerHTML = '<video src="' + embedUrl + '" controls autoplay style="width:100%;height:100%;object-fit:cover;"></video>';
+      container.innerHTML = '<video src="' + embedUrl + '" controls autoplay style="width:100%;height:100%;object-fit:cover;"></video>';
     }
 
-    videoModal.classList.add('active');
+    modal.style.display = 'flex';
+    setTimeout(function () {
+      modal.classList.add('active');
+    }, 10);
   }
 
   function closeVideoModal() {
-    if (!videoModal || !videoContainer) return;
-    videoModal.classList.remove('active');
+    var modal = document.getElementById('cmsVideoModal');
+    var container = document.getElementById('cmsVideoContainer');
+    if (!modal || !container) return;
+    modal.classList.remove('active');
     setTimeout(function () {
-      videoContainer.innerHTML = '';
+      modal.style.display = 'none';
+      container.innerHTML = '';
     }, 300);
   }
 
+  window.openVideoModal = openVideoModal;
+  window.closeVideoModal = closeVideoModal;
+
+  var videoClose = document.getElementById('cmsVideoClose');
+  var videoModal = document.getElementById('cmsVideoModal');
   if (videoClose) videoClose.addEventListener('click', closeVideoModal);
   if (videoModal) {
     videoModal.addEventListener('click', function (e) {
@@ -438,8 +449,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var filtered = data.portfolioCards;
         if (activeCategory) {
+          var targetCat = activeCategory.toLowerCase().trim();
           var matched = data.portfolioCards.filter(function (card) {
-            return card.category && card.category.toLowerCase().trim() === activeCategory.toLowerCase().trim();
+            if (!card.category) return false;
+            var cCat = card.category.toLowerCase().trim();
+            return cCat === targetCat || cCat.indexOf(targetCat) !== -1 || targetCat.indexOf(cCat) !== -1;
           });
           if (matched.length > 0) filtered = matched;
         }
@@ -460,7 +474,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
           if (card.video) {
             cardEl.style.cursor = 'pointer';
-            cardEl.onclick = function () { openVideoModal(card.video); };
+            (function (vUrl) {
+              cardEl.onclick = function (e) {
+                if (e && e.preventDefault) e.preventDefault();
+                openVideoModal(vUrl);
+              };
+            })(card.video);
           }
 
           if (idx < 3) row1.appendChild(cardEl);
