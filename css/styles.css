@@ -9142,6 +9142,7 @@ figcaption {
 }
 
 .pb4-sub {
+  display: none !important;
   color: #868586;
   margin-top: 0;
   margin-bottom: 0;
@@ -9893,6 +9894,7 @@ figcaption {
 }
 
 .pb8-sub {
+  display: none !important;
   color: #868586;
   text-align: center;
   margin-top: 12px;
