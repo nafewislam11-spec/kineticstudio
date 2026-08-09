@@ -673,48 +673,34 @@ document.addEventListener('DOMContentLoaded', function () {
       if (data.priceSecTitle) setText('.pb9-h', data.priceSecTitle);
       if (data.priceSecSub) setText('.pb9-sub', data.priceSecSub);
 
-      // Pricing Card 1
+      // Pricing Card 1 (or single centered card)
       var p1Card = document.querySelector('.pb9-cards .pb9-card:nth-child(1)');
       if (p1Card) {
-        if (data.p1Name) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-plan', data.p1Name);
-        if (data.p1Chosen) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-chtx', data.p1Chosen);
-        if (data.p1Price) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-amt', data.p1Price);
-        if (data.p1Slots) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-slott', data.p1Slots);
-        if (data.p1Tagline) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-tagline', data.p1Tagline);
-        if (data.p1BtnText) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-btntx', data.p1BtnText);
+        var name = data.p2Name || data.p1Name;
+        var chosen = data.p2Chosen || data.p1Chosen;
+        var price = data.p2Price || data.p1Price;
+        var slots = data.p2Slots || data.p1Slots;
+        var tagline = data.p2Tagline || data.p1Tagline;
+        var btnText = data.p2BtnText || data.p1BtnText;
+        var features = data.p2Features || data.p1Features;
 
-        if (data.p1Features) {
+        if (name) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-plan', name);
+        if (chosen) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-chtx', chosen);
+        if (price) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-amt', price);
+        if (slots) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-slott', slots);
+        if (tagline) setText('.pb9-cards .pb9-card:nth-child(1) .pb9-tagline', tagline);
+        var btnEl = p1Card.querySelector('.pb9-btntxb') || p1Card.querySelector('.pb9-btntx');
+        if (btnEl && btnText) btnEl.textContent = btnText;
+
+        if (features) {
           var fWrap1 = p1Card.querySelector('.pb9-features');
           if (fWrap1) {
-            var items1 = data.p1Features.split('\n');
+            var items1 = features.split('\n');
             var fHtml1 = '<p class="pb9-lbl">Package Includes</p>';
             items1.forEach(function (line) {
               if (line.trim()) fHtml1 += '<div class="pb9-item"><span class="pb9-chk"></span><p class="pb9-itx">' + escapeHtml(line.trim()) + '</p></div>';
             });
             fWrap1.innerHTML = fHtml1;
-          }
-        }
-      }
-
-      // Pricing Card 2
-      var p2Card = document.querySelector('.pb9-cards .pb9-card:nth-child(2)');
-      if (p2Card) {
-        if (data.p2Name) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-plan', data.p2Name);
-        if (data.p2Chosen) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-chtx', data.p2Chosen);
-        if (data.p2Price) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-amt', data.p2Price);
-        if (data.p2Slots) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-slott', data.p2Slots);
-        if (data.p2Tagline) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-tagline', data.p2Tagline);
-        if (data.p2BtnText) setText('.pb9-cards .pb9-card:nth-child(2) .pb9-btntxb', data.p2BtnText);
-
-        if (data.p2Features) {
-          var fWrap2 = p2Card.querySelector('.pb9-features');
-          if (fWrap2) {
-            var items2 = data.p2Features.split('\n');
-            var fHtml2 = '<p class="pb9-lbl">Package Includes</p>';
-            items2.forEach(function (line) {
-              if (line.trim()) fHtml2 += '<div class="pb9-item"><span class="pb9-chk"></span><p class="pb9-itx">' + escapeHtml(line.trim()) + '</p></div>';
-            });
-            fWrap2.innerHTML = fHtml2;
           }
         }
       }

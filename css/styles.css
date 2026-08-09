@@ -3873,6 +3873,15 @@ figcaption {
   overflow: hidden;
 }
 
+.pb9-cards {
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 64px;
+  display: flex;
+}
+
 .testimonial-info-holder {
   grid-column-gap: 24px;
   grid-row-gap: 24px;

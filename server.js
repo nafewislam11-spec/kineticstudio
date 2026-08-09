@@ -206,22 +206,21 @@ function updateIndexHtmlFile(data) {
       html = html.replace(/(<p class="pb9-sub"[^>]*>)([\s\S]*?)(<\/p>)/i, `$1${data.priceSecSub}$3`);
     }
 
-    // Pricing Card 1 & Card 2
+    // Pricing Card (Single centered card)
     let cardIdx = 0;
     html = html.replace(/<div class="pb9-card">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, (match) => {
       cardIdx++;
       if (cardIdx === 1) {
-        if (data.p1Name) match = match.replace(/(<p class="pb9-plan">)([\s\S]*?)(<\/p>)/i, `$1${data.p1Name}$3`);
-        if (data.p1Chosen) match = match.replace(/(<p class="pb9-chtx">)([\s\S]*?)(<\/p>)/i, `$1${data.p1Chosen}$3`);
-        if (data.p1Price) match = match.replace(/(<p class="pb9-amt">)([\s\S]*?)(<\/p>)/i, `$1${data.p1Price}$3`);
-        if (data.p1Tagline) match = match.replace(/(<p class="pb9-tagline">)([\s\S]*?)(<\/p>)/i, `$1${data.p1Tagline}$3`);
-        if (data.p1BtnText) match = match.replace(/(<p class="pb9-btntx">)([\s\S]*?)(<\/p>)/i, `$1${data.p1BtnText}$3`);
-      } else if (cardIdx === 2) {
-        if (data.p2Name) match = match.replace(/(<p class="pb9-plan">)([\s\S]*?)(<\/p>)/i, `$1${data.p2Name}$3`);
-        if (data.p2Chosen) match = match.replace(/(<p class="pb9-chtx">)([\s\S]*?)(<\/p>)/i, `$1${data.p2Chosen}$3`);
-        if (data.p2Price) match = match.replace(/(<p class="pb9-amt">)([\s\S]*?)(<\/p>)/i, `$1${data.p2Price}$3`);
-        if (data.p2Tagline) match = match.replace(/(<p class="pb9-tagline">)([\s\S]*?)(<\/p>)/i, `$1${data.p2Tagline}$3`);
-        if (data.p2BtnText) match = match.replace(/(<p class="pb9-btntxb">)([\s\S]*?)(<\/p>)/i, `$1${data.p2BtnText}$3`);
+        const name = data.p2Name || data.p1Name;
+        const chosen = data.p2Chosen || data.p1Chosen;
+        const price = data.p2Price || data.p1Price;
+        const tagline = data.p2Tagline || data.p1Tagline;
+        const btnText = data.p2BtnText || data.p1BtnText;
+        if (name) match = match.replace(/(<p class="pb9-plan">)([\s\S]*?)(<\/p>)/i, `$1${name}$3`);
+        if (chosen) match = match.replace(/(<p class="pb9-chtx">)([\s\S]*?)(<\/p>)/i, `$1${chosen}$3`);
+        if (price) match = match.replace(/(<p class="pb9-amt">)([\s\S]*?)(<\/p>)/i, `$1${price}$3`);
+        if (tagline) match = match.replace(/(<p class="pb9-tagline">)([\s\S]*?)(<\/p>)/i, `$1${tagline}$3`);
+        if (btnText) match = match.replace(/(<p class="pb9-btntx[b]?">)([\s\S]*?)(<\/p>)/i, `$1${btnText}$3`);
       }
       return match;
     });
