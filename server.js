@@ -163,7 +163,7 @@ function updateIndexHtmlFile(data) {
           cardsHtml += `<div class="hero-card-item"><img src="${imgSrc.replace(/"/g, '&quot;')}" alt="Creator Card"/></div>`;
         });
       }
-      html = html.replace(/(<div class="pb-track"[^>]*>)([\s\S]*?)(<\/div>)/i, `$1${cardsHtml}$3`);
+      html = html.replace(/(<div class="pb-track"[^>]*>)([\s\S]*?)(<\/div>\s*<div class="pb-keycap-wrap">)/i, `$1${cardsHtml}$3`);
     }
 
     // 7. VSL Section
