@@ -419,10 +419,13 @@ document.addEventListener('DOMContentLoaded', function () {
     setVal('cms-email', data.email);
     setVal('cms-footer-title', data.footerTitle);
     setVal('cms-copyright', data.copyright);
-    setVal('cms-soc-tw', data.socTw);
-    setVal('cms-soc-yt', data.socYt);
-    setVal('cms-soc-ig', data.socIg);
-    setVal('cms-soc-li', data.socLi);
+    setVal('cms-soc-tw', data.twitterLink);
+    setVal('cms-soc-yt', data.youtubeLink);
+    setVal('cms-soc-ig', data.instagramLink);
+    setVal('cms-soc-li', data.linkedinLink);
+
+    var savedToken = localStorage.getItem('kinetic_gh_token') || '';
+    setVal('githubTokenInput', savedToken);
   }
 
   // 7. Render Repeater Inputs (FAQs, Portfolio, Testimonials)
@@ -765,7 +768,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
-    // Automatically call /api/save-cms to write data/cms_data.json on disk & auto-push to GitHub
+    // 1. Call local Node server auto-save API (disk write + git push)
     fetch('/api/save-cms', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -773,18 +776,77 @@ document.addEventListener('DOMContentLoaded', function () {
     }).then(function (res) {
       return res.json();
     }).then(function (resData) {
-      if (resData && resData.success) {
-        showToast('Changes Saved & Auto-Pushed to GitHub! 🚀');
-      } else {
-        showToast('Changes Published Live! 🚀');
-      }
+      showToast('Saved to Code & Auto-Pushed to GitHub! 🚀');
     }).catch(function () {
-      showToast('Changes Published Live! 🚀');
+      showToast('Changes Saved Live! 🚀');
+    });
+
+    // 2. Direct GitHub REST API push (for live GitHub Pages host)
+    var ghToken = localStorage.getItem('kinetic_gh_token') || '';
+    if (ghToken) {
+      pushToGitHubAPI(data, ghToken).then(function (ok) {
+        if (ok) showToast('Auto-Pushed directly to GitHub API! 🚀');
+      });
+    }
+  }
+
+  function pushToGitHubAPI(jsonData, token) {
+    if (!token) return Promise.resolve(false);
+    var repoOwner = 'nafewislam11-spec';
+    var repoName = 'kineticstudio';
+    var filePath = 'data/cms_data.json';
+    var apiUrl = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/' + filePath;
+    var jsonString = JSON.stringify(jsonData, null, 2);
+    var contentBase64 = btoa(unescape(encodeURIComponent(jsonString)));
+
+    return fetch(apiUrl, {
+      headers: {
+        'Authorization': 'token ' + token,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    }).then(function (res) {
+      return res.ok ? res.json() : null;
+    }).then(function (fileData) {
+      var sha = fileData ? fileData.sha : undefined;
+      var payload = {
+        message: 'Auto CMS Update from Admin Panel',
+        content: contentBase64,
+        branch: 'main'
+      };
+      if (sha) payload.sha = sha;
+
+      return fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'token ' + token,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    }).then(function (res) {
+      if (res.ok) {
+        console.log('[GitHub API Direct Push Success]');
+        return true;
+      }
+      return false;
+    }).catch(function (err) {
+      console.warn('[GitHub API Push Error]:', err);
+      return false;
     });
   }
 
   var saveAllBtn = document.getElementById('saveAllBtn');
   if (saveAllBtn) saveAllBtn.addEventListener('click', saveCMSData);
+
+  var saveGithubTokenBtn = document.getElementById('saveGithubTokenBtn');
+  if (saveGithubTokenBtn) {
+    saveGithubTokenBtn.addEventListener('click', function () {
+      var token = (document.getElementById('githubTokenInput').value || '').trim();
+      localStorage.setItem('kinetic_gh_token', token);
+      showToast('GitHub Token Saved Successfully! 🔑');
+    });
+  }
 
   // 9. Update Password
   var updatePasswordBtn = document.getElementById('updatePasswordBtn');
