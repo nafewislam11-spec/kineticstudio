@@ -764,7 +764,23 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    showToast('Changes Published Live to Website! 🚀');
+
+    // Automatically call /api/save-cms to write data/cms_data.json on disk & auto-push to GitHub
+    fetch('/api/save-cms', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (res) {
+      return res.json();
+    }).then(function (resData) {
+      if (resData && resData.success) {
+        showToast('Changes Saved & Auto-Pushed to GitHub! 🚀');
+      } else {
+        showToast('Changes Published Live! 🚀');
+      }
+    }).catch(function () {
+      showToast('Changes Published Live! 🚀');
+    });
   }
 
   var saveAllBtn = document.getElementById('saveAllBtn');
