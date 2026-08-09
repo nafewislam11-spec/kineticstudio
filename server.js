@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
         console.log('[CMS Server] Saved cms_data.json to disk successfully.');
 
         // 2. Automatically git commit and push to GitHub in background via PowerShell
-        const psGitCmd = 'powershell -Command "git add data/cms_data.json; git commit -m \'Auto CMS Update from Admin Panel\'; git push origin main"';
+        const psGitCmd = 'powershell -Command "git add .; git commit -m \'Auto CMS Update from Admin Panel\'; git push origin main"';
         exec(psGitCmd, { cwd: PUBLIC_DIR }, (err, stdout, stderr) => {
           if (err) {
             console.log('[Git Push Log]:', stdout || stderr || err.message);

@@ -784,21 +784,24 @@ document.addEventListener('DOMContentLoaded', function () {
       if (saved) localData = JSON.parse(saved);
     } catch (e) {}
 
-    if (localData) {
-      applyCMSData(localData);
-    }
-
     fetch('data/cms_data.json?v=' + Date.now())
       .then(function (res) {
         if (!res.ok) throw new Error('No static json');
         return res.json();
       })
       .then(function (jsonData) {
-        var merged = Object.assign({}, getDefaults(), jsonData, localData || {});
+        var merged = Object.assign({}, getDefaults(), localData || {}, jsonData);
         applyCMSData(merged);
+        try {
+          localStorage.setItem('kinetic_cms_data', JSON.stringify(merged));
+        } catch (e) {}
       })
       .catch(function () {
-        if (!localData) applyCMSData(getDefaults());
+        if (localData) {
+          applyCMSData(Object.assign({}, getDefaults(), localData));
+        } else {
+          applyCMSData(getDefaults());
+        }
       });
   }
 
