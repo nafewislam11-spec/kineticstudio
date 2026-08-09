@@ -406,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setVal('cms-price-testi-role', data.priceTestiRole);
     setVal('cms-price-testi-quote', data.priceTestiQuote);
     setVal('cms-price-testi-badge', data.priceTestiBadge);
+    setVal('cms-price-testi-avatar', data.priceTestiAvatar || 'assets/tom_morley_avatar.jpg');
 
     // FAQs
     setVal('cms-faq-sec-title', data.faqSecTitle);
@@ -750,6 +751,7 @@ document.addEventListener('DOMContentLoaded', function () {
       priceTestiRole: getVal('cms-price-testi-role'),
       priceTestiQuote: getVal('cms-price-testi-quote'),
       priceTestiBadge: getVal('cms-price-testi-badge'),
+      priceTestiAvatar: getVal('cms-price-testi-avatar'),
 
       faqSecTitle: getVal('cms-faq-sec-title'),
       faqBtnText: getVal('cms-faq-btn-text'),

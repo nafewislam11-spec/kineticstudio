@@ -226,6 +226,25 @@ function updateIndexHtmlFile(data) {
       return match;
     });
 
+    // 9b. Pricing Testimonial Highlight Card
+    if (data.priceTestiName) {
+      html = html.replace(/(<p class="pb9-tname">)([^<]*)(<\/p>)/i, `$1${data.priceTestiName}$3`);
+    }
+    if (data.priceTestiRole) {
+      html = html.replace(/(<p class="pb9-trole">)([^<]*)(<\/p>)/i, `$1${data.priceTestiRole}$3`);
+    }
+    if (data.priceTestiQuote) {
+      html = html.replace(/(<p class="pb9-tqt">)([\s\S]*?)(<\/p>)/i, `$1“${data.priceTestiQuote}”$3`);
+    }
+    if (data.priceTestiBadge) {
+      html = html.replace(/(<p class="pb9-cast">)([^<]*)(<\/p>)/i, `$1${data.priceTestiBadge}$3`);
+    }
+    if (data.priceTestiAvatar) {
+      html = html.replace(/(<div class="pb9-wade"[^>]*>)([\s\S]*?)(<\/div>)/i, (match, p1, p2, p3) => {
+        return `<div class="pb9-wade" style="background-image: url('${data.priceTestiAvatar}'); background-size: cover; background-position: center;">${p2}</div>`;
+      });
+    }
+
     // 10. FAQ Title
     if (data.faqSecTitle) {
       html = html.replace(/(<h2 class="pb10-h">)([\s\S]*?)(<\/h2>)/i, `$1${data.faqSecTitle}$3`);
