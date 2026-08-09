@@ -168,31 +168,31 @@
   "faqEmail": "hello@kineticstudio.co",
   "faqs": [
     {
-      "q": "What types of videos do you edit?",
-      "a": "We edit YouTube videos, Shorts, Reels, and other creator-focused content with clean, engaging visuals and motion graphics."
+      "q": "What types of videos do you create for personal brands?",
+      "a": "YouTube long-form videos, high-converting VSLs, product launch films, shorts/reels, and podcast cutdowns — built for retention."
     },
     {
       "q": "Do you work with creators at all subscriber levels?",
-      "a": "Yes. We work with both growing creators and established creators who want to improve their content and maintain a consistent editing style."
+      "a": "Yes. Whether you're starting out or already have 1M+ subscribers, our system scales with your content strategy."
     },
     {
-      "q": "What makes your editing different from typical editors?",
-      "a": "We focus on retention-first editing — combining strong pacing, storytelling, motion graphics, sound design, and visual variety to keep viewers engaged."
+      "q": "What makes your videos different from typical editors?",
+      "a": "Strategy-first scripting, custom motion design, and retention editing — no stock templates, every frame is engineered for engagement."
     },
     {
       "q": "What does your production process look like?",
-      "a": "You send us the footage and references. We handle the editing, revisions, and final delivery while keeping the style consistent with your brand."
+      "a": "Onboarding, idea analysis, script/storyboard, edit & motion design, review, and final delivery. You stay informed at every step."
     },
     {
-      "q": "How long does it take to edit a video?",
-      "a": "Turnaround depends on the video's length and complexity, but most projects are delivered within 2–3 business days."
+      "q": "How long does it take to produce a video?",
+      "a": "Short-form videos ship in 48-72 hours; long-form YouTube videos and VSLs in 1 to 2 weeks."
     }
   ],
   "email": "hello@kineticstudio.co",
   "footerTitle": "Ready to ride?",
   "copyright": "All Rights Reserved | Kinetic Studio 2026",
-  "socTw": "https://twitter.com",
-  "socYt": "https://youtube.com",
-  "socIg": "https://instagram.com",
-  "socLi": "https://linkedin.com"
+  "socTw": "",
+  "socYt": "",
+  "socIg": "",
+  "socLi": ""
 }
