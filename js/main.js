@@ -667,16 +667,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-      if (data.proofNum) {
-        var proofH1 = document.querySelector('.pb7-row h2:first-child');
-        if (proofH1) proofH1.textContent = data.proofNum;
-      }
-      if (data.proofKeycap) setText('.pb7-key-3d', data.proofKeycap);
-      if (data.proofLabel) {
-        var proofH2 = document.querySelector('.pb7-row h2:last-child');
-        if (proofH2) proofH2.textContent = data.proofLabel;
-      }
-      if (data.proofImg) setAttr('.pb7-right3', 'src', data.proofImg);
+
 
       // --- 9. Pricing Section ---
       if (data.priceSecTitle) setText('.pb9-h', data.priceSecTitle);
