@@ -150,6 +150,22 @@ function updateIndexHtmlFile(data) {
       html = html.replace(/(<p class="pb-keycap-letter">)([^<]*)(<\/p>)/i, `$1${data.heroKeycap}$3`);
     }
 
+    // 6b. Hero Marquee Creator Cards
+    const c1 = data.heroCreator1 || "assets/hero_creator_ai1.png";
+    const c2 = data.heroCreator2 || "assets/hero_creator_ai2.png";
+    const c3 = data.heroCreator3 || "assets/media__1786183997336.png";
+
+    if (c1 || c2 || c3) {
+      let cardsHtml = '';
+      const imgs = [c1, c2, c3];
+      for (let loop = 0; loop < 10; loop++) {
+        imgs.forEach(imgSrc => {
+          cardsHtml += `<div class="hero-card-item"><img src="${imgSrc.replace(/"/g, '&quot;')}" alt="Creator Card"/></div>`;
+        });
+      }
+      html = html.replace(/(<div class="pb-track"[^>]*>)([\s\S]*?)(<\/div>)/i, `$1${cardsHtml}$3`);
+    }
+
     // 7. VSL Section
     if (data.vslTitle) {
       const vslFormatted = data.vslTitle.replace(/\n/g, '<br/>');
