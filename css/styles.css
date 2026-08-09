@@ -10049,6 +10049,7 @@ figcaption {
 }
 
 .pb9-chip {
+  display: none !important;
   background-image: url("../assets/6a56342075699e3c229259d4_pb-price-chip.png");
   background-repeat: no-repeat;
   background-size: contain;
