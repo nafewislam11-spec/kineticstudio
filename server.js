@@ -51,7 +51,10 @@ const server = http.createServer((req, res) => {
         fs.writeFileSync(CMS_FILE_PATH, jsonString, 'utf8');
         console.log('[CMS Server] Saved cms_data.json to disk successfully.');
 
-        // 2. Automatically git commit and push to GitHub in background via PowerShell
+        // 2. Direct Update index.html static source code on disk
+        updateIndexHtmlFile(data);
+
+        // 3. Automatically git commit and push to GitHub in background via PowerShell
         const psGitCmd = 'powershell -Command "git add .; git commit -m \'Auto CMS Update from Admin Panel\'; git push origin main"';
         exec(psGitCmd, { cwd: PUBLIC_DIR }, (err, stdout, stderr) => {
           if (err) {
@@ -62,7 +65,7 @@ const server = http.createServer((req, res) => {
         });
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, message: 'CMS data saved to disk & pushed to GitHub automatically!' }));
+        res.end(JSON.stringify({ success: true, message: 'CMS data & index.html saved to disk & pushed to GitHub automatically!' }));
       } catch (err) {
         console.error('[CMS Server Error]:', err);
         res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -96,3 +99,83 @@ server.listen(PORT, () => {
   console.log(`🚀 Kinetic Studio CMS Server running at http://localhost:${PORT}`);
   console.log(`📝 Auto-save API active at http://localhost:${PORT}/api/save-cms`);
 });
+
+function updateIndexHtmlFile(data) {
+  try {
+    const indexPath = path.join(__dirname, 'index.html');
+    if (!fs.existsSync(indexPath)) return;
+
+    let html = fs.readFileSync(indexPath, 'utf8');
+
+    if (data.brandName) {
+      const parts = data.brandName.trim().split(/\s+/);
+      const first = parts[0] || 'Kinetic';
+      const second = parts.slice(1).join(' ') || '';
+      html = html.replace(/(<text x="64" y="19"[^>]*>)([^<]*)(<\/text>)/gi, `$1${first}$3`);
+      html = html.replace(/(<text x="64" y="39"[^>]*>)([^<]*)(<\/text>)/gi, `$1${second}$3`);
+    }
+
+    if (data.brandFavicon) {
+      html = html.replace(/(<link [^>]*rel="icon"[^>]*href=")([^"]*)(")/gi, `$1${data.brandFavicon}$3`);
+    }
+
+    if (data.heroBadge) {
+      html = html.replace(/(<div class="pb-badge"[^>]*>)([\s\S]*?)(<\/div>)/i, (match, p1, p2, p3) => {
+        const arrMatch = p2.match(/<span class="pb-arr"[^>]*>[\s\S]*?<\/span>/i);
+        const arrHtml = arrMatch ? arrMatch[0] : ' <span class="pb-arr">↗</span>';
+        return `${p1}${data.heroBadge.replace(/↗/g, '').trim()} ${arrHtml}${p3}`;
+      });
+    }
+
+    if (data.heroH1) {
+      const h1Formatted = data.heroH1.replace(/\n/g, '<br/>');
+      html = html.replace(/(<h1 class="pb-h1"[^>]*>)([\s\S]*?)(<\/h1>)/i, `$1${h1Formatted}$3`);
+    }
+
+    if (data.heroSub) {
+      const subFormatted = data.heroSub.replace(/\n/g, '<br/>');
+      html = html.replace(/(<p class="pb-sub"[^>]*>)([\s\S]*?)(<\/p>)/i, `$1${subFormatted}$3`);
+    }
+
+    if (data.vslTitle) {
+      const vslFormatted = data.vslTitle.replace(/\n/g, '<br/>');
+      html = html.replace(/(<h2 class="pb2-h"[^>]*>)([\s\S]*?)(<\/h2>)/i, `$1${vslFormatted}$3`);
+    }
+
+    if (data.vslP1) {
+      html = html.replace(/(<div class="pb2-pill[^"]*pb2-p1c"[^>]*>[\s\S]*?<span class="pb2-pilltxt">)([^<]*)(<\/span>)/i, `$1${data.vslP1}$3`);
+    }
+    if (data.vslP2) {
+      html = html.replace(/(<div class="pb2-pill[^"]*pb2-p2c"[^>]*>[\s\S]*?<span class="pb2-pilltxt">)([^<]*)(<\/span>)/i, `$1${data.vslP2}$3`);
+    }
+    if (data.vslP3) {
+      html = html.replace(/(<div class="pb2-pill[^"]*pb2-p3c"[^>]*>[\s\S]*?<span class="pb2-pilltxt">)([^<]*)(<\/span>)/i, `$1${data.vslP3}$3`);
+    }
+
+    if (data.priceSecTitle) {
+      html = html.replace(/(<h2 class="pb9-h"[^>]*>)([\s\S]*?)(<\/h2>)/i, `$1${data.priceSecTitle}$3`);
+    }
+    if (data.priceSecSub) {
+      html = html.replace(/(<p class="pb9-sub"[^>]*>)([\s\S]*?)(<\/p>)/i, `$1${data.priceSecSub}$3`);
+    }
+
+    if (data.p1Name) {
+      html = html.replace(/(<p class="pb9-plan">)([\s\S]*?)(<\/p>)/i, `$1${data.p1Name}$3`);
+    }
+    if (data.p1Price) {
+      html = html.replace(/(<p class="pb9-amt">)([\s\S]*?)(<\/p>)/i, `$1${data.p1Price}$3`);
+    }
+
+    if (data.footerTitle) {
+      html = html.replace(/(<h2 class="pb11-ready"[^>]*>)([\s\S]*?)(<\/h2>)/i, `$1${data.footerTitle}$3`);
+    }
+    if (data.copyright) {
+      html = html.replace(/(<p class="pb11-bl"[^>]*>)([\s\S]*?)(<\/p>)/i, `$1${data.copyright}$3`);
+    }
+
+    fs.writeFileSync(indexPath, html, 'utf8');
+    console.log('[CMS Server] Updated static index.html source code on disk successfully.');
+  } catch (err) {
+    console.warn('[CMS Server HTML Update Warning]:', err.message);
+  }
+}
