@@ -777,16 +777,40 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Apply CMS Data initially
-  applyCMSData();
+  function loadAndApplyCMS() {
+    var localData = null;
+    try {
+      var saved = localStorage.getItem('kinetic_cms_data');
+      if (saved) localData = JSON.parse(saved);
+    } catch (e) {}
 
-  // Listen for real-time changes across tabs & window focus
+    if (localData) {
+      applyCMSData(localData);
+    }
+
+    fetch('data/cms_data.json?v=' + Date.now())
+      .then(function (res) {
+        if (!res.ok) throw new Error('No static json');
+        return res.json();
+      })
+      .then(function (jsonData) {
+        var merged = Object.assign({}, getDefaults(), jsonData, localData || {});
+        applyCMSData(merged);
+      })
+      .catch(function () {
+        if (!localData) applyCMSData(getDefaults());
+      });
+  }
+
+  loadAndApplyCMS();
+
   window.addEventListener('storage', function (e) {
     if (e.key === 'kinetic_cms_data') {
-      applyCMSData();
+      loadAndApplyCMS();
     }
   });
 
   window.addEventListener('focus', function () {
-    applyCMSData();
+    loadAndApplyCMS();
   });
 });

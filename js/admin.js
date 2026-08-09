@@ -784,6 +784,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // 10. Export & Import Backup JSON
+  var exportGithubJsonBtn = document.getElementById('exportGithubJsonBtn');
+  if (exportGithubJsonBtn) {
+    exportGithubJsonBtn.addEventListener('click', function () {
+      saveCMSData();
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var blob = new Blob([raw || JSON.stringify(getDefaults(), null, 2)], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'cms_data.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Downloaded cms_data.json! Place it inside data/ folder & push to GitHub 🚀');
+    });
+  }
+
   var exportBackupBtn = document.getElementById('exportBackupBtn');
   if (exportBackupBtn) {
     exportBackupBtn.addEventListener('click', function () {
