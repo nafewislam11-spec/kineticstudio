@@ -52,13 +52,18 @@ const server = http.createServer((req, res) => {
         console.log('[CMS Server] Saved cms_data.json to disk successfully.');
 
         // 2. Automatically git commit and push to GitHub in background
-        const gitCmd = 'git add data/cms_data.json && (git commit -m "Auto CMS Update from Admin Panel" || echo "No changes to commit") && git push origin main';
-        exec(gitCmd, { cwd: PUBLIC_DIR }, (error, stdout, stderr) => {
-          if (error) {
-            console.warn('[Git Auto Push Log]:', stdout || stderr || error.message);
-          } else {
-            console.log('[Git Auto Push Success]:', stdout.trim());
-          }
+        exec('git add data/cms_data.json', { cwd: PUBLIC_DIR }, (err1) => {
+          if (err1) console.warn('[Git Add Warning]:', err1.message);
+          exec('git commit -m "Auto CMS Update from Admin Panel"', { cwd: PUBLIC_DIR }, (err2, stdout2) => {
+            console.log('[Git Commit Log]:', stdout2 ? stdout2.trim() : (err2 ? err2.message : 'Clean'));
+            exec('git push origin main', { cwd: PUBLIC_DIR }, (err3, stdout3, stderr3) => {
+              if (err3) {
+                console.warn('[Git Push Warning]:', stderr3 || err3.message);
+              } else {
+                console.log('[Git Push Success]:', stdout3.trim());
+              }
+            });
+          });
         });
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
