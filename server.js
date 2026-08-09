@@ -34,10 +34,11 @@ const server = http.createServer((req, res) => {
 
   // API Endpoint: Auto-save CMS data to disk and push to GitHub
   if (req.method === 'POST' && req.url === '/api/save-cms') {
-    let body = '';
-    req.on('data', chunk => { body += chunk.toString(); });
+    let chunks = [];
+    req.on('data', chunk => { chunks.push(chunk); });
     req.on('end', () => {
       try {
+        const body = Buffer.concat(chunks).toString('utf8');
         const data = JSON.parse(body);
         const jsonString = JSON.stringify(data, null, 2);
 
@@ -50,11 +51,11 @@ const server = http.createServer((req, res) => {
         fs.writeFileSync(CMS_FILE_PATH, jsonString, 'utf8');
         console.log('[CMS Server] Saved cms_data.json to disk successfully.');
 
-        // 2. Automatically git commit and push to GitHub
-        const gitCmd = 'git add data/cms_data.json ; git commit -m "Auto CMS Update from Admin Panel" ; git push origin main';
+        // 2. Automatically git commit and push to GitHub in background
+        const gitCmd = 'git add data/cms_data.json && (git commit -m "Auto CMS Update from Admin Panel" || echo "No changes to commit") && git push origin main';
         exec(gitCmd, { cwd: PUBLIC_DIR }, (error, stdout, stderr) => {
           if (error) {
-            console.warn('[Git Auto Push Warning]:', stderr || error.message);
+            console.warn('[Git Auto Push Log]:', stdout || stderr || error.message);
           } else {
             console.log('[Git Auto Push Success]:', stdout.trim());
           }
