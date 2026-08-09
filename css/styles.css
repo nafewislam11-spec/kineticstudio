@@ -10038,6 +10038,7 @@ figcaption {
 }
 
 .pb9-sub {
+  display: none !important;
   color: #868586;
   text-align: center;
   max-width: 438px;
