@@ -234,15 +234,16 @@ function updateIndexHtmlFile(data) {
       html = html.replace(/(<p class="pb9-trole">)([^<]*)(<\/p>)/i, `$1${data.priceTestiRole}$3`);
     }
     if (data.priceTestiQuote) {
-      html = html.replace(/(<p class="pb9-tqt">)([\s\S]*?)(<\/p>)/i, `$1“${data.priceTestiQuote}”$3`);
+      const cleanQuote = data.priceTestiQuote.replace(/^“|”$/g, '').trim();
+      html = html.replace(/(<p class="pb9-tqt">)([\s\S]*?)(<\/p>)/i, `$1“${cleanQuote}”$3`);
     }
     if (data.priceTestiBadge) {
       html = html.replace(/(<p class="pb9-cast">)([^<]*)(<\/p>)/i, `$1${data.priceTestiBadge}$3`);
     }
-    if (data.priceTestiAvatar) {
-      html = html.replace(/(<div class="pb9-wade"[^>]*>)([\s\S]*?)(<\/div>)/i, (match, p1, p2, p3) => {
-        return `<div class="pb9-wade" style="background-image: url('${data.priceTestiAvatar}'); background-size: cover; background-position: center;">${p2}</div>`;
-      });
+    if (data.priceTestiAvatar && data.priceTestiAvatar.indexOf('6a56342450e1cbfab39c8686') === -1) {
+      html = html.replace(/(<div class="pb9-wade"[^>]*>)([\s\S]*?)(<\/div>)/i, `<div class="pb9-wade" style="background-image: url('${data.priceTestiAvatar}'); background-size: cover; background-position: center;"></div>`);
+    } else {
+      html = html.replace(/(<div class="pb9-wade"[^>]*>)([\s\S]*?)(<\/div>)/i, `<div class="pb9-wade"></div>`);
     }
 
     // 10. FAQ Title

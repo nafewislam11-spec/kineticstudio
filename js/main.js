@@ -721,7 +721,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (data.priceTestiName) setText('.pb9-tname', data.priceTestiName);
       if (data.priceTestiRole) setText('.pb9-trole', data.priceTestiRole);
-      if (data.priceTestiQuote) setHtml('.pb9-tqt', '“' + escapeHtml(data.priceTestiQuote) + '”');
+      if (data.priceTestiQuote) {
+        var cleanQ = data.priceTestiQuote.replace(/^“|”$/g, '').trim();
+        setHtml('.pb9-tqt', '“' + escapeHtml(cleanQ) + '”');
+      }
       if (data.priceTestiBadge) setText('.pb9-cast', data.priceTestiBadge);
       if (data.priceTestiAvatar) setBg('.pb9-wade', data.priceTestiAvatar);
 
