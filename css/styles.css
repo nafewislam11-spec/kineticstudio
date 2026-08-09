@@ -10102,7 +10102,7 @@ figcaption {
 }
 
 .pb9-avs {
-  display: flex;
+  display: none !important;
 }
 
 .pb9-pav {
