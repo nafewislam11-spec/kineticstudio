@@ -1,7 +1,7 @@
 // Kinetic Studio Admin CMS Engine
 
 document.addEventListener('DOMContentLoaded', function () {
-  var DEFAULT_PASSWORD = 'kinetic2026';
+  var DEFAULT_PASSWORD = 'Nafew@12345';
   var STORAGE_KEY = 'kinetic_cms_data';
   var PASS_KEY = 'kinetic_admin_pass';
 
