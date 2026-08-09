@@ -131,65 +131,65 @@ document.addEventListener('DOMContentLoaded', function () {
       brandName: "Kinetic Studio",
       brandFavicon: "assets/kinetic_favicon.png",
       navCtaText: "LET'S TALK!",
-      navCtaLink: "https://calendly.com",
-      heroBadge: "50+ top creators served ↗",
+      navCtaLink: "https://calendly.com/nafewislam11/new-meeting",
+      heroBadge: "10+ creators served ↗",
       heroBadgeSize: "13",
       heroH1: "We make creators\nimpossible to ignore",
-      heroH1Align: "left",
+      heroH1Align: "center",
       heroH1Size: "64",
-      heroSub: "Your largest growth starts with Kinetic Studio",
+      heroSub: "High-retention YouTube videos for creators. Trusted by growing channels and creators. From long-form to Shorts",
       heroSubAlign: "left",
       heroSubSize: "18",
       heroCta: "Book A Quick Call",
       heroWatchText: "▶ Watch How We Do · 2 mins",
       heroWatchUrl: "#pb-work",
-      heroCreator1: "assets/hero_creator_1.png",
-      heroCreator2: "assets/hero_creator_ai1.png",
-      heroCreator3: "assets/hero_creator_ai2.png",
+      heroCreator1: "https://i.postimg.cc/rsjb67hG/photo-2025-10-13-16-42-49-(2).jpg",
+      heroCreator2: "https://i.postimg.cc/RCL2nnMW/5dae321fbf4abbd8df7d5f5695e06265.webp",
+      heroCreator3: "https://i.postimg.cc/7Zhv4Yr0/32877b337b1fdd723ae168c990787c6c.webp",
       heroKeycap: "K",
       
-      vslTitle: "Built For Your Growth With The System You Always Wanted.",
-      vslP1: "220k",
-      vslP2: "11.2m",
-      vslP3: "220k",
+      vslTitle: "The Growth System Your Content Has Been Waiting For.",
+      vslP1: "350k",
+      vslP2: "35.2m",
+      vslP3: "720k",
       vslImg: "assets/kinetic_3d_keycaps_collage.png",
-      vslRevTitle: "Newest Fresh client's loves 🤍",
-      vslRev1Img: "",
+      vslRevTitle: "Loved by Our Newest Clients 🤍",
+      vslRev1Img: "https://i.postimg.cc/rsjb67hG/photo-2025-10-13-16-42-49-(2).jpg",
       vslRev1Txt: "Absolutely loved it!",
-      vslRev1Url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      vslRev2Img: "",
+      vslRev1Url: "#pb-work",
+      vslRev2Img: "https://i.postimg.cc/RCL2nnMW/5dae321fbf4abbd8df7d5f5695e06265.webp",
       vslRev2Txt: "Banger videos they do!",
-      vslRev2Url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      vslRev3Img: "",
+      vslRev2Url: "#pb-work",
+      vslRev3Img: "https://i.postimg.cc/7Zhv4Yr0/32877b337b1fdd723ae168c990787c6c.webp",
       vslRev3Txt: "10/10 motions stuffs!",
-      vslRev3Url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      vslRev3Url: "#pb-work",
 
       creatorsLabel: "Ultra big Creators we worked with ✦",
       creatorsBadge: "50+ top creators served ↗",
-      c1Img: "", c1Video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      c2Img: "", c2Video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      c3Img: "", c3Video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      c4Img: "", c4Video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      c1Img: "", c1Video: "",
+      c2Img: "", c2Video: "",
+      c3Img: "", c3Video: "",
+      c4Img: "", c4Video: "",
 
       portTitle: "Previous Projects",
-      portSub: "Our three Element Framework for top notch product videos",
+      portSub: "",
       portTabs: "Longform, Shortform",
       portfolioCards: [
         { title: "High-Retention Longform Edit #1", category: "Longform", img: "https://i.vimeocdn.com/video/2181592486-d5f8668384a597399bee6f95123cee0110f3989d3282707f4f8bdc12c3543c73-d_960x540?region=us", video: "https://player.vimeo.com/video/1211423680" },
-        { title: "Creator Brand Longform Showcase", category: "Longform", img: "https://i.vimeocdn.com/video/2153077864-73486f3bc26bd213dff51016d95737991d85ef5db333efa45ffceed14d1af36b-d_960x540?region=us", video: "https://player.vimeo.com/video/1188735532" },
-        { title: "FANSLINK STUDIOS VSL Edit", category: "Longform", img: "https://i.vimeocdn.com/video/2153077315-967d7b22515ed51bb7246b6c650100140ebb4efea82b8bda28782862c897baa7-d_960x540?region=us", video: "https://player.vimeo.com/video/1188734977" },
-        { title: "The Truth About Cap Rate in Real Estate", category: "Shortform", img: "https://i.vimeocdn.com/video/2153079991-f86869f7d8ddfd0e3c9ce4a392d99c47c7bb03a703a8d52572d3dc072c7cf3c8-d_960x540?region=us", video: "https://player.vimeo.com/video/1188737184" },
-        { title: "Short Form Motion Edit", category: "Shortform", img: "https://i.vimeocdn.com/video/2173133541-5ec3cbdb9d5d574bd8315e615c8efdf7919664028594ce8cbde3f070e8a32ebd-d_960x540?region=us", video: "https://player.vimeo.com/video/1204728257" },
-        { title: "High-Converting Short Video", category: "Shortform", img: "https://i.vimeocdn.com/video/2153079128-5cad69da0840358b4aa68c60a273065759d24a839631c4dd5fc4e0ad1ccff48b-d_960x540?region=us", video: "https://player.vimeo.com/video/1188736573" }
+        { title: "", category: "Longform", img: "https://i.vimeocdn.com/video/2153077864-73486f3bc26bd213dff51016d95737991d85ef5db333efa45ffceed14d1af36b-d_960x540?region=us", video: "https://player.vimeo.com/video/1188735532" },
+        { title: "", category: "Longform", img: "https://i.vimeocdn.com/video/2153077315-967d7b22515ed51bb7246b6c650100140ebb4efea82b8bda28782862c897baa7-d_960x540?region=us", video: "https://player.vimeo.com/video/1188734977" },
+        { title: "", category: "Shortform", img: "", video: "https://player.vimeo.com/video/1216775738" },
+        { title: "", category: "Shortform", img: "", video: "https://player.vimeo.com/video/1188737184" },
+        { title: "", category: "Shortform", img: "https://i.vimeocdn.com/video/2153079128-5cad69da0840358b4aa68c60a273065759d24a839631c4dd5fc4e0ad1ccff48b-d_960x540?region=us", video: "https://player.vimeo.com/video/1188736573" }
       ],
 
-      feat1Title: "Audience Research", feat1Desc: "We research your audience before anything else.",
-      feat2Title: "Content Calendar", feat2Desc: "Your largest growth starts with Kinetic Studio",
-      feat3Title: "Growth Automation", feat3Desc: "Your largest growth starts with Kinetic Studio",
-      feat4Title: "Ready for 10X Growth", feat4Desc: "Your largest growth starts with Kinetic Studio",
+      feat1Title: "01 — Retention-Focused Editing", feat1Desc: "We edit with pacing, storytelling, motion, and sound designed to keep viewers watching.",
+      feat2Title: "02 — Consistent Content", feat2Desc: "Get high-quality videos delivered consistently, without having to manage the editing yourself.",
+      feat3Title: "03 — Motion & Visuals", feat3Desc: "From clean cuts to custom motion graphics, we make every video feel polished and intentional.",
+      feat4Title: "04 — Built to Grow", feat4Desc: "Content designed to strengthen your brand, increase engagement, and turn viewers into loyal followers.",
 
-      bentoTitle: "The Massive Creator\nGrowth Is Here",
-      bentoSub: "Our three Element Framework for top notch product videos",
+      bentoTitle: "Our System For Exponential Reach",
+      bentoSub: "",
       bento1Quote: "“With just 5,000 subscribers, Spencer now generates $350K per month”",
       bento1Stat: "250%",
       bento1StatSub: "Revenue Growth",
@@ -205,16 +205,14 @@ document.addEventListener('DOMContentLoaded', function () {
       bentoSlots2: "Add your Project ✋",
 
       revTitle: "Creators just\nlove us",
-      revSub: "Our three Element Framework for top notch product videos",
+      revSub: "",
       testimonials: [
-        { quote: "“We went from inconsistent to posting every single week.”", name: "John Michael", handle: "@Youtube 1.1M Subscribers", avatar: "", video: "" },
-        { quote: "“The editing and retention on our VSLs went up 300%.”", name: "Micheal Jordan", handle: "@Youtube 1.1M Subscribers", avatar: "", video: "" },
-        { quote: "“Best video team we have ever partnered with for SaaS.”", name: "Alex Becker", handle: "@Instagram 200k Followers", avatar: "", video: "" },
-        { quote: "“Delivered on time every single week. Unbeatable quality.”", name: "Spencer H.", handle: "@Youtube 500k Subscribers", avatar: "", video: "" }
+        { quote: "The motion design and editing quality is unmatched. Delivered fast and doubled our engagement!", author: "Alex Rivera", handle: "@alexrivera_tech", avatar: "", video: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+        { quote: "Working with Kinetic Studio was the best decision for our brand. High converting VSLs that actually print results.", author: "Sarah Chen", handle: "@sarah_growth", avatar: "", video: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
       ],
 
       procTitle: "Our 4 Step Process",
-      procSub: "Our three Element Framework for top notch product videos",
+      procSub: "",
       proc1Pill: "01 Review", proc1Title: "01 — Content Analysis", proc1Desc: "We review the footage, script, references, and requirements to understand the video's direction.",
       proc2Pill: "02 Edit", proc2Title: "02 — Video Editing", proc2Desc: "We transform raw footage into a clean, engaging, retention-focused video with precise cuts, motion graphics, sound design, and visual effects.",
       proc3Pill: "03 Polish", proc3Title: "03 — Visual Polish", proc3Desc: "Color grading, audio cleanup, animations, transitions, captions, and final details to make every video feel premium.",
@@ -226,11 +224,11 @@ document.addEventListener('DOMContentLoaded', function () {
       proofImg: "assets/6a5616d5e6ece131416b4697_pb-scatter-right-final.png",
 
       priceSecTitle: "Pricing",
-      priceSecSub: "Our three Element Framework for top notch product videos",
+      priceSecSub: "",
       p1Name: "One off video",
       p1Chosen: "Chosen by Pre-seed Startups",
       p1Price: "$5,499",
-      p1Slots: "06/10 Slots Left this month",
+      p1Slots: "Slots Left this month",
       p1Tagline: "Effortless automation for individuals and small teams.",
       p1BtnText: "Book a call",
       p1Features: "Strategy-led video production\nCustom motion design and visuals\nDesigned for retention & growth\nClear timelines and predictable delivery",
@@ -238,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
       p2Name: "Custom Growth Pack",
       p2Chosen: "Chosen by 1M+ Creators & Brands",
       p2Price: "Custom",
-      p2Slots: "Limited slots left this month",
+      p2Slots: "slots left this month",
       p2Tagline: "Complete YouTube & social growth automation tailored for scale.",
       p2BtnText: "Book a call →",
       p2Features: "Full channel & content strategy\nWeekly high-retention video edits\nShorts, VSLs & custom thumbnail suite\nDedicated lead editor & motion designer",
@@ -247,34 +245,45 @@ document.addEventListener('DOMContentLoaded', function () {
       priceTestiRole: "Founder of Castari",
       priceTestiQuote: "Prompt delivery and top-notch quality. Impressed with the speed and accuracy",
       priceTestiBadge: "✦ Castari",
+      priceTestiAvatar: "assets/tom_morley_avatar.jpg",
 
       faqSecTitle: "Frequently Asked Questions",
       faqBtnText: "Book A Call",
       faqBtnUrl: "#pb-cta",
       faqEmail: "hello@kineticstudio.co",
       faqs: [
-        { q: "What types of videos do you create for personal brands?", a: "YouTube long-form videos, high-converting VSLs, product launch films, shorts/reels, and podcast cutdowns — built for retention." },
-        { q: "Do you work with creators at all subscriber levels?", a: "Yes. Whether you're starting out or already have 1M+ subscribers, our system scales with your content strategy." },
-        { q: "What makes your videos different from typical editors?", a: "Strategy-first scripting, custom motion design, and retention editing — no stock templates, every frame is engineered for engagement." },
-        { q: "What does your production process look like?", a: "Onboarding, idea analysis, script/storyboard, edit & motion design, review, and final delivery. You stay informed at every step." },
-        { q: "How long does it take to produce a video?", a: "Short-form videos ship in 48-72 hours; long-form YouTube videos and VSLs in 1 to 2 weeks." }
+        { q: "What types of videos do you edit?", a: "We edit YouTube videos, Shorts, Reels, and other creator-focused content with clean, engaging visuals and motion graphics." },
+        { q: "Do you work with creators at all subscriber levels?", a: "Yes. We work with both growing creators and established creators who want to improve their content and maintain a consistent editing style." },
+        { q: "What makes your editing different from typical editors?", a: "We focus on retention-first editing — combining strong pacing, storytelling, motion graphics, sound design, and visual variety to keep viewers engaged." },
+        { q: "What does your production process look like?", a: "You send us the footage and references. We handle the editing, revisions, and final delivery while keeping the style consistent with your brand." },
+        { q: "How long does it take to edit a video?", a: "Turnaround depends on the video's length and complexity, but most projects are delivered within 2–3 business days." }
       ],
 
       email: "hello@kineticstudio.co",
       footerTitle: "Ready to ride?",
       copyright: "All Rights Reserved | Kinetic Studio 2026",
-      socTw: "https://x.com",
-      socYt: "https://youtube.com",
-      socIg: "https://instagram.com",
-      socLi: "https://linkedin.com"
+      socTw: "",
+      socYt: "",
+      socIg: "",
+      socLi: ""
     };
   }
 
   // 6. Load Data Into Form (Merging loaded data with defaults!)
   function loadCMSData() {
-    var raw = localStorage.getItem(STORAGE_KEY);
-    var parsed = raw ? JSON.parse(raw) : {};
-    var data = Object.assign({}, getDefaults(), parsed);
+    fetch('data/cms_data.json?v=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (serverData) {
+        populateForm(Object.assign({}, getDefaults(), serverData));
+      })
+      .catch(function () {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        var parsed = raw ? JSON.parse(raw) : {};
+        populateForm(Object.assign({}, getDefaults(), parsed));
+      });
+  }
+
+  function populateForm(data) {
 
     function setVal(id, val) {
       var elem = document.getElementById(id);

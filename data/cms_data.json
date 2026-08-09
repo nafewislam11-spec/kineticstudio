@@ -44,7 +44,7 @@
   "c4Img": "",
   "c4Video": "",
   "portTitle": "Previous Projects",
-  "portSub": "Our three Element Framework for top notch product videos",
+  "portSub": "",
   "portTabs": "Longform, Shortform",
   "portfolioCards": [
     {
@@ -68,14 +68,14 @@
     {
       "title": "",
       "category": "Shortform",
-      "img": "https://i.vimeocdn.com/video/2153079991-f86869f7d8ddfd0e3c9ce4a392d99c47c7bb03a703a8d52572d3dc072c7cf3c8-d_960x540?region=us",
-      "video": "https://player.vimeo.com/video/1188737184"
+      "img": "",
+      "video": "https://player.vimeo.com/video/1216775738"
     },
     {
       "title": "",
       "category": "Shortform",
-      "img": "https://i.vimeocdn.com/video/2173133541-5ec3cbdb9d5d574bd8315e615c8efdf7919664028594ce8cbde3f070e8a32ebd-d_960x540?region=us",
-      "video": "https://player.vimeo.com/video/1216775738"
+      "img": "",
+      "video": "https://player.vimeo.com/video/1188737184"
     },
     {
       "title": "",
@@ -84,16 +84,16 @@
       "video": "https://player.vimeo.com/video/1188736573"
     }
   ],
-  "feat1Title": "Audience Research",
-  "feat1Desc": "We research your audience before anything else.",
-  "feat2Title": "Content Calendar",
-  "feat2Desc": "Your largest growth starts with Kinetic Studio",
-  "feat3Title": "Growth Automation",
-  "feat3Desc": "Your largest growth starts with Kinetic Studio",
-  "feat4Title": "Ready for 10X Growth",
-  "feat4Desc": "Your largest growth starts with Kinetic Studio",
+  "feat1Title": "01 — Retention-Focused Editing",
+  "feat1Desc": "We edit with pacing, storytelling, motion, and sound designed to keep viewers watching.",
+  "feat2Title": "02 — Consistent Content",
+  "feat2Desc": "Get high-quality videos delivered consistently, without having to manage the editing yourself.",
+  "feat3Title": "03 — Motion & Visuals",
+  "feat3Desc": "From clean cuts to custom motion graphics, we make every video feel polished and intentional.",
+  "feat4Title": "04 — Built to Grow",
+  "feat4Desc": "Content designed to strengthen your brand, increase engagement, and turn viewers into loyal followers.",
   "bentoTitle": "Our System For Exponential Reach",
-  "bentoSub": "Everything you need to turn content into a predictable growth engine",
+  "bentoSub": "",
   "bento1Quote": "“With just 5,000 subscribers, Spencer now generates $350K per month”",
   "bento1Stat": "250%",
   "bento1StatSub": "Revenue Growth",
@@ -108,7 +108,7 @@
   "bentoSlots1": "5/10 slots left",
   "bentoSlots2": "Add your Project ✋",
   "revTitle": "Creators just\nlove us",
-  "revSub": "Our three Element Framework for top notch product videos",
+  "revSub": "",
   "testimonials": [
     {
       "quote": "The motion design and editing quality is unmatched. Delivered fast and doubled our engagement!",
@@ -126,7 +126,7 @@
     }
   ],
   "procTitle": "Our 4 Step Process",
-  "procSub": "Our three Element Framework for top notch product videos",
+  "procSub": "",
   "proc1Pill": "01 Review",
   "proc1Title": "01 — Content Analysis",
   "proc2Pill": "02 Edit",
@@ -142,7 +142,7 @@
   "proofLabel": "Creators Served",
   "proofImg": "assets/6a5616d5e6ece131416b4697_pb-scatter-right-final.png",
   "priceSecTitle": "Pricing",
-  "priceSecSub": "Our three Element Framework for top notch product videos",
+  "priceSecSub": "",
   "p1Name": "One off video",
   "p1Chosen": "Chosen by Pre-seed Startups",
   "p1Price": "$5,499",
@@ -157,10 +157,10 @@
   "p2Tagline": "Complete YouTube & social growth automation tailored for scale.",
   "p2BtnText": "Book a call →",
   "p2Features": "Full channel & content strategy\nWeekly high-retention video edits\nShorts, VSLs & custom thumbnail suite\nDedicated lead editor & motion designer",
-  "priceTestiName": "Tom morley",
-  "priceTestiRole": "Founder of FANSLINK",
-  "priceTestiQuote": "Their videos are absolute bangers!",
-  "priceTestiBadge": "✦ FANSLINK",
+  "priceTestiName": "Wade Warren",
+  "priceTestiRole": "Founder of Castari",
+  "priceTestiQuote": "Prompt delivery and top-notch quality. Impressed with the speed and accuracy",
+  "priceTestiBadge": "✦ Castari",
   "priceTestiAvatar": "assets/tom_morley_avatar.jpg",
   "faqSecTitle": "Frequently Asked Questions",
   "faqBtnText": "Book A Call",
@@ -168,28 +168,28 @@
   "faqEmail": "hello@kineticstudio.co",
   "faqs": [
     {
-      "q": "What types of videos do you create for personal brands?",
-      "a": "YouTube long-form videos, high-converting VSLs, product launch films, shorts/reels, and podcast cutdowns — built for retention."
+      "q": "What types of videos do you edit?",
+      "a": "We edit YouTube videos, Shorts, Reels, and other creator-focused content with clean, engaging visuals and motion graphics."
     },
     {
       "q": "Do you work with creators at all subscriber levels?",
-      "a": "Yes. Whether you're starting out or already have 1M+ subscribers, our system scales with your content strategy."
+      "a": "Yes. We work with both growing creators and established creators who want to improve their content and maintain a consistent editing style."
     },
     {
-      "q": "What makes your videos different from typical editors?",
-      "a": "Strategy-first scripting, custom motion design, and retention editing — no stock templates, every frame is engineered for engagement."
+      "q": "What makes your editing different from typical editors?",
+      "a": "We focus on retention-first editing — combining strong pacing, storytelling, motion graphics, sound design, and visual variety to keep viewers engaged."
     },
     {
       "q": "What does your production process look like?",
-      "a": "Onboarding, idea analysis, script/storyboard, edit & motion design, review, and final delivery. You stay informed at every step."
+      "a": "You send us the footage and references. We handle the editing, revisions, and final delivery while keeping the style consistent with your brand."
     },
     {
-      "q": "How long does it take to produce a video?",
-      "a": "Short-form videos ship in 48-72 hours; long-form YouTube videos and VSLs in 1 to 2 weeks."
+      "q": "How long does it take to edit a video?",
+      "a": "Turnaround depends on the video's length and complexity, but most projects are delivered within 2–3 business days."
     }
   ],
-  "email": "hello@kineticstudio.site",
-  "footerTitle": "Are You Ready?",
+  "email": "hello@kineticstudio.co",
+  "footerTitle": "Ready to ride?",
   "copyright": "All Rights Reserved | Kinetic Studio 2026",
   "socTw": "",
   "socYt": "",
