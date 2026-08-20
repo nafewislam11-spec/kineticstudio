@@ -8,6 +8,7 @@
   
   <link crossorigin="anonymous" href="css/mzmedia.css" rel="stylesheet" type="text/css"/>
   <link crossorigin="anonymous" href="css/styles.css?v=19" rel="stylesheet" type="text/css"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -32,6 +33,94 @@
   </script>
 
   <style>
+    *, *::before, *::after, h1, h2, h3, h4, h5, h6, b, strong, th, button, input, select, textarea {
+      font-weight: 400 !important;
+    }
+    body, html {
+      min-height: 100vh !important;
+      background-color: #030107 !important;
+      color: #fdfdfe !important;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .bg-fluid-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -9999;
+      pointer-events: none;
+      background-color: #030107;
+      background-image: 
+        linear-gradient(180deg, rgba(102, 56, 179, 0.3) 0%, rgba(6, 2, 12, 0.45) 35%, rgba(102, 56, 179, 0.25) 75%, rgba(0, 0, 0, 0.85) 100%),
+        url('assets/kinetic_fluid_bg_opt.jpg') !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      backface-visibility: hidden;
+      contain: strict;
+    }
+    .page-wrapper, .main-wrapper, .section, .header-section, .pb-hero, .pb-sec, .pb-section, [class*="pb-"], [class*="-sec"], [class*="-section"], .w-nav, .nav-menu-2, footer, header, main {
+      background-color: transparent !important;
+    }
+    /* CTA White Pill & Button Styling (Matching Screenshot 2) */
+    .pb-ctas {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      background: #ffffff !important;
+      padding: 6px 8px 6px 24px !important;
+      border-radius: 100px !important;
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25), 0 0 15px rgba(102, 56, 179, 0.3) !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+      text-decoration: none !important;
+    }
+    .pb-ctas:hover {
+      transform: translateY(-2px) scale(1.02) !important;
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.35), 0 0 20px rgba(102, 56, 179, 0.4) !important;
+    }
+    .pb-cta-pill {
+      color: #000000 !important;
+      background: transparent !important;
+      padding: 0 !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      letter-spacing: 0.01em !important;
+    }
+    .pb-cta-orb {
+      color: #ffffff !important;
+      text-align: center !important;
+      background-color: #6638B3 !important;
+      border-radius: 50% !important;
+      width: 36px !important;
+      height: 36px !important;
+      font-size: 16px !important;
+      line-height: 36px !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: transform 0.25s ease !important;
+    }
+    .pb-ctas:hover .pb-cta-orb {
+      transform: rotate(45deg) !important;
+    }
+    /* Navbar LET'S TALK Button */
+    .button-03, .button-text-wrapper, .button-arrow-wrapper {
+      background: #ffffff !important;
+      color: #000000 !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+    }
+    .button-03 .paragraph-02-m {
+      color: #000000 !important;
+      font-weight: 600 !important;
+    }
     @media (max-width: 767px) {
       .pb5-track {
         animation: pb5loop-m 35s linear infinite !important;
@@ -84,6 +173,7 @@
   </style>
 </head>
 <body>
+  <div class="bg-fluid-layer"></div>
 
   <!-- HEADER / NAVBAR (MZ MEDIA DIRECT COPY) -->
   <section class="header-section">
@@ -97,8 +187,8 @@
                   <rect x="0" y="2" width="16" height="40" fill="#3D2D63"/>
                   <polygon points="16,22 32,2 54,2 27,22" fill="#B497FF"/>
                   <polygon points="21,18 54,42 32,42 16,29" fill="#7C3AED"/>
-                  <text x="64" y="19" font-family="'Syne', 'Inter', 'Poppins', sans-serif" font-weight="700" font-size="20" fill="#C4B5FD" letter-spacing="0.5">Kinetic</text>
-                  <text x="64" y="39" font-family="'Syne', 'Inter', 'Poppins', sans-serif" font-weight="700" font-size="20" fill="#B497FF" letter-spacing="0.5">Studio</text>
+                  <text x="64" y="19" font-family="'Switzer', sans-serif" font-weight="400" font-size="20" fill="#C4B5FD" letter-spacing="0.5">Kinetic</text>
+                  <text x="64" y="39" font-family="'Switzer', sans-serif" font-weight="400" font-size="20" fill="#B497FF" letter-spacing="0.5">Studio</text>
                 </svg>
               </a>
               <div class="menu-button-wrapper">
@@ -357,8 +447,8 @@
           <rect x="0" y="2" width="16" height="40" fill="#3D2D63"/>
           <polygon points="16,22 32,2 54,2 27,22" fill="#B497FF"/>
           <polygon points="21,18 54,42 32,42 16,29" fill="#7C3AED"/>
-          <text x="64" y="19" font-family="'Syne', 'Inter', 'Poppins', sans-serif" font-weight="700" font-size="20" fill="#C4B5FD" letter-spacing="0.5">Kinetic</text>
-          <text x="64" y="39" font-family="'Syne', 'Inter', 'Poppins', sans-serif" font-weight="700" font-size="20" fill="#B497FF" letter-spacing="0.5">Studio</text>
+          <text x="64" y="19" font-family="'Switzer', sans-serif" font-weight="400" font-size="20" fill="#C4B5FD" letter-spacing="0.5">Kinetic</text>
+          <text x="64" y="39" font-family="'Switzer', sans-serif" font-weight="400" font-size="20" fill="#B497FF" letter-spacing="0.5">Studio</text>
         </svg>
       </a>
       <div class="pb11-right">

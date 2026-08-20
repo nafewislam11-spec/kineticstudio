@@ -1,11 +1,31 @@
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap');
+
+*, *::before, *::after, h1, h2, h3, h4, h5, h6, b, strong, th, button, input, select, textarea {
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400 !important;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: sans-serif;
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400 !important;
 }
 
-body {
-  margin: 0;
+body, html {
+  min-height: 100vh !important;
+  background-color: #030107 !important;
+  background-image: 
+    linear-gradient(180deg, rgba(102, 56, 179, 0.35) 0%, rgba(6, 2, 12, 0.4) 30%, rgba(102, 56, 179, 0.3) 70%, rgba(0, 0, 0, 0.75) 100%),
+    url('../assets/kinetic_fluid_bg.jpg') !important;
+  background-attachment: scroll !important;
+  background-repeat: repeat-y !important;
+  background-size: 100% auto !important;
+  background-position: top center !important;
+}
+
+.page-wrapper, .main-wrapper, .section, .header-section, .pb-hero, .pb-sec, .pb-section, [class*="pb-"], [class*="-sec"], [class*="-section"], .w-nav, .nav-menu-2, footer, header, main {
+  background-color: transparent !important;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -2222,7 +2242,7 @@ textarea.w-input, textarea.w-select {
 }
 
 body {
-  background-color: var(--primary-black);
+  background-color: transparent;
   font-family: var(--_typography---font-family--body-font);
   color: var(--paragraph-text-color);
   font-size: var(--_typography---font-size--text-default);
@@ -2372,7 +2392,7 @@ blockquote {
 }
 
 figure {
-  background-color: var(--primary-black);
+  background-color: transparent;
   width: 80%;
   min-width: 80%;
   margin: 3em 0 4em;
@@ -2447,7 +2467,7 @@ figcaption {
 
 .nav-menu-container {
   border: 1px solid var(--all-border);
-  background-color: var(--secondary-black);
+  background-color: transparent;
   background-image: linear-gradient(180deg, #1819294d, var(--primary-black));
   -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
@@ -2796,8 +2816,8 @@ figcaption {
   border-radius: var(--25px-border);
   max-width: 100%;
   box-shadow: none;
-  -webkit-backdrop-filter: blur(35px);
-  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   background-color: #72768a36;
   padding: .5px .5px .5px 1px;
   position: relative;
@@ -2883,7 +2903,7 @@ figcaption {
 .box-wrapper {
   border: 1px solid var(--secondary--card-bg-color);
   border-radius: var(--20px-img-border-all);
-  background-color: var(--primary-black);
+  background-color: transparent;
   background-image: radial-gradient(circle farthest-corner at 50% 100%, var(--secondary--card-bg-color), #ffffff03 40%, var(--transparent));
   flex-direction: column;
   justify-content: flex-start;
@@ -3225,7 +3245,7 @@ figcaption {
 }
 
 .style-guide-box-holder {
-  background-color: var(--primary-black);
+  background-color: transparent;
   padding: 20px;
 }
 
@@ -3278,7 +3298,7 @@ figcaption {
 
 .color-swatch {
   border: 1px solid var(--secondary--card-bg-color);
-  background-color: var(--primary-black);
+  background-color: transparent;
   border-radius: 5px;
   width: 150px;
   height: 100px;
@@ -3850,7 +3870,7 @@ figcaption {
   grid-column-gap: 15px;
   grid-row-gap: 15px;
   border-radius: var(--20px-img-border-all);
-  background-color: #111;
+  background-color: transparent;
   background-image: radial-gradient(circle farthest-corner at 50% 0%, #13131d, var(--primary-black) 46%);
   border: 1px solid #1b1b1b;
   flex-direction: column;
@@ -4020,8 +4040,8 @@ figcaption {
   border: 1px solid var(--secondary--card-bg-color);
   border-radius: var(--25px-border);
   background-image: radial-gradient(circle farthest-corner at 50% 0%, #181929c9, var(--primary-black) 58%);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   text-align: center;
   flex-direction: column;
   justify-content: center;
@@ -4283,7 +4303,7 @@ figcaption {
   z-index: 11;
   border: 1px solid var(--all-border);
   border-radius: var(--20px-img-border-all);
-  background-color: var(--secondary-black);
+  background-color: transparent;
   width: 100%;
   max-width: 100%;
   height: 350px;
@@ -4382,7 +4402,7 @@ figcaption {
   grid-column-gap: 8px;
   grid-row-gap: 8px;
   border: 1px solid var(--all-border);
-  background-color: var(--secondary-black);
+  background-color: transparent;
   background-image: radial-gradient(circle farthest-corner at 50% 100%, #181818, var(--primary-black));
   width: 100%;
   color: var(--white);
@@ -5348,8 +5368,8 @@ figcaption {
 .nav-inner {
   grid-column-gap: 15px;
   grid-row-gap: 15px;
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   justify-content: space-between;
   align-items: stretch;
   margin-left: auto;
@@ -5826,7 +5846,7 @@ figcaption {
 }
 
 .client-highlight._01.hero.is-testimonial {
-  background-color: var(--black);
+  background-color: transparent;
 }
 
 .client-highlight._01.save-money {
@@ -6115,7 +6135,7 @@ figcaption {
   grid-column-gap: 24px;
   grid-row-gap: 24px;
   border-radius: var(--_responsive---padding--border-radius);
-  background-color: var(--primary-black);
+  background-color: transparent;
   border: 1px solid #333;
   flex-flow: column wrap;
   flex: none;
@@ -6332,7 +6352,7 @@ figcaption {
   font-size: var(--_typography---font-size--text-default);
   line-height: var(--_typography---line-height--text-default);
   font-weight: var(--_typography---font-weight--regular);
-  background-color: #000;
+  background-color: transparent;
 }
 
 .link {
@@ -7306,7 +7326,7 @@ figcaption {
   grid-row-gap: 8px;
   border: 1px solid var(--all-border);
   border-radius: var(--_responsive---padding--border-radius);
-  background-color: var(--primary-black);
+  background-color: transparent;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-end;
@@ -7449,7 +7469,7 @@ figcaption {
 }
 
 .element {
-  background-color: var(--primary-black);
+  background-color: transparent;
   border: 1px solid #252e42;
   flex-flow: column;
   justify-content: space-between;
@@ -7581,7 +7601,7 @@ figcaption {
 }
 
 .video-play {
-  background-color: var(--secondary-black);
+  background-color: transparent;
   border-radius: 100px;
   justify-content: center;
   align-items: center;
@@ -7613,7 +7633,7 @@ figcaption {
 
 .pb-hero {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   padding-top: 24px;
   font-family: Inter, Arial, sans-serif;
   position: relative;
@@ -7775,7 +7795,7 @@ figcaption {
 
 .pb-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   border-bottom: 1px solid #ffffff1a;
   padding: 110px 24px;
   font-family: Inter, Arial, sans-serif;
@@ -7815,7 +7835,7 @@ figcaption {
 
 .pb-chip {
   color: #fdfdfe;
-  background-color: #161616;
+  background-color: transparent;
   border: 1px solid #ffffff1a;
   border-radius: 100px;
   padding: 6px 12px;
@@ -7824,7 +7844,7 @@ figcaption {
 }
 
 .pb-cardbox {
-  background-color: #0d0d0d;
+  background-color: transparent;
   border: 1px solid #ffffff1a;
   border-radius: 14px;
 }
@@ -8477,7 +8497,7 @@ figcaption {
 
 .pb2-vsl {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   border-bottom: 1px solid #ffffff1a;
   flex-direction: column;
   align-items: center;
@@ -8807,7 +8827,7 @@ figcaption {
 
 .pb3-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 80px 24px 0;
@@ -8960,7 +8980,7 @@ figcaption {
 
 .pb4-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 160px 24px;
@@ -9138,7 +9158,7 @@ figcaption {
   grid-column-gap: 32px;
   grid-row-gap: 32px;
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 120px 0;
@@ -9219,7 +9239,7 @@ figcaption {
 }
 
 .pb5-card {
-  background-color: #111;
+  background-color: transparent;
   border-radius: 12px;
   flex-shrink: 0;
   width: 266px;
@@ -9347,7 +9367,7 @@ figcaption {
 
 .pb6-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 120px 24px;
@@ -9392,7 +9412,7 @@ figcaption {
 }
 
 .pb6-c1 {
-  background-color: #0d0d0d;
+  background-color: transparent;
   border: 1px solid #ffffff14;
   border-radius: 18px;
   flex-shrink: 0;
@@ -9643,7 +9663,7 @@ figcaption {
 
 .pb7-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   justify-content: center;
   align-items: center;
   height: 325px;
@@ -9725,7 +9745,7 @@ figcaption {
 
 .pb8-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 100px 24px;
@@ -9868,7 +9888,7 @@ figcaption {
 
 .pb9-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 100px 24px;
@@ -9918,7 +9938,7 @@ figcaption {
 .pb9-card {
   grid-column-gap: 32px;
   grid-row-gap: 32px;
-  background-color: #000;
+  background-color: transparent;
   border: 1px solid #ffffff26;
   border-radius: 3px;
   flex-direction: column;
@@ -10179,7 +10199,7 @@ figcaption {
 .pb9-testi {
   grid-column-gap: 16px;
   grid-row-gap: 16px;
-  background-color: #0c0c0c;
+  background-color: transparent;
   border: 1px solid #ffffff14;
   border-radius: 6px;
   align-items: center;
@@ -10259,7 +10279,7 @@ figcaption {
 
 .pb10-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   flex-direction: column;
   align-items: center;
   padding: 100px 24px;
@@ -10288,7 +10308,7 @@ figcaption {
 }
 
 .pb10-faq {
-  background-color: #050505;
+  background-color: transparent;
   border: 1px solid #ffffff1f;
   border-radius: 6px;
   overflow: hidden;
@@ -10360,7 +10380,7 @@ figcaption {
 
 .pb11-sec {
   color: #fff;
-  background-color: #000;
+  background-color: transparent;
   padding: 32px 24px;
   font-family: Inter, Arial, sans-serif;
   overflow: hidden;
@@ -10461,7 +10481,7 @@ figcaption {
 }
 
 .careers-section {
-  background-color: #000;
+  background-color: transparent;
   padding-top: 140px;
   padding-bottom: 100px;
   font-family: Interdisplay, Arial, sans-serif;
@@ -10654,7 +10674,7 @@ figcaption {
 }
 
 .jobd-section {
-  background-color: #000;
+  background-color: transparent;
   padding-top: 140px;
   padding-bottom: 100px;
   font-family: Interdisplay, Arial, sans-serif;
@@ -10820,7 +10840,7 @@ figcaption {
   }
 
   .style-guide-box-holder {
-    background-color: var(--primary-black);
+    background-color: transparent;
   }
 
   .testimonial-slide.previous {
@@ -11023,7 +11043,7 @@ figcaption {
 
   .nav-menu {
     border: 1px solid var(--secondary--card-bg-color);
-    background-color: var(--primary-black);
+    background-color: transparent;
     background-image: radial-gradient(circle farthest-corner at 50% 100%, var(--secondary--card-bg-color), #feffff03 61%, var(--transparent));
     border-radius: 15px;
     justify-content: center;
@@ -11624,7 +11644,7 @@ figcaption {
   }
 
   .nav-menu-2 {
-    background-color: var(--secondary-black);
+    background-color: transparent;
     border-radius: 8px;
     padding: 20px;
   }
@@ -11913,7 +11933,7 @@ figcaption {
   }
 
   .nav-menu:focus {
-    background-color: var(--primary-black);
+    background-color: transparent;
   }
 
   .button {
@@ -12365,7 +12385,7 @@ figcaption {
   .pricing-card {
     grid-column-gap: 24px;
     grid-row-gap: 24px;
-    background-color: var(--primary-black);
+    background-color: transparent;
     padding: 32px 20px;
   }
 
@@ -12666,7 +12686,7 @@ figcaption {
     z-index: 100;
     grid-column-gap: 16px;
     grid-row-gap: 14px;
-    background-color: #0b0b0b;
+    background-color: transparent;
     border-radius: 16px;
     flex-direction: column;
     align-items: flex-start;
@@ -13300,7 +13320,7 @@ figcaption {
   }
 
   .compare-table-background.light {
-    background-color: var(--primary-black);
+    background-color: transparent;
   }
 
   .compare-table-background.main {
@@ -14408,7 +14428,7 @@ figcaption {
   }
 
   .step-holder-card-thingie {
-    background-color: var(--black);
+    background-color: transparent;
     position: sticky;
     top: 90px;
   }

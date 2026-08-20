@@ -6,6 +6,7 @@
   <title>Kinetic Studio — Full CMS Control Panel</title>
   <link href="assets/kinetic_favicon.png" rel="icon" sizes="32x32" type="image/png"/>
   <link href="css/styles.css?v=20" rel="stylesheet" type="text/css"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -15,10 +16,22 @@
     });
   </script>
   <style>
+    *, *::before, *::after, h1, h2, h3, h4, h5, h6, b, strong, th, button, input, select, textarea {
+      font-weight: 400 !important;
+    }
     body.admin-body {
-      background-color: #0D0D0F;
+      min-height: 100vh;
+      background-color: #030107 !important;
+      background-image: 
+        linear-gradient(180deg, rgba(102, 56, 179, 0.35) 0%, rgba(6, 2, 12, 0.4) 30%, rgba(102, 56, 179, 0.3) 70%, rgba(0, 0, 0, 0.75) 100%),
+        url('assets/kinetic_fluid_bg.jpg') !important;
+      background-attachment: scroll !important;
+      background-repeat: repeat-y !important;
+      background-size: 100% auto !important;
+      background-position: top center !important;
       color: #FFFFFF;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Switzer', sans-serif;
+      font-weight: 400 !important;
       margin: 0;
       padding: 0;
       min-height: 100vh;
@@ -289,13 +302,30 @@
       animation: fadeIn 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .bg-fluid-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -9999;
+      pointer-events: none;
+      background-color: #030107;
+      background-image: 
+        linear-gradient(180deg, rgba(102, 56, 179, 0.3) 0%, rgba(6, 2, 12, 0.45) 35%, rgba(102, 56, 179, 0.25) 75%, rgba(0, 0, 0, 0.85) 100%),
+        url('assets/kinetic_fluid_bg_opt.jpg') !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      backface-visibility: hidden;
+      contain: strict;
     }
   </style>
 </head>
 <body class="admin-body">
+  <div class="bg-fluid-layer"></div>
 
   <!-- LOGIN OVERLAY -->
   <div class="admin-login-overlay" id="loginOverlay">
