@@ -176,18 +176,31 @@
       </div>
     </div>
 
-    <!-- ═══ PREVIOUS PROJECTS (VIMEO EMBEDS FROM LIVE SITE) ═══ -->
+    <!-- ═══ PREVIOUS PROJECTS (LONGFORM & SHORTFORM) ═══ -->
     <div class="ks-portfolio-header" id="work" style="margin-top:72px;">
       <div>
         <span class="ks-card-badge badge-mail" style="margin-bottom:12px; display:inline-block;">Showcase</span>
-        <h2 style="font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; letter-spacing: -0.025em; margin:0;">Previous Projects</h2>
+        <h2 style="font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; letter-spacing: -0.025em; margin:0 0 16px 0;">Previous Projects</h2>
+        
+        <!-- Filter Tabs -->
+        <div class="ks-portfolio-tabs" role="tablist" aria-label="Portfolio format selector">
+          <button type="button" class="ks-portfolio-tab active" data-target="longform" role="tab" aria-selected="true" id="tab-longform">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+            Longform (YouTube)
+          </button>
+          <button type="button" class="ks-portfolio-tab" data-target="shortform" role="tab" aria-selected="false" id="tab-shortform">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><polygon points="10 9 14 12 10 15 10 9" fill="currentColor"/></svg>
+            Shortform (Reels & Shorts)
+          </button>
+        </div>
       </div>
       <a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener" class="ks-hero-btn-figma" style="padding:10px 20px; font-size:13.5px;">
         <span>Book A Call →</span>
       </a>
     </div>
 
-    <div class="ks-portfolio-grid">
+    <!-- Longform Grid (16:9 Landscape) -->
+    <div class="ks-portfolio-grid ks-portfolio-tab-content active" id="portfolio-longform">
       <div class="ks-video-card">
         <iframe src="https://player.vimeo.com/video/1211423680?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
@@ -196,6 +209,19 @@
       </div>
       <div class="ks-video-card">
         <iframe src="https://player.vimeo.com/video/1188734977?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Shortform Grid (9:16 Vertical Phone/Reels) -->
+    <div class="ks-portfolio-grid shortform-grid ks-portfolio-tab-content" id="portfolio-shortform" style="display:none;">
+      <div class="ks-video-card shortform-card">
+        <iframe src="https://player.vimeo.com/video/1216775738?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="ks-video-card shortform-card">
+        <iframe src="https://player.vimeo.com/video/1188737184?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="ks-video-card shortform-card">
+        <iframe src="https://player.vimeo.com/video/1188736573?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
 
@@ -509,6 +535,33 @@
         closeShowreel();
       }
     });
+
+    // Portfolio Tab Switching (Longform / Shortform)
+    const portTabs = document.querySelectorAll('.ks-portfolio-tab');
+    const longformGrid = document.getElementById('portfolio-longform');
+    const shortformGrid = document.getElementById('portfolio-shortform');
+
+    if (portTabs && longformGrid && shortformGrid) {
+      portTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          portTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+
+          const target = tab.getAttribute('data-target');
+          if (target === 'shortform') {
+            longformGrid.style.display = 'none';
+            shortformGrid.style.display = 'grid';
+          } else {
+            shortformGrid.style.display = 'none';
+            longformGrid.style.display = 'grid';
+          }
+        });
+      });
+    }
 
     // FAQ Accordion
     document.querySelectorAll('.ks-faq-question').forEach(btn => {
