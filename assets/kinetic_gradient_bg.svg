@@ -1,0 +1,76 @@
+<svg width="1440" height="2200" viewBox="0 0 1440 2200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Filter 0: Deep Purple Right Bloom -->
+    <filter id="ks_f0" x="500" y="0" width="2200" height="2000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="180"/>
+    </filter>
+    <!-- Filter 1: Brand Violet Center-Bottom Blob -->
+    <filter id="ks_f1" x="-200" y="200" width="2400" height="1500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="140"/>
+    </filter>
+    <!-- Filter 2: Royal Blue Left-Bottom Blob -->
+    <filter id="ks_f2" x="-900" y="200" width="1800" height="1600" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="150"/>
+    </filter>
+    <!-- Filter 3: Brand Lavender Right Accent -->
+    <filter id="ks_f3" x="800" y="300" width="1300" height="1100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="110"/>
+    </filter>
+    <!-- Filter 4: Soft Purple Center Glow -->
+    <filter id="ks_f4" x="200" y="550" width="1500" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+    <!-- Filter 5: Dark Logo Purple Left Mid Glow -->
+    <filter id="ks_f5" x="-500" y="0" width="1000" height="1200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="120"/>
+    </filter>
+    <!-- Filter 6: Subtle Top-Center Ambient Glow for Hero Title -->
+    <filter id="ks_f6" x="0" y="0" width="1440" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="140"/>
+    </filter>
+
+    <!-- Top Smooth Fade -->
+    <linearGradient id="ks_top_fade" x1="0" y1="0" x2="0" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#030107" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#030107" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Bottom Smooth Fade: Blends all glow 100% to #030107 before tile end -->
+    <linearGradient id="ks_bottom_fade" x1="0" y1="1300" x2="0" y2="1850" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#030107" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#030107" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base Deep Canvas -->
+  <rect width="1440" height="2200" fill="#030107"/>
+
+  <!-- Top Ambient Glow for Hero Title (Centered, subtle) -->
+  <ellipse cx="720" cy="300" rx="420" ry="160" fill="#6638b3" opacity="0.25" filter="url(#ks_f6)"/>
+
+  <!-- 1. Deep Purple (#6638b3) Right-side Giant Blob -->
+  <ellipse cx="1599" cy="900" rx="470" ry="600" fill="#6638b3" filter="url(#ks_f0)"/>
+
+  <!-- 2. Brand Violet (#7c3aed) Center-Bottom Wide Blob -->
+  <ellipse cx="1020.5" cy="930" rx="764" ry="308" transform="rotate(9.05178 1020.5 930)" fill="#7c3aed" filter="url(#ks_f1)"/>
+
+  <!-- 3. Royal Blue (#273fb7) Left-Bottom Blob -->
+  <ellipse cy="980" rx="572" ry="460" fill="#273fb7" filter="url(#ks_f2)"/>
+
+  <!-- 4. Brand Lavender (#b497ff) Far Right Accent -->
+  <ellipse cx="1440.12" cy="880" rx="308" ry="203" transform="rotate(27.7951 1440.12 880)" fill="#b497ff" filter="url(#ks_f3)"/>
+
+  <!-- 5. Soft Purple (#c4b5fd) Center Radiant Glow -->
+  <ellipse cx="936.433" cy="1000" rx="492" ry="202" transform="rotate(-2.20285 936.433 1000)" fill="#c4b5fd" filter="url(#ks_f4)"/>
+
+  <!-- 6. Dark Logo Purple (#3d2d63) Left Edge Glow -->
+  <ellipse cx="17.4307" cy="480" rx="139" ry="352" transform="rotate(-24.0408 17.4307 480)" fill="#3d2d63" filter="url(#ks_f5)"/>
+
+  <!-- Top Fade Overlay (Guarantees 100% #030107 at y=0) -->
+  <rect x="-500" y="0" width="2440" height="280" fill="url(#ks_top_fade)"/>
+
+  <!-- Bottom Fade Overlay (Smoothly dissolves all glow into pure #030107) -->
+  <rect x="-500" y="1300" width="2440" height="550" fill="url(#ks_bottom_fade)"/>
+  <!-- Pure solid #030107 buffer from y=1850 to 2200 ensuring 100% zero-discontinuity tiling -->
+  <rect x="-500" y="1850" width="2440" height="350" fill="#030107"/>
+</svg>

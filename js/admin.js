@@ -143,24 +143,24 @@ document.addEventListener('DOMContentLoaded', function () {
       heroCta: "Book A Quick Call",
       heroWatchText: "▶ Watch How We Do · 2 mins",
       heroWatchUrl: "#pb-work",
-      heroCreator1: "https://i.postimg.cc/rsjb67hG/photo-2025-10-13-16-42-49-(2).jpg",
-      heroCreator2: "https://i.postimg.cc/RCL2nnMW/5dae321fbf4abbd8df7d5f5695e06265.webp",
-      heroCreator3: "https://i.postimg.cc/7Zhv4Yr0/32877b337b1fdd723ae168c990787c6c.webp",
+      heroCreator1: "assets/creator_card_1.webp",
+      heroCreator2: "assets/creator_card_2.webp",
+      heroCreator3: "assets/creator_card_3.webp",
       heroKeycap: "K",
       
       vslTitle: "The Growth System Your Content Has Been Waiting For.",
       vslP1: "350k",
       vslP2: "35.2m",
       vslP3: "720k",
-      vslImg: "assets/kinetic_3d_keycaps_collage.png",
+      vslImg: "assets/kinetic_3d_keycaps_collage.webp",
       vslRevTitle: "Loved by Our Newest Clients 🤍",
-      vslRev1Img: "https://i.postimg.cc/rsjb67hG/photo-2025-10-13-16-42-49-(2).jpg",
+      vslRev1Img: "assets/creator_card_1.webp",
       vslRev1Txt: "Absolutely loved it!",
       vslRev1Url: "#pb-work",
-      vslRev2Img: "https://i.postimg.cc/RCL2nnMW/5dae321fbf4abbd8df7d5f5695e06265.webp",
+      vslRev2Img: "assets/creator_card_2.webp",
       vslRev2Txt: "Banger videos they do!",
       vslRev2Url: "#pb-work",
-      vslRev3Img: "https://i.postimg.cc/7Zhv4Yr0/32877b337b1fdd723ae168c990787c6c.webp",
+      vslRev3Img: "assets/creator_card_3.webp",
       vslRev3Txt: "10/10 motions stuffs!",
       vslRev3Url: "#pb-work",
 
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
       priceTestiRole: "Founder of Castari",
       priceTestiQuote: "Prompt delivery and top-notch quality. Impressed with the speed and accuracy",
       priceTestiBadge: "✦ Castari",
-      priceTestiAvatar: "assets/tom_morley_avatar.jpg",
+      priceTestiAvatar: "assets/tom_morley_avatar.webp",
 
       faqSecTitle: "Frequently Asked Questions",
       faqBtnText: "Book A Call",
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setVal('cms-price-testi-role', data.priceTestiRole);
     setVal('cms-price-testi-quote', data.priceTestiQuote);
     setVal('cms-price-testi-badge', data.priceTestiBadge);
-    setVal('cms-price-testi-avatar', data.priceTestiAvatar || 'assets/tom_morley_avatar.jpg');
+    setVal('cms-price-testi-avatar', data.priceTestiAvatar || 'assets/tom_morley_avatar.webp');
 
     // FAQs
     setVal('cms-faq-sec-title', data.faqSecTitle);

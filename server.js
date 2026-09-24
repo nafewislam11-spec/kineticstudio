@@ -54,9 +54,11 @@ const server = http.createServer((req, res) => {
         // 2. Direct Update index.html static source code on disk
         updateIndexHtmlFile(data);
 
-        // 3. Automatically git commit and push to GitHub in background via PowerShell
-        const psGitCmd = 'powershell -Command "git add .; git commit -m \'Auto CMS Update from Admin Panel\'; git push origin main"';
-        exec(psGitCmd, { cwd: PUBLIC_DIR }, (err, stdout, stderr) => {
+        // 3. Automatically git commit and push to GitHub in background
+        const gitCmd = process.platform === 'win32'
+          ? 'powershell -Command "git add .; git commit -m \'Auto CMS Update from Admin Panel\'; git push origin main"'
+          : 'git add . && git commit -m "Auto CMS Update from Admin Panel" && git push origin main';
+        exec(gitCmd, { cwd: PUBLIC_DIR }, (err, stdout, stderr) => {
           if (err) {
             console.log('[Git Push Log]:', stdout || stderr || err.message);
           } else {
@@ -151,16 +153,16 @@ function updateIndexHtmlFile(data) {
     }
 
     // 6b. Hero Marquee Creator Cards
-    const c1 = data.heroCreator1 || "assets/hero_creator_ai1.png";
-    const c2 = data.heroCreator2 || "assets/hero_creator_ai2.png";
-    const c3 = data.heroCreator3 || "assets/media__1786183997336.png";
+    const c1 = data.heroCreator1 || "assets/creator_card_1.webp";
+    const c2 = data.heroCreator2 || "assets/creator_card_2.webp";
+    const c3 = data.heroCreator3 || "assets/creator_card_3.webp";
 
     if (c1 || c2 || c3) {
       let cardsHtml = '';
       const imgs = [c1, c2, c3];
       for (let loop = 0; loop < 10; loop++) {
         imgs.forEach(imgSrc => {
-          cardsHtml += `<div class="hero-card-item"><img src="${imgSrc.replace(/"/g, '&quot;')}" alt="Creator Card"/></div>`;
+          cardsHtml += `<div class="hero-card-item"><img src="${imgSrc.replace(/"/g, '&quot;')}" alt="Creator Card" loading="eager" decoding="async"/></div>`;
         });
       }
       html = html.replace(/(<div class="pb-track"[^>]*>)([\s\S]*?)(<\/div>\s*<div class="pb-keycap-wrap">)/i, `$1${cardsHtml}$3`);

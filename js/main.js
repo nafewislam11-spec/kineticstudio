@@ -149,24 +149,24 @@ document.addEventListener('DOMContentLoaded', function () {
       heroCta: "Book A Quick Call",
       heroWatchText: "▶ Watch How We Do · 2 mins",
       heroWatchUrl: "#pb-work",
-      heroCreator1: "https://i.postimg.cc/rsjb67hG/photo-2025-10-13-16-42-49-(2).jpg",
-      heroCreator2: "https://i.postimg.cc/RCL2nnMW/5dae321fbf4abbd8df7d5f5695e06265.webp",
-      heroCreator3: "https://i.postimg.cc/7Zhv4Yr0/32877b337b1fdd723ae168c990787c6c.webp",
+      heroCreator1: "assets/creator_card_1.webp",
+      heroCreator2: "assets/creator_card_2.webp",
+      heroCreator3: "assets/creator_card_3.webp",
       heroKeycap: "K",
       
       vslTitle: "The Growth System Your Content Has Been Waiting For.",
       vslP1: "350k",
       vslP2: "35.2m",
       vslP3: "720k",
-      vslImg: "assets/kinetic_3d_keycaps_collage.png",
+      vslImg: "assets/kinetic_3d_keycaps_collage.webp",
       vslRevTitle: "Loved by Our Newest Clients 🤍",
-      vslRev1Img: "https://i.postimg.cc/rsjb67hG/photo-2025-10-13-16-42-49-(2).jpg",
+      vslRev1Img: "assets/creator_card_1.webp",
       vslRev1Txt: "Absolutely loved it!",
       vslRev1Url: "#pb-work",
-      vslRev2Img: "https://i.postimg.cc/RCL2nnMW/5dae321fbf4abbd8df7d5f5695e06265.webp",
+      vslRev2Img: "assets/creator_card_2.webp",
       vslRev2Txt: "Banger videos they do!",
       vslRev2Url: "#pb-work",
-      vslRev3Img: "https://i.postimg.cc/7Zhv4Yr0/32877b337b1fdd723ae168c990787c6c.webp",
+      vslRev3Img: "assets/creator_card_3.webp",
       vslRev3Txt: "10/10 motions stuffs!",
       vslRev3Url: "#pb-work",
 
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
       priceTestiRole: "Founder of Castari",
       priceTestiQuote: "Prompt delivery and top-notch quality. Impressed with the speed and accuracy",
       priceTestiBadge: "✦ Castari",
-      priceTestiAvatar: "assets/tom_morley_avatar.jpg",
+      priceTestiAvatar: "assets/tom_morley_avatar.webp",
 
       faqSecTitle: "Frequently Asked Questions",
       faqBtnText: "Book A Call",
@@ -385,20 +385,24 @@ document.addEventListener('DOMContentLoaded', function () {
       var heroTrack = document.querySelector('.pb-track');
       if (heroTrack) {
         var imgs = [
-          data.heroCreator1 || "assets/hero_creator_1.png",
-          data.heroCreator2 || "assets/hero_creator_ai1.png",
-          data.heroCreator3 || "assets/hero_creator_ai2.png"
+          data.heroCreator1 || "assets/creator_card_1.webp",
+          data.heroCreator2 || "assets/creator_card_2.webp",
+          data.heroCreator3 || "assets/creator_card_3.webp"
         ];
         
-        var cardsHtml = '';
-        for (var loop = 0; loop < 10; loop++) {
-          imgs.forEach(function (imgSrc) {
-            cardsHtml += '<div class="hero-card-item">';
-            cardsHtml += '<img src="' + escapeHtml(imgSrc) + '" alt="Creator Card" loading="lazy" />';
-            cardsHtml += '</div>';
-          });
+        var sig = imgs.join('|');
+        if (heroTrack.getAttribute('data-rendered-sig') !== sig) {
+          heroTrack.setAttribute('data-rendered-sig', sig);
+          var cardsHtml = '';
+          for (var loop = 0; loop < 10; loop++) {
+            imgs.forEach(function (imgSrc) {
+              cardsHtml += '<div class="hero-card-item">';
+              cardsHtml += '<img src="' + escapeHtml(imgSrc) + '" alt="Creator Card" loading="eager" decoding="async" />';
+              cardsHtml += '</div>';
+            });
+          }
+          heroTrack.innerHTML = cardsHtml;
         }
-        heroTrack.innerHTML = cardsHtml;
       }
       if (data.heroKeycap) setText('.pb-keycap-letter', data.heroKeycap);
 
@@ -762,6 +766,25 @@ document.addEventListener('DOMContentLoaded', function () {
     return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
   }
 
+  function sanitizeCMSData(obj) {
+    if (!obj) return obj;
+    var fixMap = {
+      heroCreator1: 'assets/creator_card_1.webp',
+      heroCreator2: 'assets/creator_card_2.webp',
+      heroCreator3: 'assets/creator_card_3.webp',
+      vslRev1Img: 'assets/creator_card_1.webp',
+      vslRev2Img: 'assets/creator_card_2.webp',
+      vslRev3Img: 'assets/creator_card_3.webp',
+      priceTestiAvatar: 'assets/tom_morley_avatar.webp'
+    };
+    for (var k in fixMap) {
+      if (obj[k] && typeof obj[k] === 'string' && (obj[k].indexOf('postimg.cc') !== -1 || (k === 'priceTestiAvatar' && obj[k].indexOf('.jpg') !== -1))) {
+        obj[k] = fixMap[k];
+      }
+    }
+    return obj;
+  }
+
   // Apply CMS Data initially
   function loadAndApplyCMS() {
     var localData = null;
@@ -778,13 +801,16 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(function (jsonData) {
         var merged = Object.assign({}, getDefaults(), localData || {}, jsonData);
+        merged = sanitizeCMSData(merged);
         applyCMSData(merged);
         try {
           localStorage.setItem('kinetic_cms_data', JSON.stringify(merged));
         } catch (e) {}
       })
       .catch(function () {
-        applyCMSData(Object.assign({}, getDefaults(), localData || {}));
+        var merged = Object.assign({}, getDefaults(), localData || {});
+        merged = sanitizeCMSData(merged);
+        applyCMSData(merged);
       });
   }
 
