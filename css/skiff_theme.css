@@ -91,6 +91,10 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -98,7 +102,10 @@ body {
   color: var(--ks-text-dark);
   font-family: var(--ks-font);
   font-weight: 400;
+  width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
 }
 
@@ -1099,6 +1106,7 @@ button {
   margin: 60px auto 100px auto;
   padding: 0 24px;
   position: relative;
+  overflow: hidden;
 }
 
 .ks-orb-green-img {
@@ -1166,6 +1174,7 @@ button {
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding: 80px 24px 60px 24px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .ks-footer-inner {
@@ -1293,6 +1302,17 @@ button {
     padding: 0 10px;
     height: 34px;
   }
+  .ks-orb-green-img,
+  .ks-orb-cyan-img {
+    display: none !important;
+  }
+  .ks-footer {
+    padding: 56px 20px 40px 20px;
+  }
+  .ks-footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1310,6 +1330,67 @@ button {
     font-size: 12px;
     padding: 0 12px;
     height: 34px;
+  }
+  .ks-hero-sec {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 76px;
+    padding-bottom: 48px;
+    background-size: cover;
+  }
+  .ks-hero-card {
+    padding: 44px 16px 28px 16px;
+    border-radius: 20px;
+  }
+  .ks-hero-title {
+    font-size: clamp(26px, 6.8vw, 36px);
+    line-height: 1.2;
+  }
+  .ks-hero-sub {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+  .ks-section,
+  .ks-pricing-sec,
+  .ks-faq-sec,
+  .ks-portfolio-sec {
+    padding: 48px 14px;
+  }
+  .ks-apps-headline,
+  .ks-portfolio-header h2,
+  .ks-faq-sec h2 {
+    font-size: clamp(24px, 6.5vw, 34px);
+  }
+  .ks-community-sec {
+    margin: 40px auto 60px auto;
+    padding: 0 14px;
+  }
+  .ks-community-card {
+    padding: 40px 16px;
+    border-radius: 20px;
+  }
+  .ks-community-card h2 {
+    font-size: clamp(24px, 6.5vw, 34px);
+  }
+  .ks-pricing-box {
+    padding: 28px 16px !important;
+    border-radius: 16px;
+  }
+  .ks-portfolio-tabs {
+    width: 100%;
+    justify-content: center;
+    padding: 4px;
+  }
+  .ks-portfolio-tab {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+  .ks-footer {
+    padding: 48px 14px 40px 14px;
+  }
+  .ks-footer-inner {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
   .ks-news-grid {
     grid-template-columns: 1fr;
@@ -1980,6 +2061,7 @@ button {
 @media (max-width: 600px) {
   .ks-metrics-strip {
     grid-template-columns: 1fr;
+    padding: 20px 16px;
   }
   .ks-metric-item::after {
     display: none;
@@ -1987,6 +2069,9 @@ button {
   .ks-process-grid,
   .ks-process-grid.six-step {
     grid-template-columns: 1fr;
+  }
+  .ks-footer-inner {
+    grid-template-columns: 1fr !important;
   }
 }
 

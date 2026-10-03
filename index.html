@@ -15,13 +15,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet"/>
 
   <!-- Core Figma Theme -->
-  <link rel="stylesheet" href="css/skiff_theme.css?v=6"/>
+  <link rel="stylesheet" href="css/skiff_theme.css?v=7"/>
   <link href="assets/kinetic_favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 
   <style>
-    /* Custom SVG Cursor */
+    /* Custom SVG Cursor & Viewport Clamping */
     html, body {
       cursor: url('assets/cursor-point.svg') 4 2, auto !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      overflow-x: clip !important;
     }
     a, button, [role="button"], input, select, textarea, .ks-news-card, .ks-blog-card, .ks-circle-btn, .ks-faq-question {
       cursor: url('assets/cursor-point.svg') 4 2, pointer !important;
