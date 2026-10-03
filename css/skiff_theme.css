@@ -133,33 +133,56 @@ button {
 
 .ks-navbar {
   pointer-events: auto;
-  width: 640px;
-  max-width: calc(100vw - 32px);
-  height: 46px;
+  width: 680px;
+  max-width: calc(100vw - 28px);
+  height: 48px;
   background: #303030;
   border: 1px solid #505050;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5px 0 5px;
+  padding: 0 6px 0 10px;
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.35);
   box-sizing: border-box;
 }
 
 .ks-navbar-logo {
-  width: 36px;
   height: 36px;
-  display: flex;
+  width: auto;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 9px;
+  padding: 0 4px 0 0;
   border-radius: 12px;
+  text-decoration: none;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.15s ease;
 }
 
 .ks-navbar-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.ks-navbar-logo svg,
+.ks-navbar-logo img {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.ks-navbar-logo span {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-block;
 }
 
 .ks-navbar-links {
@@ -1252,12 +1275,41 @@ button {
   }
 }
 
+@media (max-width: 768px) {
+  .ks-navbar {
+    width: calc(100vw - 20px);
+    padding: 0 4px 0 8px;
+  }
+  .ks-navbar-links {
+    gap: 10px;
+    padding: 0;
+  }
+  .ks-navbar-link {
+    font-size: 12px;
+    padding: 4px 2px;
+  }
+  .ks-navbar-cta {
+    font-size: 11.5px;
+    padding: 0 10px;
+    height: 34px;
+  }
+}
+
 @media (max-width: 640px) {
   .ks-navbar {
     width: calc(100vw - 24px);
+    padding: 0 6px 0 8px;
   }
   .ks-navbar-links {
     display: none;
+  }
+  .ks-navbar-logo span {
+    font-size: 14px;
+  }
+  .ks-navbar-cta {
+    font-size: 12px;
+    padding: 0 12px;
+    height: 34px;
   }
   .ks-news-grid {
     grid-template-columns: 1fr;
