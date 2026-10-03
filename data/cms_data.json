@@ -82,18 +82,16 @@
       "video": "https://player.vimeo.com/video/1188736573"
     }
   ],
-  "feat1Title": "01 — Research & Ideation",
+  "feat1Title": "01. Research & Ideation",
   "feat1Desc": "We come up with video ideas that'll attract your exact target demographic and ideal high-ticket prospects.",
-  "feat2Title": "02 — Scripting",
+  "feat2Title": "02. Scripting",
   "feat2Desc": "We script in either an outline format or word-for-word, engineered for high watch-time and conversions.",
-  "feat3Title": "03 — Direction",
-  "feat3Desc": "We give you speaking skills coaching, framing guidance, and make sure your camera and audio setup look world-class.",
-  "feat4Title": "04 — Video Editing",
-  "feat4Desc": "We edit the videos in a way which'll get the highest retention, tailored to what styles your audience consumes most.",
-  "feat5Title": "05 — Thumbnails & Packaging",
-  "feat5Desc": "We split-test multiple thumbnail variants and title hooks, to get the highest clickthrough rate (CTR) possible.",
-  "feat6Title": "06 — SEO, Lead Tracking, & Posting",
-  "feat6Desc": "We track calls and sales on each video, optimize them for search, and upload directly on your behalf.",
+  "feat3Title": "03. Video Editing",
+  "feat3Desc": "We edit the videos in a way which'll get the highest retention, tailored to what styles your audience consumes most.",
+  "feat4Title": "04. Thumbnails & Packaging",
+  "feat4Desc": "We split-test multiple thumbnail variants and title hooks, to get the highest clickthrough rate (CTR) possible.",
+  "feat5Title": "05. SEO, Lead Tracking, & Posting",
+  "feat5Desc": "We track calls and sales on each video, optimize them for search, and upload directly on your behalf.",
   "bentoTitle": "Our System For Exponential Reach",
   "bentoSub": "",
   "bento1Quote": "“Eddie was able to scale his business from $54k/mo to $428k/mo in 4 months working with us”",
@@ -137,15 +135,15 @@
   "procTitle": "1–2 Videos Per Week, Completely Done-For-You",
   "procSub": "Here's the rundown of how we take you from zero to signing high-ticket clients every month.",
   "proc1Pill": "01 Research",
-  "proc1Title": "01 — Research & Ideation",
+  "proc1Title": "01. Research & Ideation",
   "proc2Pill": "02 Scripting",
-  "proc2Title": "02 — Scripting",
+  "proc2Title": "02. Scripting",
   "proc3Pill": "03 Editing",
-  "proc3Title": "03 — Video Editing",
+  "proc3Title": "03. Video Editing",
   "proc4Pill": "04 Thumbnails",
-  "proc4Title": "04 — Thumbnails & Packaging",
+  "proc4Title": "04. Thumbnails & Packaging",
   "proc5Pill": "05 SEO & Leads",
-  "proc5Title": "05 — SEO, Lead Tracking, & Posting",
+  "proc5Title": "05. SEO, Lead Tracking, & Posting",
   "proc6Pill": "",
   "proc6Title": "",
   "procBarTxt": "",
@@ -182,23 +180,23 @@
   "faqs": [
     {
       "q": "What exactly do you help with?",
-      "a": "We handle the entire YouTube growth strategy for you — from scripting and editing to SEO, thumbnails, and posting. You just show up to record once a week. Everything else is done-for-you with a focus on getting you more qualified inbound leads."
+      "a": "We handle the entire YouTube growth strategy for you, from scripting and editing to SEO, thumbnails, and posting. You just show up to record once a week. Everything else is done-for-you with a focus on getting you more qualified inbound leads."
     },
     {
       "q": "Why YouTube?",
-      "a": "YouTube is where buyers go when they’re actively searching for a solution. It’s high-intent, evergreen, and compounds over time — unlike short-form, ads, or cold outreach. One good video can drive leads for months (or years) without spending a penny on traffic."
+      "a": "YouTube is where buyers go when they’re actively searching for a solution. It’s high-intent, evergreen, and compounds over time, unlike short-form, ads, or cold outreach. One good video can drive leads for months (or years) without spending a penny on traffic."
     },
     {
       "q": "I’m already seeing good results from other client acquisition methods. Why do I need this?",
-      "a": "YouTube is unique in the sense that it's not just a linear acquisition channel. The value of one video doesn’t stop after it’s published. It keeps working. It builds trust while you sleep. It pre-sells for you while you’re on calls. It warms up leads that found you from cold ads, referrals, SEO, or outbound. It becomes the backbone of your brand — amplifying everything else you're doing, without demanding your full attention every day."
+      "a": "YouTube is unique in the sense that it's not just a linear acquisition channel. The value of one video doesn’t stop after it’s published. It keeps working. It builds trust while you sleep. It pre-sells for you while you’re on calls. It warms up leads that found you from cold ads, referrals, SEO, or outbound. It becomes the backbone of your brand, amplifying everything else you're doing, without demanding your full attention every day."
     },
     {
       "q": "How much time will this take me?",
-      "a": "Most clients spend just 60–90 minutes a week filming. Or they batch record for a few hours once per month. We handle everything else — scripting, editing, posting, optimization — so you can focus on what you do best."
+      "a": "Most clients spend just 60–90 minutes a week filming. Or they batch record for a few hours once per month. We handle everything else (scripting, editing, posting, and optimization) so you can focus on what you do best."
     },
     {
       "q": "How do I know this will actually work for me?",
-      "a": "This system isn’t built for influencers. It’s built for operators, founders, coaches, and agency owners who know how to close — they just need more warm, ready-to-buy prospects. If you’ve got a solid offer, you’re good on camera (or at least willing to try), and you can commit to one video per week… we’ll handle the rest. And if you’re still unsure — that’s exactly why we start every relationship with a call."
+      "a": "This system isn’t built for influencers. It’s built for operators, founders, coaches, and agency owners who know how to close: they just need more warm, ready-to-buy prospects. If you’ve got a solid offer, you’re good on camera (or at least willing to try), and you can commit to one video per week… we’ll handle the rest. And if you’re still unsure, that’s exactly why we start every relationship with a call."
     },
     {
       "q": "Do I need to come up with the content ideas myself?",
@@ -210,11 +208,11 @@
     },
     {
       "q": "How is this different from hiring a video editor or freelancer?",
-      "a": "We bring strategy. From ideation to scripting to thumbnail to SEO — we build your channel like a high-converting funnel, not a “content machine.”"
+      "a": "We bring strategy. From ideation to scripting to thumbnail to SEO, we build your channel like a high-converting funnel, not a “content machine.”"
     },
     {
       "q": "Do I need a big audience for this to work?",
-      "a": "Not at all. Some of our best-performing clients had under 300 subscribers when they started. YouTube is search-based — which means you show up in front of buyers, not followers."
+      "a": "Not at all. Some of our best-performing clients had under 300 subscribers when they started. YouTube is search-based, which means you show up in front of buyers, not followers."
     },
     {
       "q": "What if I’ve tried YouTube before and it didn’t work?",
