@@ -2032,6 +2032,38 @@ button {
   margin-bottom: 14px;
 }
 
+.ks-price-discount-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.ks-price-original {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #A1A1AA;
+  text-decoration: line-through;
+}
+
+.ks-discount-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #DCFCE7;
+  color: #15803D;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+.ks-discount-pill-hot {
+  background: #FFF1EE;
+  color: #EF5A3C;
+}
+
 .ks-package-price {
   font-size: clamp(24px, 2.1vw, 30px);
   font-weight: 700;
