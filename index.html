@@ -117,12 +117,16 @@
         </div>
       </div>
 
-      <!-- ═══ 1165px x 567px SHOWREEL HERO MOCKUP ═══ -->
-      <div class="ks-hero-mockup-wrap" id="heroShowreelTrigger" role="button" tabindex="0" aria-label="Watch Kinetic Studio Showreel">
+      <!-- ═══ 1165px x 567px SHOWREEL HERO MOCKUP (VSL UNDER CONSTRUCTION) ═══ -->
+      <div class="ks-hero-mockup-wrap" id="heroShowreelTrigger" role="button" tabindex="0" aria-label="Kinetic Studio VSL Under Construction">
         <img src="assets/hero_showreel_pinterest.jpg" id="heroShowreelImg" alt="Kinetic Studio Video Production Showreel" class="ks-hero-mockup-img" loading="eager" decoding="async"/>
+        <div class="ks-vsl-badge">
+          <span class="ks-vsl-badge-dot"></span>
+          <span>In Production</span>
+        </div>
         <div class="ks-hero-play-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-          <span>Watch Showreel · 2 mins</span>
+          <span style="font-size:14px; line-height:1;">🚧</span>
+          <span>VSL Under Construction</span>
         </div>
       </div>
 
@@ -658,21 +662,36 @@
     </div>
   </footer>
 
-  <!-- ═══ SHOWREEL VIDEO MODAL ═══ -->
+  <!-- ═══ VSL / SHOWREEL MODAL (UNDER CONSTRUCTION) ═══ -->
   <div class="ks-video-modal" id="ksVideoModal" aria-hidden="true">
     <div class="ks-video-backdrop" id="ksModalBackdrop"></div>
-    <div class="ks-video-dialog">
-      <button class="ks-video-close" id="ksModalClose" aria-label="Close video">
+    <div class="ks-video-dialog ks-vsl-construction-dialog">
+      <button class="ks-video-close" id="ksModalClose" aria-label="Close modal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-      <div class="ks-video-iframe-wrap">
-        <iframe id="ksVideoIframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <div class="ks-vsl-construction-body">
+        <div class="ks-vsl-icon-wrap">
+          <span>🚧</span>
+        </div>
+        <div class="ks-vsl-modal-pill">In Production</div>
+        <h3 class="ks-vsl-title">New VSL Under Construction</h3>
+        <p class="ks-vsl-desc">
+          We are currently filming and editing our brand new acquisition breakdown. In the meantime, explore our verified client work or book a strategy call.
+        </p>
+        <div class="ks-vsl-actions">
+          <a href="#work" class="ks-vsl-btn ks-vsl-btn-sec" id="ksExploreWorkBtn">
+            Explore Showcase ↓
+          </a>
+          <a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener" class="ks-vsl-btn ks-vsl-btn-prim">
+            Book Strategy Call →
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════════════════════════════════
-       INTERACTION SCRIPTS (CURSOR, NAV & VIDEO MODAL)
+       INTERACTION SCRIPTS (CURSOR, NAV & MODAL)
        ══════════════════════════════════════════════════════════════════ -->
   <script>
     // Custom Hand Cursor Grabbing Effect
@@ -692,27 +711,24 @@
       });
     });
 
-    // Showreel Video Modal
+    // Showreel / VSL Modal (Under Construction)
     const showreelTrigger = document.getElementById('heroShowreelTrigger');
     const videoModal = document.getElementById('ksVideoModal');
     const modalBackdrop = document.getElementById('ksModalBackdrop');
     const modalClose = document.getElementById('ksModalClose');
-    const videoIframe = document.getElementById('ksVideoIframe');
-    const showreelUrl = "https://player.vimeo.com/video/1231872909?autoplay=1&title=0&byline=0&portrait=0&h=e60ac7b62a";
+    const exploreWorkBtn = document.getElementById('ksExploreWorkBtn');
 
     function openShowreel() {
-      if (!videoModal || !videoIframe) return;
-      videoIframe.src = showreelUrl;
+      if (!videoModal) return;
       videoModal.classList.add('active');
       videoModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
 
     function closeShowreel() {
-      if (!videoModal || !videoIframe) return;
+      if (!videoModal) return;
       videoModal.classList.remove('active');
       videoModal.setAttribute('aria-hidden', 'true');
-      videoIframe.src = '';
       document.body.style.overflow = '';
     }
 
@@ -727,6 +743,11 @@
     }
     if (modalBackdrop) modalBackdrop.addEventListener('click', closeShowreel);
     if (modalClose) modalClose.addEventListener('click', closeShowreel);
+    if (exploreWorkBtn) {
+      exploreWorkBtn.addEventListener('click', () => {
+        closeShowreel();
+      });
+    }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
         closeShowreel();
