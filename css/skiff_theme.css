@@ -74,12 +74,14 @@
   --ks-border-subtle: rgba(0, 0, 0, 0.04);
 }
 
-/* ═══ 2. BASE STYLING ═══ */
+/* ═══ 2. BASE STYLING (ANIMATIONS REMOVED) ═══ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: var(--ks-font);
+  animation: none !important;
+  transition: none !important;
 }
 
 html {
@@ -88,7 +90,7 @@ html {
   font-family: var(--ks-font);
   font-size: 16px;
   line-height: 1.5;
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -169,7 +171,6 @@ button {
 }
 
 .ks-navbar-logo:hover {
-  transform: scale(1.02);
   opacity: 0.95;
 }
 
@@ -252,7 +253,6 @@ button {
 
 .ks-navbar-item:hover .ks-chevron {
   opacity: 1;
-  transform: translateY(1px);
 }
 
 .ks-navbar-cta {
@@ -274,7 +274,6 @@ button {
 
 .ks-navbar-cta:hover {
   background: #F3F4F6;
-  transform: scale(0.98);
 }
 
 /* ═══ 4. HERO SECTION (100% FIGMA MATCH) ═══ */
@@ -357,17 +356,13 @@ button {
 
 .ks-hero-btn-figma:hover {
   background: #242424;
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .ks-hero-btn-figma svg {
   transition: transform 0.2s ease;
 }
 
-.ks-hero-btn-figma:hover svg {
-  transform: translateX(3px);
-}
+/* hero svg hover removed */
 
 .ks-hero-microcopy {
   margin-top: 12px;
@@ -389,10 +384,7 @@ button {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-.ks-hero-mockup-wrap:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
-}
+/* hero mockup hover removed */
 
 .ks-hero-mockup-img {
   width: 100%;
@@ -401,9 +393,7 @@ button {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ks-hero-mockup-wrap:hover .ks-hero-mockup-img {
-  transform: scale(1.015);
-}
+/* hero img zoom hover removed */
 
 .ks-hero-play-pill {
   position: absolute;
@@ -436,13 +426,11 @@ button {
 .ks-hero-mockup-wrap:hover .ks-hero-play-pill {
   background: #18181B;
   border-color: rgba(239, 90, 60, 0.7);
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
 }
 
 .ks-hero-mockup-wrap:hover .ks-hero-play-pill svg {
   color: #FFFFFF;
-  transform: scale(1.15);
 }
 
 .ks-hero-mockup-caption {
@@ -480,7 +468,7 @@ button {
 .ks-hero-mockup-wrap:hover .ks-hero-mockup-caption {
   background: #18181B;
   border-color: rgba(239, 90, 60, 0.6);
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateX(-50%);
 }
 
 /* ═══ VSL UNDER CONSTRUCTION STYLES ═══ */
@@ -510,13 +498,10 @@ button {
   border-radius: 50%;
   background: #F59E0B;
   box-shadow: 0 0 10px #F59E0B;
-  animation: ks-pulse-glow 1.8s infinite ease-in-out;
+  /* animation removed */
 }
 
-@keyframes ks-pulse-glow {
-  0%, 100% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; }
-}
+/* keyframes ks-pulse-glow removed */
 
 .ks-vsl-construction-dialog {
   max-width: 500px;
@@ -606,7 +591,6 @@ button {
 
 .ks-vsl-btn-prim:hover {
   background: #DC4528;
-  transform: translateY(-2px);
 }
 
 .ks-vsl-btn-sec {
@@ -617,7 +601,6 @@ button {
 
 .ks-vsl-btn-sec:hover {
   background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
 }
 
 @media (max-width: 500px) {
@@ -778,7 +761,6 @@ button {
 
 .ks-video-close:hover {
   background: #EF5A3C;
-  transform: scale(1.08);
 }
 
 .ks-video-iframe-wrap {
@@ -903,7 +885,6 @@ button {
 }
 
 .ks-card-arrow-link:hover {
-  transform: translate(2px, -2px);
   color: #000000;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -982,9 +963,7 @@ button {
   transition: transform 0.3s ease;
 }
 
-.ks-drive-popup:hover {
-  transform: translateY(-4px);
-}
+/* drive popup hover removed */
 
 /* ═══ 8. OPEN SOURCE DARK SECTION (#242424) ═══ */
 .ks-dark-sec {
@@ -1136,9 +1115,7 @@ button {
   transition: transform 0.2s ease;
 }
 
-.ks-link-arrow:hover {
-  transform: translateX(3px);
-}
+/* link arrow hover removed */
 
 .ks-mobile-right {
   background: #FFFFFF;
@@ -1228,10 +1205,7 @@ button {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ks-news-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-}
+/* news card hover removed */
 
 .ks-news-logo-wrap {
   height: 48px;
@@ -1337,10 +1311,7 @@ button {
   flex-direction: column;
 }
 
-.ks-blog-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-}
+/* blog card hover removed */
 
 .ks-blog-img-wrap {
   width: 100%;
@@ -1848,19 +1819,10 @@ button {
 }
 
 .ks-portfolio-tab-content {
-  animation: ksFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* animation removed */
 }
 
-@keyframes ksFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* keyframes ksFadeIn removed */
 
 .ks-portfolio-grid {
   display: grid;
@@ -1897,10 +1859,7 @@ button {
   box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.16);
 }
 
-.ks-video-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.2);
-}
+/* video card hover lift removed */
 
 .ks-video-card iframe {
   width: 100%;
@@ -1934,10 +1893,7 @@ button {
   box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.04);
 }
 
-.ks-process-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08);
-}
+/* process card hover lift removed */
 
 .ks-process-step-badge {
   display: inline-block;
@@ -1995,10 +1951,7 @@ button {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.ks-case-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.08);
-}
+/* case card hover lift removed */
 
 .ks-case-card-top {
   margin-bottom: 16px;
@@ -2195,8 +2148,6 @@ button {
 
 .ks-pricing-cta:hover {
   background: #EF5A3C;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(239, 90, 60, 0.35);
 }
 
 .ks-pricing-testi {
@@ -2247,9 +2198,7 @@ button {
 }
 
 .ks-package-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(239, 90, 60, 0.35);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
 }
 
 .ks-package-featured {
@@ -2422,8 +2371,6 @@ button {
 
 .ks-cta-featured:hover {
   background: #DC4528 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(239, 90, 60, 0.4) !important;
 }
 
 .ks-pricing-bottom-note {
@@ -2463,7 +2410,6 @@ button {
 
 .ks-pricing-chat-btn:hover {
   background: #EF5A3C;
-  transform: translateY(-1px);
 }
 
 .ks-pkg-testi-strip {
@@ -2633,10 +2579,8 @@ button {
 }
 
 .ks-journey-node:hover {
-  transform: translateY(-2px);
   background: #FFFFFF;
   border-color: rgba(239, 90, 60, 0.35);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .ks-journey-node.highlight {
@@ -2680,10 +2624,7 @@ button {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.ks-video-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
-}
+/* video item hover lift removed */
 
 .ks-video-item .ks-video-card {
   border-radius: 0;
@@ -2852,10 +2793,7 @@ button {
   flex-direction: column;
 }
 
-.ks-why-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-}
+/* why card hover lift removed */
 
 .ks-why-card-top {
   display: flex;

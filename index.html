@@ -91,19 +91,12 @@
   <link rel="stylesheet" href="css/skiff_theme.css?v=9"/>
 
   <style>
-    /* Custom SVG Cursor & Viewport Clamping */
+    /* Viewport Clamping */
     html, body {
-      cursor: url('assets/cursor-point.svg') 4 2, auto !important;
       width: 100% !important;
       max-width: 100vw !important;
       overflow-x: hidden !important;
       overflow-x: clip !important;
-    }
-    a, button, [role="button"], input, select, textarea, .ks-news-card, .ks-blog-card, .ks-circle-btn, .ks-faq-question {
-      cursor: url('assets/cursor-point.svg') 4 2, pointer !important;
-    }
-    body.ks-clicking, body.ks-clicking a, body.ks-clicking button {
-      cursor: url('assets/cursor-grab.svg') 8 8, grabbing !important;
     }
   </style>
 </head>
@@ -443,64 +436,6 @@
         <div class="ks-video-item-info">
           <span class="ks-video-item-tag">Personal Brand · 9:16</span>
           <h4 class="ks-video-item-title">Founder Authority & Conversion Hook</h4>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══ BUILT BY EXPERIENCED CREATORS / FOUNDER TRUST SECTION ═══ -->
-    <div class="ks-founder-wrap" id="team">
-      <div class="ks-founder-grid">
-        <div>
-          <div class="ks-founder-badge">
-            <span style="width:6px; height:6px; background:#10B981; border-radius:50%; display:inline-block;"></span>
-            Built by Experienced Creators
-          </div>
-          <h2 class="ks-founder-title">A New Agency Built on Real-World Execution.</h2>
-          <p class="ks-founder-text">
-            Kinetic Studio is a new agency, but the people behind it bring years of real-world experience in video editing, motion design, storytelling, YouTube growth, and working with international clients.
-          </p>
-          <p class="ks-founder-text">
-            Founded by Nafew, Kinetic exists to solve a core problem high-ticket founders face: you know content builds authority, but managing fragmented freelancers for scripts, edits, thumbnails, and uploads is exhausting, and most editors do not understand client acquisition.
-          </p>
-          <p class="ks-founder-text">
-            We bridge that gap. When you partner with Kinetic, your content pipeline is not handed off to junior freelancers; it is directed by experienced creators who understand viewer retention, modern algorithms, and commercial positioning.
-          </p>
-          <div class="ks-founder-callout">
-            "Our promise is simple: you record your expertise, and we handle the end-to-end system that builds authority and drives high-ticket conversations."
-            <div style="margin-top:6px; font-size:12.5px; color:#A1A1AA; font-weight:600;">- Nafew, Founder & Creative Director</div>
-          </div>
-        </div>
-
-        <div class="ks-team-pillars">
-          <div class="ks-team-pillar-card">
-            <div class="ks-team-pillar-head">
-              <span class="ks-team-pillar-icon">✦</span>
-              <h3 class="ks-team-pillar-title">International Client Experience</h3>
-            </div>
-            <p class="ks-team-pillar-desc">
-              Years of editing, motion graphics, and narrative packaging produced for creators, consultants, and brands across global markets.
-            </p>
-          </div>
-
-          <div class="ks-team-pillar-card">
-            <div class="ks-team-pillar-head">
-              <span class="ks-team-pillar-icon">✦</span>
-              <h3 class="ks-team-pillar-title">Retention & Motion Design Mastery</h3>
-            </div>
-            <p class="ks-team-pillar-desc">
-              Specialized in visual rhythm, audio engineering, kinetic typography, and pattern interrupts that keep senior buyers engaged.
-            </p>
-          </div>
-
-          <div class="ks-team-pillar-card">
-            <div class="ks-team-pillar-head">
-              <span class="ks-team-pillar-icon">✦</span>
-              <h3 class="ks-team-pillar-title">End-to-End Strategic Ownership</h3>
-            </div>
-            <p class="ks-team-pillar-desc">
-              Full accountability across every stage, from topic research and scripting to custom thumbnail split-testing and scheduled distribution.
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -930,7 +865,6 @@
         <ul>
           <li><a href="#work">Work</a></li>
           <li><a href="#engine">Strategy</a></li>
-          <li><a href="#team">Team</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -964,11 +898,7 @@
        INTERACTION SCRIPTS (CURSOR, NAV & TABS)
        ══════════════════════════════════════════════════════════════════ -->
   <script>
-    // Custom Hand Cursor Grabbing Effect
-    document.addEventListener('mousedown', () => document.body.classList.add('ks-clicking'));
-    document.addEventListener('mouseup', () => document.body.classList.remove('ks-clicking'));
-
-    // Smooth Scroll for navigation links
+    // Direct navigation for links without scroll animation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -976,23 +906,23 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
         }
       });
     });
 
-    // Hero Mockup click to scroll to Selected Work
+    // Hero Mockup click to navigate to Selected Work
     const showreelTrigger = document.getElementById('heroShowreelTrigger');
     if (showreelTrigger) {
       showreelTrigger.addEventListener('click', () => {
         const workSec = document.getElementById('work');
-        if (workSec) workSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (workSec) workSec.scrollIntoView({ behavior: 'auto', block: 'start' });
       });
       showreelTrigger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           const workSec = document.getElementById('work');
-          if (workSec) workSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (workSec) workSec.scrollIntoView({ behavior: 'auto', block: 'start' });
         }
       });
     }
@@ -1034,25 +964,5 @@
       });
     });
   </script>
-
-<script id="debug-overflow">
-window.addEventListener('DOMContentLoaded', () => {
-  const bad = [];
-  document.querySelectorAll('*').forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (r.right > window.innerWidth + 2) {
-      bad.push({
-        tag: el.tagName,
-        id: el.id,
-        cls: el.className,
-        right: Math.round(r.right),
-        w: Math.round(r.width),
-        text: (el.innerText || '').slice(0, 30)
-      });
-    }
-  });
-  console.log('OVERFLOW_ELEMENTS:', JSON.stringify(bad));
-});
-</script>
 </body>
 </html>
