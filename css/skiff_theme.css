@@ -74,12 +74,14 @@
   --ks-border-subtle: rgba(0, 0, 0, 0.04);
 }
 
-/* ═══ 2. BASE STYLING ═══ */
+/* ═══ 2. BASE STYLING (ANIMATIONS REMOVED) ═══ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: var(--ks-font);
+  animation: none !important;
+  transition: none !important;
 }
 
 html {
@@ -88,7 +90,7 @@ html {
   font-family: var(--ks-font);
   font-size: 16px;
   line-height: 1.5;
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
@@ -169,7 +171,6 @@ button {
 }
 
 .ks-navbar-logo:hover {
-  transform: scale(1.02);
   opacity: 0.95;
 }
 
@@ -252,7 +253,6 @@ button {
 
 .ks-navbar-item:hover .ks-chevron {
   opacity: 1;
-  transform: translateY(1px);
 }
 
 .ks-navbar-cta {
@@ -274,7 +274,6 @@ button {
 
 .ks-navbar-cta:hover {
   background: #F3F4F6;
-  transform: scale(0.98);
 }
 
 /* ═══ 4. HERO SECTION (100% FIGMA MATCH) ═══ */
@@ -357,17 +356,13 @@ button {
 
 .ks-hero-btn-figma:hover {
   background: #242424;
-  transform: translateY(-1.5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .ks-hero-btn-figma svg {
   transition: transform 0.2s ease;
 }
 
-.ks-hero-btn-figma:hover svg {
-  transform: translateX(3px);
-}
+/* hero svg hover removed */
 
 .ks-hero-microcopy {
   margin-top: 12px;
@@ -389,10 +384,7 @@ button {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
-.ks-hero-mockup-wrap:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
-}
+/* hero mockup hover removed */
 
 .ks-hero-mockup-img {
   width: 100%;
@@ -401,9 +393,7 @@ button {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ks-hero-mockup-wrap:hover .ks-hero-mockup-img {
-  transform: scale(1.015);
-}
+/* hero img zoom hover removed */
 
 .ks-hero-play-pill {
   position: absolute;
@@ -436,13 +426,49 @@ button {
 .ks-hero-mockup-wrap:hover .ks-hero-play-pill {
   background: #18181B;
   border-color: rgba(239, 90, 60, 0.7);
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
 }
 
 .ks-hero-mockup-wrap:hover .ks-hero-play-pill svg {
   color: #FFFFFF;
-  transform: scale(1.15);
+}
+
+.ks-hero-mockup-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(24, 24, 27, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  z-index: 5;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.ks-hero-caption-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.ks-hero-mockup-wrap:hover .ks-hero-mockup-caption {
+  background: #18181B;
+  border-color: rgba(239, 90, 60, 0.6);
+  transform: translateX(-50%);
 }
 
 /* ═══ VSL UNDER CONSTRUCTION STYLES ═══ */
@@ -472,13 +498,10 @@ button {
   border-radius: 50%;
   background: #F59E0B;
   box-shadow: 0 0 10px #F59E0B;
-  animation: ks-pulse-glow 1.8s infinite ease-in-out;
+  /* animation removed */
 }
 
-@keyframes ks-pulse-glow {
-  0%, 100% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; }
-}
+/* keyframes ks-pulse-glow removed */
 
 .ks-vsl-construction-dialog {
   max-width: 500px;
@@ -568,7 +591,6 @@ button {
 
 .ks-vsl-btn-prim:hover {
   background: #DC4528;
-  transform: translateY(-2px);
 }
 
 .ks-vsl-btn-sec {
@@ -579,7 +601,6 @@ button {
 
 .ks-vsl-btn-sec:hover {
   background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
 }
 
 @media (max-width: 500px) {
@@ -740,7 +761,6 @@ button {
 
 .ks-video-close:hover {
   background: #EF5A3C;
-  transform: scale(1.08);
 }
 
 .ks-video-iframe-wrap {
@@ -865,7 +885,6 @@ button {
 }
 
 .ks-card-arrow-link:hover {
-  transform: translate(2px, -2px);
   color: #000000;
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -944,9 +963,7 @@ button {
   transition: transform 0.3s ease;
 }
 
-.ks-drive-popup:hover {
-  transform: translateY(-4px);
-}
+/* drive popup hover removed */
 
 /* ═══ 8. OPEN SOURCE DARK SECTION (#242424) ═══ */
 .ks-dark-sec {
@@ -1098,9 +1115,7 @@ button {
   transition: transform 0.2s ease;
 }
 
-.ks-link-arrow:hover {
-  transform: translateX(3px);
-}
+/* link arrow hover removed */
 
 .ks-mobile-right {
   background: #FFFFFF;
@@ -1190,10 +1205,7 @@ button {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ks-news-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-}
+/* news card hover removed */
 
 .ks-news-logo-wrap {
   height: 48px;
@@ -1299,10 +1311,7 @@ button {
   flex-direction: column;
 }
 
-.ks-blog-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-}
+/* blog card hover removed */
 
 .ks-blog-img-wrap {
   width: 100%;
@@ -1810,19 +1819,10 @@ button {
 }
 
 .ks-portfolio-tab-content {
-  animation: ksFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* animation removed */
 }
 
-@keyframes ksFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* keyframes ksFadeIn removed */
 
 .ks-portfolio-grid {
   display: grid;
@@ -1859,10 +1859,7 @@ button {
   box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.16);
 }
 
-.ks-video-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.2);
-}
+/* video card hover lift removed */
 
 .ks-video-card iframe {
   width: 100%;
@@ -1896,10 +1893,7 @@ button {
   box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.04);
 }
 
-.ks-process-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08);
-}
+/* process card hover lift removed */
 
 .ks-process-step-badge {
   display: inline-block;
@@ -1957,10 +1951,7 @@ button {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.ks-case-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.08);
-}
+/* case card hover lift removed */
 
 .ks-case-card-top {
   margin-bottom: 16px;
@@ -2157,8 +2148,6 @@ button {
 
 .ks-pricing-cta:hover {
   background: #EF5A3C;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(239, 90, 60, 0.35);
 }
 
 .ks-pricing-testi {
@@ -2209,9 +2198,7 @@ button {
 }
 
 .ks-package-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(239, 90, 60, 0.35);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
 }
 
 .ks-package-featured {
@@ -2384,8 +2371,6 @@ button {
 
 .ks-cta-featured:hover {
   background: #DC4528 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(239, 90, 60, 0.4) !important;
 }
 
 .ks-pricing-bottom-note {
@@ -2425,7 +2410,6 @@ button {
 
 .ks-pricing-chat-btn:hover {
   background: #EF5A3C;
-  transform: translateY(-1px);
 }
 
 .ks-pkg-testi-strip {
@@ -2525,7 +2509,7 @@ button {
 }
 
 .ks-faq-item.active .ks-faq-answer {
-  max-height: 250px;
+  max-height: 600px;
   padding-bottom: 20px;
 }
 
@@ -2539,6 +2523,451 @@ button {
 .ks-faq-footer a {
   color: #EF5A3C;
   text-decoration: underline;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   NEW STRATEGIC POSITIONING COMPONENTS (ZERO FABRICATED PROOF)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Acquisition Journey Flow ─── */
+.ks-journey-wrap {
+  margin: 44px 0 64px 0;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  padding: 36px 30px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+}
+
+.ks-journey-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 32px auto;
+}
+
+.ks-journey-header h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #18181B;
+  margin-bottom: 8px;
+}
+
+.ks-journey-header p {
+  font-size: 14.5px;
+  color: #71717A;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ks-journey-flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.ks-journey-node {
+  background: #FAFAFA;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 20px 14px;
+  text-align: center;
+  position: relative;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.ks-journey-node:hover {
+  background: #FFFFFF;
+  border-color: rgba(239, 90, 60, 0.35);
+}
+
+.ks-journey-node.highlight {
+  background: #FFF7F5;
+  border-color: rgba(239, 90, 60, 0.35);
+}
+
+.ks-journey-step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #EF5A3C;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.ks-journey-node-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #18181B;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.ks-journey-node-desc {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #71717A;
+}
+
+/* ─── 2. Selected Work Video Cards ─── */
+.ks-video-item {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* video item hover lift removed */
+
+.ks-video-item .ks-video-card {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  aspect-ratio: 16 / 9;
+}
+
+.ks-video-item.shortform-item {
+  max-width: 300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ks-video-item.shortform-item .ks-video-card {
+  aspect-ratio: 9 / 16;
+}
+
+.ks-video-item-info {
+  padding: 14px 16px;
+  background: #FFFFFF;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ks-video-item-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #EF5A3C;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.ks-video-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #18181B;
+  line-height: 1.35;
+}
+
+/* ─── 3. Built by Experienced Creators (Founder Trust) ─── */
+.ks-founder-wrap {
+  margin-top: 88px;
+  background: #18181B;
+  border-radius: 24px;
+  padding: 48px 44px;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.ks-founder-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.ks-founder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F4F4F5;
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.ks-founder-title {
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
+
+.ks-founder-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #A1A1AA;
+  margin-bottom: 14px;
+}
+
+.ks-founder-callout {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid #EF5A3C;
+  border-radius: 0 10px 10px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #E4E4E7;
+  margin-top: 18px;
+}
+
+.ks-team-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ks-team-pillar-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: all 0.2s ease;
+}
+
+.ks-team-pillar-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.ks-team-pillar-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.ks-team-pillar-icon {
+  color: #EF5A3C;
+  font-size: 16px;
+}
+
+.ks-team-pillar-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.ks-team-pillar-desc {
+  font-size: 13.5px;
+  color: #A1A1AA;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── 4. Why Us / Agency Philosophy ─── */
+.ks-why-sec {
+  margin-top: 88px;
+}
+
+.ks-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.ks-why-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 30px 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* why card hover lift removed */
+
+.ks-why-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.ks-why-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #ECECEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #18181B;
+}
+
+.ks-why-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: #A1A1AA;
+}
+
+.ks-why-title {
+  font-size: 17.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #18181B;
+  margin-bottom: 10px;
+}
+
+.ks-why-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #666666;
+  margin: 0;
+}
+
+/* ─── 5. Ideal Client Fit ─── */
+.ks-fit-sec {
+  margin-top: 88px;
+}
+
+.ks-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.ks-fit-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 36px 32px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.ks-fit-card.best-fit {
+  border-top: 4px solid #10B981;
+}
+
+.ks-fit-card.not-fit {
+  border-top: 4px solid #A1A1AA;
+  background: #FAFAFA;
+}
+
+.ks-fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.best-fit .ks-fit-badge {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.not-fit .ks-fit-badge {
+  background: #F4F4F5;
+  color: #71717A;
+}
+
+.ks-fit-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #18181B;
+  letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+
+.ks-fit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.ks-fit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #3F3F46;
+}
+
+.ks-fit-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.best-fit .ks-fit-icon {
+  background: #D1FAE5;
+  color: #059669;
+}
+
+.not-fit .ks-fit-icon {
+  background: #E4E4E7;
+  color: #71717A;
+}
+
+/* ─── 6. Single Scarcity Notice ─── */
+.ks-scarcity-card {
+  max-width: 780px;
+  margin: 32px auto 0 auto;
+  background: #ECECEB;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ks-scarcity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #EF5A3C;
+  box-shadow: 0 0 8px rgba(239, 90, 60, 0.6);
+  flex-shrink: 0;
+}
+
+.ks-scarcity-text {
+  font-size: 13.5px;
+  color: #3F3F46;
+  line-height: 1.45;
+}
+
+.ks-scarcity-text strong {
+  color: #18181B;
+  font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -2591,6 +3020,23 @@ button {
     flex-direction: column;
     align-items: flex-start;
   }
+  .ks-journey-flow {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+  .ks-founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  .ks-founder-wrap {
+    padding: 36px 28px !important;
+  }
+  .ks-why-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ks-fit-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2613,6 +3059,15 @@ button {
   }
   .ks-footer-inner {
     grid-template-columns: 1fr !important;
+  }
+  .ks-journey-flow {
+    grid-template-columns: 1fr !important;
+  }
+  .ks-founder-wrap {
+    padding: 28px 18px !important;
+  }
+  .ks-fit-card {
+    padding: 26px 18px !important;
   }
 }
 
