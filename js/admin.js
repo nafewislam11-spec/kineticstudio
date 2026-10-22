@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
       faqSecTitle: "Frequently Asked Questions",
       faqBtnText: "Book A Call",
       faqBtnUrl: "#pb-cta",
-      faqEmail: "hello@kineticstudio.co",
+      faqEmail: "nafew@kineticstudio.site",
       faqs: [
         { q: "What types of videos do you edit?", a: "We edit YouTube videos, Shorts, Reels, and other creator-focused content with clean, engaging visuals and motion graphics." },
         { q: "Do you work with creators at all subscriber levels?", a: "Yes. We work with both growing creators and established creators who want to improve their content and maintain a consistent editing style." },
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { q: "How long does it take to edit a video?", a: "Turnaround depends on the video's length and complexity, but most projects are delivered within 2–3 business days." }
       ],
 
-      email: "hello@kineticstudio.co",
+      email: "nafew@kineticstudio.site",
       footerTitle: "Ready to ride?",
       copyright: "All Rights Reserved | Kinetic Studio 2026",
       socTw: "",
