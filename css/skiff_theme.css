@@ -2172,8 +2172,127 @@ button {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   3-Tier Pricing & Packages System (Figma / Skiff Aesthetic)
+   Single Custom Offer System (Pure Custom Retainer)
    ────────────────────────────────────────────────────────────────────────── */
+.ks-single-custom-card {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(239, 90, 60, 0.32);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 60px -15px rgba(239, 90, 60, 0.1), 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+.ks-single-custom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(239, 90, 60, 0.08);
+  color: #EF5A3C;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  margin-bottom: 20px;
+}
+
+.ks-single-custom-title {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #111111;
+  margin: 0 0 14px 0;
+  line-height: 1.25;
+}
+
+.ks-single-custom-desc {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 auto 30px auto;
+}
+
+.ks-single-custom-price-box {
+  background: #FAFAFA;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 24px 28px;
+  max-width: 440px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.ks-single-custom-price {
+  font-size: clamp(38px, 4.5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #EF5A3C;
+  line-height: 1.1;
+}
+
+.ks-single-custom-sub {
+  font-size: 13.5px;
+  color: #71717A;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.ks-single-custom-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.ks-single-custom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #EF5A3C;
+  color: #FFFFFF !important;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 15px 36px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(239, 90, 60, 0.32);
+  box-sizing: border-box;
+}
+
+.ks-single-custom-btn:hover {
+  background: #DC4528;
+}
+
+.ks-single-custom-note {
+  font-size: 13px;
+  color: #71717A;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .ks-single-custom-card {
+    padding: 32px 20px;
+    border-radius: 20px;
+  }
+  .ks-single-custom-desc {
+    font-size: 14.5px;
+  }
+  .ks-single-custom-price-box {
+    padding: 18px 20px;
+  }
+  .ks-single-custom-btn {
+    width: 100%;
+  }
+}
+
 .ks-packages-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
