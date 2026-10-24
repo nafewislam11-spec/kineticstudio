@@ -384,6 +384,19 @@ button {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
 }
 
+.ks-hero-vsl-wrap {
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  cursor: default;
+}
+
+.ks-hero-vsl-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 /* hero mockup hover removed */
 
 .ks-hero-mockup-img {

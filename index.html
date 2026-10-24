@@ -188,17 +188,18 @@
         </div>
       </div>
 
-      <!-- ═══ 1165px x 567px SHOWREEL HERO MOCKUP (VSL UNDER DEVELOPMENT) ═══ -->
-      <div class="ks-hero-mockup-wrap" id="heroShowreelTrigger" role="button" tabindex="0" aria-label="Kinetic Studio Showreel Under Development">
-        <img src="assets/hero_showreel_pinterest.jpg" id="heroShowreelImg" alt="Kinetic Studio Video Production Showreel" class="ks-hero-mockup-img" loading="eager" decoding="async"/>
-        <div class="ks-vsl-badge">
-          <span class="ks-vsl-badge-dot"></span>
-          <span>In Production</span>
-        </div>
-        <div class="ks-hero-play-pill">
-          <span style="font-size:14px; line-height:1;">🚧</span>
-          <span>Showreel Under Development</span>
-        </div>
+      <!-- ═══ 1165px x 567px SHOWREEL HERO VSL VIDEO EMBED ═══ -->
+      <div class="ks-hero-mockup-wrap ks-hero-vsl-wrap" id="heroShowreelWrap" aria-label="Kinetic Studio Video Production Showreel & VSL">
+        <iframe 
+          id="heroVslIframe"
+          src="https://player.vimeo.com/video/1239019983?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+          title="Kinetic Studio Video Production Showreel & VSL" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen 
+          loading="eager">
+        </iframe>
       </div>
     </div>
   </header>
@@ -787,30 +788,24 @@
     </div>
   </footer>
 
-  <!-- ═══ VSL / SHOWREEL MODAL (UNDER DEVELOPMENT) ═══ -->
+  <!-- ═══ VSL / SHOWREEL CINEMA MODAL ═══ -->
   <div class="ks-video-modal" id="ksVideoModal" aria-hidden="true">
     <div class="ks-video-backdrop" id="ksModalBackdrop"></div>
-    <div class="ks-video-dialog ks-vsl-construction-dialog">
+    <div class="ks-video-dialog">
       <button class="ks-video-close" id="ksModalClose" aria-label="Close modal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
-      <div class="ks-vsl-construction-body">
-        <div class="ks-vsl-icon-wrap">
-          <span>🚧</span>
-        </div>
-        <div class="ks-vsl-modal-pill">In Production</div>
-        <h3 class="ks-vsl-title">Showreel Under Development</h3>
-        <p class="ks-vsl-desc">
-          We are currently finishing our updated video production showreel. In the meantime, explore our editing capabilities below or schedule a 1-on-1 editing consultation.
-        </p>
-        <div class="ks-vsl-actions">
-          <a href="#services" class="ks-vsl-btn ks-vsl-btn-sec" id="ksExploreWorkBtn">
-            Explore Services ↓
-          </a>
-          <a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener" class="ks-vsl-btn ks-vsl-btn-prim">
-            Book an Editing Call →
-          </a>
-        </div>
+      <div class="ks-video-iframe-wrap">
+        <iframe 
+          id="modalVslIframe"
+          src="https://player.vimeo.com/video/1239019983?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+          title="Kinetic Studio Video Production Showreel & VSL" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
       </div>
     </div>
   </div>
@@ -832,12 +827,11 @@
       });
     });
 
-    // Showreel / VSL Modal (Under Development)
+    // Showreel / VSL Modal Handlers
     const modal = document.getElementById('ksVideoModal');
-    const trigger = document.getElementById('heroShowreelTrigger');
     const closeBtn = document.getElementById('ksModalClose');
     const backdrop = document.getElementById('ksModalBackdrop');
-    const exploreBtn = document.getElementById('ksExploreWorkBtn');
+    const modalIframe = document.getElementById('modalVslIframe');
 
     function openModal() {
       if (modal) {
@@ -852,22 +846,16 @@
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-      }
-    }
-
-    if (trigger) {
-      trigger.addEventListener('click', openModal);
-      trigger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openModal();
+        if (modalIframe) {
+          const currentSrc = modalIframe.getAttribute('src');
+          modalIframe.setAttribute('src', '');
+          modalIframe.setAttribute('src', currentSrc);
         }
-      });
+      }
     }
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (backdrop) backdrop.addEventListener('click', closeModal);
-    if (exploreBtn) exploreBtn.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
         closeModal();
