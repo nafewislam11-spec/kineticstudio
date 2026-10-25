@@ -434,16 +434,32 @@ button {
 }
 
 .ks-mega-icon-box {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
-  background: rgba(239, 90, 60, 0.14);
-  border: 1px solid rgba(239, 90, 60, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
   flex-shrink: 0;
+  color: #A1A1AA;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.ks-mega-icon-box svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  display: block;
+  transition: stroke 0.2s ease, transform 0.2s ease !important;
+}
+
+.ks-mega-item:hover .ks-mega-icon-box {
+  background: rgba(239, 90, 60, 0.16);
+  border-color: rgba(239, 90, 60, 0.4);
+  color: #EF5A3C;
+  transform: translateY(-1px) !important;
 }
 
 .ks-mega-item-text {
@@ -479,16 +495,29 @@ button {
 }
 
 .ks-mega-feature-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   align-self: flex-start;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: #EF5A3C;
   background: rgba(239, 90, 60, 0.16);
+  border: 1px solid rgba(239, 90, 60, 0.3);
   padding: 3px 8px;
   border-radius: 999px;
   margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.ks-feature-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #EF5A3C;
+  box-shadow: 0 0 6px #EF5A3C;
+  display: inline-block;
 }
 
 .ks-mega-feature-title {
