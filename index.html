@@ -133,7 +133,7 @@
       </ul>
 
       <!-- Right: Book A Call CTA -->
-      <a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener" class="ks-navbar-cta" id="navCtaBtn">
+      <a href="#book-call" class="ks-navbar-cta" id="navCtaBtn">
         Get a Custom Quote
       </a>
     </nav>
@@ -160,7 +160,7 @@
         </p>
 
         <div class="ks-hero-cta-wrap" style="display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
-          <a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener" class="ks-hero-btn-figma">
+          <a href="#book-call" class="ks-hero-btn-figma">
             <span>GET A CUSTOM QUOTE</span>
             <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 9.61L12.27 4.81L7.47 0L6.53 0.94L9.72 4.14H0V5.47H9.72L6.53 8.67L7.47 9.61Z" fill="white"/>
@@ -710,7 +710,7 @@
       <p>Partner with a dedicated video editing team that treats your content like their own. Let's discuss your channels, style references, and monthly editing volume.</p>
 
       <div class="ks-hero-cta-wrap">
-        <a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener" class="ks-hero-btn-figma">
+        <a href="#book-call" class="ks-hero-btn-figma">
           <span>BOOK AN EDITING CALL</span>
           <svg width="13" height="10" viewBox="0 0 13 10" fill="none">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 9.61L12.27 4.81L7.47 0L6.53 0.94L9.72 4.14H0V5.47H9.72L6.53 8.67L7.47 9.61Z" fill="white"/>
@@ -770,7 +770,7 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:nafew@kineticstudio.site">nafew@kineticstudio.site</a></li>
-          <li><a href="https://calendly.com/nafewislam11/new-meeting" target="_blank" rel="noopener">Book an Editing Call</a></li>
+          <li><a href="#book-call">Book an Editing Call</a></li>
         </ul>
       </div>
     </div>
@@ -802,7 +802,7 @@
        INTERACTION SCRIPTS (CURSOR, NAV & TABS)
        ══════════════════════════════════════════════════════════════════ -->
   <script>
-    // Direct navigation for links without scroll animation
+    // Smooth scroll for in-page navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -810,7 +810,7 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });

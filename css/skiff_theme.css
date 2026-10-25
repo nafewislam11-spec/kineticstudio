@@ -90,13 +90,17 @@ html {
   font-family: var(--ks-font);
   font-size: 16px;
   line-height: 1.5;
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
   overflow-x: clip;
+}
+
+#book-call, #services, #work, #process, #faq, #contact, .ks-pricing-sec, .ks-section {
+  scroll-margin-top: 96px;
 }
 
 body {
