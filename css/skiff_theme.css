@@ -2310,108 +2310,45 @@ button {
    Calendly Booking Section System (Skiff / Figma Theme)
    ────────────────────────────────────────────────────────────────────────── */
 .ks-calendly-container {
-  max-width: 980px;
+  max-width: 1040px;
   margin: 0 auto;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
   position: relative;
-  min-height: 720px;
-}
-
-.ks-calendly-header {
-  padding: 20px 32px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: #FAFAFA;
-}
-
-.ks-calendly-header-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.ks-calendly-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #EF5A3C;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 17px;
-  box-shadow: 0 4px 12px rgba(239, 90, 60, 0.3);
-}
-
-.ks-calendly-header-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #111111;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.ks-calendly-header-sub {
-  font-size: 13px;
-  color: #71717A;
-  margin: 3px 0 0 0;
-}
-
-.ks-calendly-header-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #DCFCE7;
-  color: #15803D;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 9999px;
-  white-space: nowrap;
-}
-
-.ks-calendly-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #16A34A;
+  min-height: 950px;
 }
 
 .ks-calendly-widget-wrap {
   width: 100%;
-  min-height: 700px;
+  min-height: 950px;
+  height: 950px;
   background: #FFFFFF;
   position: relative;
+  overflow: hidden;
 }
 
 .ks-calendly-widget-wrap .calendly-inline-widget {
   min-width: 320px;
-  height: 700px;
+  height: 950px !important;
   width: 100% !important;
+  border: none !important;
 }
 
 @media (max-width: 768px) {
   .ks-calendly-container {
-    border-radius: 18px;
-    min-height: 660px;
+    border-radius: 16px;
+    min-height: 1060px;
   }
-  .ks-calendly-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 20px;
-    gap: 12px;
+  .ks-calendly-widget-wrap {
+    min-height: 1060px;
+    height: 1060px;
   }
   .ks-calendly-widget-wrap .calendly-inline-widget {
-    height: 660px;
+    height: 1060px !important;
   }
 }
 
