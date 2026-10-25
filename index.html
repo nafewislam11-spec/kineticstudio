@@ -103,7 +103,7 @@
 <body>
 
   <!-- ══════════════════════════════════════════════════════════════════
-       1. EXACT FIGMA NAVBAR (640px x 46px #303030 PILL)
+       1. EXACT FIGMA NAVBAR WITH MORPHING MEGA MENU (STRIPE / EASY-UI STYLE)
        ══════════════════════════════════════════════════════════════════ -->
   <div class="ks-navbar-wrap">
     <nav class="ks-navbar" aria-label="Main Navigation">
@@ -113,16 +113,25 @@
         <span>Kinetic Studio</span>
       </a>
 
-      <!-- Center: Menu links -->
+      <!-- Center: Menu links with Dropdown Triggers -->
       <ul class="ks-navbar-links">
-        <li class="ks-navbar-item">
-          <a href="#work" class="ks-navbar-link">Work</a>
+        <li class="ks-navbar-item" data-dropdown="work">
+          <a href="#work" class="ks-navbar-link">
+            <span>Work</span>
+            <svg class="ks-chevron" width="9" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </li>
-        <li class="ks-navbar-item">
-          <a href="#services" class="ks-navbar-link">Services</a>
+        <li class="ks-navbar-item" data-dropdown="services">
+          <a href="#services" class="ks-navbar-link">
+            <span>Services</span>
+            <svg class="ks-chevron" width="9" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </li>
-        <li class="ks-navbar-item">
-          <a href="#process" class="ks-navbar-link">Process</a>
+        <li class="ks-navbar-item" data-dropdown="process">
+          <a href="#process" class="ks-navbar-link">
+            <span>Process</span>
+            <svg class="ks-chevron" width="9" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </li>
         <li class="ks-navbar-item">
           <a href="#book-call" class="ks-navbar-link">Book a Call</a>
@@ -136,6 +145,132 @@
       <a href="#book-call" class="ks-navbar-cta" id="navCtaBtn">
         Get a Custom Quote
       </a>
+
+      <!-- ═══ MORPHING MEGA MENU POPOVER CONTAINER ═══ -->
+      <div class="ks-mega-container" aria-hidden="true">
+        <div class="ks-mega-arrow"></div>
+        <div class="ks-mega-card">
+          <div class="ks-mega-viewport">
+
+            <!-- Panel 1: Work -->
+            <div class="ks-mega-panel" data-panel="work">
+              <div class="ks-mega-work-layout">
+                <div class="ks-mega-links-col">
+                  <div class="ks-mega-col-heading">SHOWCASE VAULT</div>
+                  <a href="#work" class="ks-mega-item" data-tab="longform">
+                    <div class="ks-mega-icon-box">🎬</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">YouTube Longform</div>
+                      <div class="ks-mega-item-desc">Retention-engineered 10-30m edits & documentary cuts.</div>
+                    </div>
+                  </a>
+                  <a href="#work" class="ks-mega-item" data-tab="shortform">
+                    <div class="ks-mega-icon-box">⚡</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">Shortform & Reels</div>
+                      <div class="ks-mega-item-desc">9:16 kinetic typography, viral hooks & TikTok cuts.</div>
+                    </div>
+                  </a>
+                  <a href="#work" class="ks-mega-item">
+                    <div class="ks-mega-icon-box">🎨</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">Motion Design & SFX</div>
+                      <div class="ks-mega-item-desc">Lower thirds, 3D titles and dynamic cinema sound design.</div>
+                    </div>
+                  </a>
+                </div>
+                <div class="ks-mega-feature-card">
+                  <div>
+                    <div class="ks-mega-feature-badge">✦ 10+ VIDEOS</div>
+                    <div class="ks-mega-feature-title">Verified Client Edits</div>
+                    <p class="ks-mega-feature-p">Explore our production vault with live Vimeo previews & retention breakdowns.</p>
+                  </div>
+                  <a href="#work" class="ks-mega-feature-btn">Explore Portfolio →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: Services -->
+            <div class="ks-mega-panel" data-panel="services">
+              <div class="ks-mega-services-layout">
+                <div class="ks-mega-col-heading">POST-PRODUCTION SERVICES</div>
+                <div class="ks-mega-services-grid">
+                  <a href="#services" class="ks-mega-item">
+                    <div class="ks-mega-icon-box">✂️</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">End-to-End Editing</div>
+                      <div class="ks-mega-item-desc">Raw footage intake to 4K delivery.</div>
+                    </div>
+                  </a>
+                  <a href="#services" class="ks-mega-item">
+                    <div class="ks-mega-icon-box">📈</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">Retention Engineering</div>
+                      <div class="ks-mega-item-desc">Pacing & pattern interrupts.</div>
+                    </div>
+                  </a>
+                  <a href="#services" class="ks-mega-item">
+                    <div class="ks-mega-icon-box">🖼️</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">High-CTR Packaging</div>
+                      <div class="ks-mega-item-desc">Custom thumbnails & concepts.</div>
+                    </div>
+                  </a>
+                  <a href="#services" class="ks-mega-item">
+                    <div class="ks-mega-icon-box">⏱️</div>
+                    <div class="ks-mega-item-text">
+                      <div class="ks-mega-item-title">48h Draft Turnaround</div>
+                      <div class="ks-mega-item-desc">Slack & Frame.io on autopilot.</div>
+                    </div>
+                  </a>
+                </div>
+                <div class="ks-mega-bottom-bar">
+                  <span>Need a tailored scope for your channel?</span>
+                  <a href="#book-call">Get Custom Quote →</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Process -->
+            <div class="ks-mega-panel" data-panel="process">
+              <div class="ks-mega-process-layout">
+                <div class="ks-mega-col-heading">PRODUCTION WORKFLOW</div>
+                <div class="ks-mega-process-list">
+                  <a href="#process" class="ks-mega-step-item">
+                    <div class="ks-mega-step-num">01</div>
+                    <div class="ks-mega-step-content">
+                      <div class="ks-mega-item-title">Footage Intake</div>
+                      <div class="ks-mega-item-desc">Drop raw A-roll & audio into Drive or Frame.io.</div>
+                    </div>
+                  </a>
+                  <a href="#process" class="ks-mega-step-item">
+                    <div class="ks-mega-step-num">02</div>
+                    <div class="ks-mega-step-content">
+                      <div class="ks-mega-item-title">First Draft in 48h</div>
+                      <div class="ks-mega-item-desc">Pacing, b-roll curation & sound design master.</div>
+                    </div>
+                  </a>
+                  <a href="#process" class="ks-mega-step-item">
+                    <div class="ks-mega-step-num">03</div>
+                    <div class="ks-mega-step-content">
+                      <div class="ks-mega-item-title">Timestamped Feedback</div>
+                      <div class="ks-mega-item-desc">Frame-accurate revisions until 100% satisfied.</div>
+                    </div>
+                  </a>
+                  <a href="#process" class="ks-mega-step-item">
+                    <div class="ks-mega-step-num">04</div>
+                    <div class="ks-mega-step-content">
+                      <div class="ks-mega-item-title">Publish-Ready Export</div>
+                      <div class="ks-mega-item-desc">Color-graded 4K files ready to upload.</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </nav>
   </div>
 
@@ -886,6 +1021,97 @@
         if (!isActive) item.classList.add('active');
       });
     });
+
+    // ═══ MORPHING MEGA MENU LOGIC (STRIPE / EASY-UI STYLE) ═══
+    (function initMorphingMegaMenu() {
+      const navbar = document.querySelector('.ks-navbar');
+      const navWrap = document.querySelector('.ks-navbar-wrap');
+      const container = document.querySelector('.ks-mega-container');
+      const card = document.querySelector('.ks-mega-card');
+      const arrow = document.querySelector('.ks-mega-arrow');
+      const triggers = document.querySelectorAll('.ks-navbar-item[data-dropdown]');
+      const nonTriggers = document.querySelectorAll('.ks-navbar-item:not([data-dropdown]), .ks-navbar-logo, .ks-navbar-cta');
+      const panels = document.querySelectorAll('.ks-mega-panel');
+
+      if (!navbar || !container || !card || !arrow || triggers.length === 0) return;
+
+      let closeTimer = null;
+
+      function openDropdown(triggerEl) {
+        clearTimeout(closeTimer);
+        const dropdownName = triggerEl.getAttribute('data-dropdown');
+        const targetPanel = container.querySelector('.ks-mega-panel[data-panel="' + dropdownName + '"]');
+        if (!targetPanel) return;
+
+        triggers.forEach(t => t.classList.remove('active-dropdown'));
+        triggerEl.classList.add('active-dropdown');
+
+        panels.forEach(p => p.classList.remove('active'));
+        targetPanel.classList.add('active');
+
+        // Natural dimensions
+        const panelW = targetPanel.offsetWidth;
+        const panelH = targetPanel.offsetHeight;
+
+        // Relative coordinates inside .ks-navbar
+        const navRect = navbar.getBoundingClientRect();
+        const triggerRect = triggerEl.getBoundingClientRect();
+        const triggerCenter = (triggerRect.left + triggerRect.width / 2) - navRect.left;
+
+        let cardLeft = triggerCenter - (panelW / 2);
+        const minLeft = 8;
+        const maxLeft = navbar.offsetWidth - panelW - 8;
+        cardLeft = Math.max(minLeft, Math.min(cardLeft, maxLeft));
+
+        const arrowLeft = triggerCenter - 5;
+
+        // Morphing transforms
+        card.style.width = panelW + 'px';
+        card.style.height = panelH + 'px';
+        card.style.transform = 'translate(' + cardLeft + 'px, 0px) scale(1)';
+        card.classList.add('is-open');
+
+        arrow.style.transform = 'translate(' + arrowLeft + 'px, 0px) rotate(45deg)';
+        arrow.classList.add('is-open');
+      }
+
+      function closeDropdown() {
+        closeTimer = setTimeout(() => {
+          triggers.forEach(t => t.classList.remove('active-dropdown'));
+          panels.forEach(p => p.classList.remove('active'));
+          card.classList.remove('is-open');
+          arrow.classList.remove('is-open');
+        }, 140);
+      }
+
+      triggers.forEach(trigger => {
+        trigger.addEventListener('mouseenter', () => openDropdown(trigger));
+      });
+
+      nonTriggers.forEach(item => {
+        item.addEventListener('mouseenter', closeDropdown);
+      });
+
+      navWrap.addEventListener('mouseleave', closeDropdown);
+      container.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      container.addEventListener('mouseleave', closeDropdown);
+
+      // Handle item clicks inside the mega menu
+      container.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          const tabTarget = link.getAttribute('data-tab');
+          if (tabTarget) {
+            const tabBtn = document.getElementById('tab-' + tabTarget);
+            if (tabBtn) tabBtn.click();
+          }
+          clearTimeout(closeTimer);
+          triggers.forEach(t => t.classList.remove('active-dropdown'));
+          panels.forEach(p => p.classList.remove('active'));
+          card.classList.remove('is-open');
+          arrow.classList.remove('is-open');
+        });
+      });
+    })();
   </script>
 </body>
 </html>

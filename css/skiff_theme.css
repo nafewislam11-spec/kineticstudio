@@ -280,6 +280,341 @@ button {
   background: #F3F4F6;
 }
 
+/* ═══ MORPHING MEGA MENU (STRIPE / EASY-UI STYLE) ═══ */
+.ks-navbar {
+  position: relative;
+}
+
+.ks-navbar-item[data-dropdown] .ks-navbar-link {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ks-chevron {
+  display: inline-block;
+  opacity: 0.6;
+  transform: rotate(0deg);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease !important;
+}
+
+.ks-navbar-item.active-dropdown .ks-chevron {
+  opacity: 1;
+  transform: rotate(180deg) !important;
+  color: #EF5A3C;
+}
+
+.ks-navbar-item.active-dropdown .ks-navbar-link {
+  color: #FFFFFF;
+}
+
+.ks-mega-container {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.ks-mega-arrow {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #1C1C1E;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  transform: translateX(0px) rotate(45deg);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, visibility 0.2s ease !important;
+}
+
+.ks-mega-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(28, 28, 30, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform-origin: top center;
+  transform: translateY(8px) scale(0.96);
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              visibility 0.2s ease !important;
+}
+
+.ks-mega-card.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.ks-mega-arrow.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ks-mega-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ks-mega-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(12px);
+  transition: opacity 0.2s ease, transform 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box;
+  color: #FFFFFF;
+}
+
+.ks-mega-panel.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.ks-mega-col-heading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #A1A1AA;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+/* Panel 1: Work Layout */
+.ks-mega-work-layout {
+  width: 540px;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 16px;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.ks-mega-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ks-mega-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.18s ease, transform 0.18s ease !important;
+}
+
+.ks-mega-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.ks-mega-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(239, 90, 60, 0.14);
+  border: 1px solid rgba(239, 90, 60, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.ks-mega-item-text {
+  flex: 1;
+}
+
+.ks-mega-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.ks-mega-item:hover .ks-mega-item-title {
+  color: #EF5A3C;
+}
+
+.ks-mega-item-desc {
+  font-size: 12px;
+  color: #A1A1AA;
+  line-height: 1.4;
+}
+
+.ks-mega-feature-card {
+  background: linear-gradient(135deg, rgba(239, 90, 60, 0.14), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(239, 90, 60, 0.25);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ks-mega-feature-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #EF5A3C;
+  background: rgba(239, 90, 60, 0.16);
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.ks-mega-feature-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.ks-mega-feature-p {
+  font-size: 12px;
+  color: #A1A1AA;
+  line-height: 1.45;
+  margin: 0 0 14px 0;
+}
+
+.ks-mega-feature-btn {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: #EF5A3C;
+  padding: 8px 14px;
+  border-radius: 9px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s ease !important;
+}
+
+.ks-mega-feature-btn:hover {
+  background: #DC4528;
+}
+
+/* Panel 2: Services Layout */
+.ks-mega-services-layout {
+  width: 500px;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.ks-mega-services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ks-mega-bottom-bar {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #A1A1AA;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.ks-mega-bottom-bar a {
+  color: #EF5A3C;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ks-mega-bottom-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Panel 3: Process Layout */
+.ks-mega-process-layout {
+  width: 440px;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.ks-mega-process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ks-mega-step-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.18s ease !important;
+}
+
+.ks-mega-step-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ks-mega-step-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: #EF5A3C;
+  background: rgba(239, 90, 60, 0.14);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ks-mega-step-content {
+  flex: 1;
+}
+
+.ks-mega-step-item:hover .ks-mega-item-title {
+  color: #EF5A3C;
+}
+
+@media (max-width: 768px) {
+  .ks-mega-container {
+    display: none !important;
+  }
+  .ks-chevron {
+    display: none !important;
+  }
+}
+
 /* ═══ 4. HERO SECTION (100% FIGMA MATCH) ═══ */
 .ks-hero-sec {
   background-color: #F5F5F4;
