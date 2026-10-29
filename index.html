@@ -369,17 +369,21 @@
 
     <!-- Longform Grid (16:9 Landscape) -->
     <div class="ks-portfolio-grid ks-portfolio-tab-content active" id="portfolio-longform">
-      <div class="ks-video-card">
-        <iframe title="vimeo-player" src="https://player.vimeo.com/video/1231872909?h=e60ac7b62a" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen loading="lazy"></iframe>
+      <!-- Video 1 (High-res preview thumbnail + click to play) -->
+      <div class="ks-video-card" id="videoCard1">
+        <div class="ks-video-facade" onclick="this.innerHTML='<iframe title=\'vimeo-player\' src=\'https://player.vimeo.com/video/1231872909?h=e60ac7b62a&autoplay=1&title=0&byline=0&portrait=0\' frameborder=\'0\' referrerpolicy=\'strict-origin-when-cross-origin\' allow=\'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share\' allowfullscreen></iframe>'; this.classList.add('playing');" role="button" tabindex="0" aria-label="Play video">
+          <img src="assets/longform_1_thumb.png" alt="Featured Client Video Edit" class="ks-facade-thumb"/>
+          <div class="ks-facade-play-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </div>
+          <div class="ks-facade-duration">00:57</div>
+        </div>
       </div>
       <div class="ks-video-card">
         <iframe src="https://player.vimeo.com/video/1188735532?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
       <div class="ks-video-card">
         <iframe src="https://player.vimeo.com/video/1188734977?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="ks-video-card">
-        <iframe src="https://player.vimeo.com/video/1239019983?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
 
