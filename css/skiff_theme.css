@@ -99,7 +99,7 @@ html {
   overflow-x: clip;
 }
 
-#book-call, #services, #work, #process, #faq, #contact, .ks-pricing-sec, .ks-section {
+#book-call, #services, #work, #case, #reviews, #why-us, #process, #faq, #contact, .ks-pricing-sec, .ks-section {
   scroll-margin-top: 96px;
 }
 
@@ -3616,5 +3616,185 @@ button {
     padding: 26px 18px !important;
   }
 }
+
+/* ═══ CASE STUDY CARD (SKIFF THEME) ═══ */
+.ks-case-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  padding: 44px;
+  box-sizing: border-box;
+}
+
+.ks-case-top-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ks-case-num-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #EF5A3C;
+  background: rgba(239, 90, 60, 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.ks-case-tag-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #71717A;
+}
+
+.ks-case-quote-h3 {
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px 0;
+  max-width: 900px;
+}
+
+.ks-case-author-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-wrap: wrap;
+}
+
+.ks-case-grid-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.ks-case-metrics-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.ks-case-metric-box {
+  background: #F8F8F7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+}
+
+.ks-case-metric-val {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  color: #EF5A3C;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.ks-case-metric-lbl {
+  font-size: 13px;
+  color: #52525B;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ks-case-media-box {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  background: #000000;
+}
+
+.ks-case-media-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ═══ REVIEWS 3-COL GRID (SKIFF THEME) ═══ */
+.ks-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ks-review-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.04);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ks-review-stars {
+  color: #F59E0B;
+  font-size: 14px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+
+.ks-review-quote {
+  font-size: 15px;
+  color: #27272A;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.ks-review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ks-review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ks-review-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+}
+
+.ks-review-role {
+  font-size: 12.5px;
+  color: #71717A;
+  margin: 2px 0 0 0;
+}
+
+@media (max-width: 900px) {
+  .ks-case-grid-body {
+    grid-template-columns: 1fr;
+  }
+  .ks-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+  .ks-case-card {
+    padding: 28px 20px;
+  }
+}
+
 
 
