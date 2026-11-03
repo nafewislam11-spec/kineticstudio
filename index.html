@@ -216,11 +216,11 @@
                 </div>
                 <div class="ks-mega-feature-card">
                   <div>
-                    <div class="ks-mega-feature-badge"><span class="ks-feature-badge-dot"></span>VERIFIED VAULT</div>
-                    <div class="ks-mega-feature-title">Verified Video Vault</div>
-                    <p class="ks-mega-feature-p">Explore our production vault with live Vimeo previews & retention breakdowns.</p>
+                    <div class="ks-mega-feature-badge"><span class="ks-feature-badge-dot" style="background:#F59E0B; box-shadow:0 0 8px #F59E0B;"></span>IN PRODUCTION</div>
+                    <div class="ks-mega-feature-title">Showcase Vault</div>
+                    <p class="ks-mega-feature-p">Our showcase vault is currently under development. Schedule a strategy call to inspect private references.</p>
                   </div>
-                  <a href="#work" class="ks-mega-feature-btn">Explore Portfolio →</a>
+                  <a href="#work" class="ks-mega-feature-btn">View Status →</a>
                 </div>
               </div>
             </div>
@@ -384,18 +384,17 @@
         </div>
       </div>
 
-      <!-- ═══ 1165px x 567px SHOWREEL HERO VSL VIDEO EMBED ═══ -->
-      <div class="ks-hero-mockup-wrap ks-hero-vsl-wrap" id="heroShowreelWrap" aria-label="Kinetic Studio Video Production Showreel & VSL">
-        <iframe 
-          id="heroVslIframe"
-          src="https://player.vimeo.com/video/1239019983?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
-          title="Kinetic Studio Video Production Showreel & VSL" 
-          frameborder="0" 
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          allowfullscreen 
-          loading="eager">
-        </iframe>
+      <!-- ═══ 1165px x 567px SHOWREEL HERO MOCKUP (VSL UNDER DEVELOPMENT) ═══ -->
+      <div class="ks-hero-mockup-wrap" id="heroShowreelTrigger" role="button" tabindex="0" aria-label="Kinetic Studio VSL Under Development">
+        <img src="assets/hero_showreel_pinterest.jpg" id="heroShowreelImg" alt="Kinetic Studio Video Production Showreel" class="ks-hero-mockup-img" loading="eager" decoding="async"/>
+        <div class="ks-vsl-badge">
+          <span class="ks-vsl-badge-dot"></span>
+          <span>In Production</span>
+        </div>
+        <div class="ks-hero-play-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#EF5A3C;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span>VSL Under Development</span>
+        </div>
       </div>
     </div>
   </header>
@@ -546,10 +545,16 @@
       </div>
     </div>
 
-    <!-- ═══ SELECTED WORK / PRODUCTION SHOWCASE (#work) ═══ -->
+    <!-- ═══ SELECTED WORK / PRODUCTION SHOWCASE (UNDER DEVELOPMENT) (#work) ═══ -->
     <div class="ks-portfolio-header" id="work" style="margin-top:88px;">
       <div>
-        <span class="ks-card-badge badge-mail" style="margin-bottom:12px; display:inline-block;">Showcase</span>
+        <div style="display:inline-flex; align-items:center; gap:8px; margin-bottom:12px;">
+          <span class="ks-card-badge badge-mail" style="margin-bottom:0;">Showcase</span>
+          <div class="ks-vsl-badge" style="position:static; margin:0; padding:4px 11px; font-size:11.5px;">
+            <span class="ks-vsl-badge-dot"></span>
+            <span>Under Development</span>
+          </div>
+        </div>
         <h2 style="font-size: clamp(28px, 3.5vw, 44px); font-weight: 500; letter-spacing: -0.025em; margin:0 0 8px 0;">Selected Work & Content Showcase</h2>
         <p style="font-size: 15px; color: #666666; max-width: 680px; margin:0 0 16px 0;">
           A curated selection of long-form and short-form client acquisition systems produced by our team.
@@ -572,36 +577,53 @@
       </a>
     </div>
 
-    <!-- Longform Grid (16:9 Landscape) -->
-    <div class="ks-portfolio-grid ks-portfolio-tab-content active" id="portfolio-longform">
-      <!-- Video 1 (High-res preview thumbnail + click to play) -->
-      <div class="ks-video-card" id="videoCard1">
-        <div class="ks-video-facade" onclick="this.innerHTML='<iframe title=\'vimeo-player\' src=\'https://player.vimeo.com/video/1231872909?h=e60ac7b62a&autoplay=1&title=0&byline=0&portrait=0\' frameborder=\'0\' referrerpolicy=\'strict-origin-when-cross-origin\' allow=\'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share\' allowfullscreen></iframe>'; this.classList.add('playing');" role="button" tabindex="0" aria-label="Play video">
-          <img src="assets/longform_1_thumb.png" alt="Featured Client Video Edit" class="ks-facade-thumb"/>
-          <div class="ks-facade-play-btn">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-          </div>
-          <div class="ks-facade-duration">00:57</div>
+    <!-- Longform Tab Content (Under Development) -->
+    <div class="ks-portfolio-tab-content active" id="portfolio-longform">
+      <div class="ks-showcase-dev-card">
+        <div class="ks-showcase-dev-glow"></div>
+        <div class="ks-vsl-icon-wrap" style="margin-bottom:14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF5A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
-      </div>
-      <div class="ks-video-card">
-        <iframe src="https://player.vimeo.com/video/1188735532?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="ks-video-card">
-        <iframe src="https://player.vimeo.com/video/1188734977?title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="ks-vsl-modal-pill">
+          <span class="ks-vsl-badge-dot" style="margin-right:6px;"></span> In Production · Longform Vault
+        </div>
+        <h3 class="ks-showcase-dev-title">Longform YouTube Projects Under Development</h3>
+        <p class="ks-showcase-dev-desc">
+          We are currently remastering our verified high-ticket client breakdowns and full retention case studies. In the meantime, explore our strategic process below or schedule a 1-on-1 strategy call to inspect our private client vault.
+        </p>
+        <div class="ks-showcase-dev-actions">
+          <a href="#process" class="ks-vsl-btn ks-vsl-btn-sec" style="color:#FFFFFF;">
+            Explore Process ↓
+          </a>
+          <a href="#book-call" class="ks-vsl-btn ks-vsl-btn-prim">
+            Book Strategy Call →
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Shortform Grid (9:16 Vertical Phone/Reels) -->
-    <div class="ks-portfolio-grid shortform-grid ks-portfolio-tab-content" id="portfolio-shortform" style="display:none;">
-      <div class="ks-video-card shortform-card">
-        <iframe src="https://player.vimeo.com/video/1231882231?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" title="Reel 1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="ks-video-card shortform-card">
-        <iframe title="vimeo-player" src="https://player.vimeo.com/video/1231882250?h=bc9ad5d086" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen loading="lazy"></iframe>
-      </div>
-      <div class="ks-video-card shortform-card">
-        <iframe title="vimeo-player" src="https://player.vimeo.com/video/1231882264?h=078510aae4" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen loading="lazy"></iframe>
+    <!-- Shortform Tab Content (Under Development) -->
+    <div class="ks-portfolio-tab-content" id="portfolio-shortform" style="display:none;">
+      <div class="ks-showcase-dev-card">
+        <div class="ks-showcase-dev-glow"></div>
+        <div class="ks-vsl-icon-wrap" style="margin-bottom:14px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF5A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="ks-vsl-modal-pill">
+          <span class="ks-vsl-badge-dot" style="margin-right:6px;"></span> In Production · Shortform Vault
+        </div>
+        <h3 class="ks-showcase-dev-title">Shortform Personal Branding Under Development</h3>
+        <p class="ks-showcase-dev-desc">
+          Our 9:16 viral short-form portfolio (Reels, TikToks, and YouTube Shorts) is currently being curated with fresh 2026 client retention metrics and funnel case studies.
+        </p>
+        <div class="ks-showcase-dev-actions">
+          <a href="#process" class="ks-vsl-btn ks-vsl-btn-sec" style="color:#FFFFFF;">
+            Explore Process ↓
+          </a>
+          <a href="#book-call" class="ks-vsl-btn ks-vsl-btn-prim">
+            Book Strategy Call →
+          </a>
+        </div>
       </div>
     </div>
 
@@ -981,6 +1003,34 @@
     </div>
   </footer>
 
+  <!-- ═══ VSL / SHOWREEL MODAL (UNDER DEVELOPMENT) ═══ -->
+  <div class="ks-video-modal" id="ksVideoModal" aria-hidden="true">
+    <div class="ks-video-backdrop" id="ksModalBackdrop"></div>
+    <div class="ks-video-dialog ks-vsl-construction-dialog">
+      <button class="ks-video-close" id="ksModalClose" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="ks-vsl-construction-body">
+        <div class="ks-vsl-icon-wrap">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#EF5A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="ks-vsl-modal-pill">In Production</div>
+        <h3 class="ks-vsl-title">New VSL Under Development</h3>
+        <p class="ks-vsl-desc">
+          We are currently filming and editing our brand new acquisition breakdown. In the meantime, explore our strategic process below or schedule a 1-on-1 strategy call.
+        </p>
+        <div class="ks-vsl-actions">
+          <a href="#process" class="ks-vsl-btn ks-vsl-btn-sec" id="ksExploreWorkBtn">
+            Explore Process ↓
+          </a>
+          <a href="#book-call" class="ks-vsl-btn ks-vsl-btn-prim" id="ksBookCallModalBtn">
+            Book Strategy Call →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════════════════════════════════════════════════════════
        INTERACTION SCRIPTS (CURSOR, NAV, TABS & MEGA MENU)
        ══════════════════════════════════════════════════════════════════ -->
@@ -1001,41 +1051,93 @@
       });
     });
 
-    // Portfolio Tab Switcher (Longform vs Shortform)
+    // Portfolio Tab Switcher (Longform vs Shortform - Under Development)
     const portfolioTabs = document.querySelectorAll('.ks-portfolio-tab');
     const longformGrid = document.getElementById('portfolio-longform');
     const shortformGrid = document.getElementById('portfolio-shortform');
 
-    portfolioTabs.forEach(tab => {
-      tab.addEventListener('click', function() {
-        portfolioTabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        this.classList.add('active');
-        this.setAttribute('aria-selected', 'true');
+    if (portfolioTabs.length && longformGrid && shortformGrid) {
+      portfolioTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          portfolioTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          this.classList.add('active');
+          this.setAttribute('aria-selected', 'true');
 
-        const target = this.getAttribute('data-target');
-        if (target === 'longform') {
-          if (longformGrid) {
-            longformGrid.style.display = 'grid';
+          const target = this.getAttribute('data-target');
+          if (target === 'longform') {
+            longformGrid.style.display = 'block';
             longformGrid.classList.add('active');
-          }
-          if (shortformGrid) {
             shortformGrid.style.display = 'none';
             shortformGrid.classList.remove('active');
-          }
-        } else if (target === 'shortform') {
-          if (longformGrid) {
+          } else if (target === 'shortform') {
             longformGrid.style.display = 'none';
             longformGrid.classList.remove('active');
-          }
-          if (shortformGrid) {
-            shortformGrid.style.display = 'grid';
+            shortformGrid.style.display = 'block';
             shortformGrid.classList.add('active');
           }
+        });
+      });
+    }
+
+    // Mega menu data-tab switching support
+    document.querySelectorAll('.ks-mega-item[data-tab]').forEach(link => {
+      link.addEventListener('click', () => {
+        const tabTarget = link.getAttribute('data-tab');
+        const matchingTab = document.querySelector(`.ks-portfolio-tab[data-target="${tabTarget}"]`);
+        if (matchingTab) matchingTab.click();
+      });
+    });
+
+    // Showreel / VSL Modal (Under Development)
+    const showreelTrigger = document.getElementById('heroShowreelTrigger');
+    const videoModal = document.getElementById('ksVideoModal');
+    const modalBackdrop = document.getElementById('ksModalBackdrop');
+    const modalClose = document.getElementById('ksModalClose');
+    const exploreWorkBtn = document.getElementById('ksExploreWorkBtn');
+    const bookCallModalBtn = document.getElementById('ksBookCallModalBtn');
+
+    function openShowreel() {
+      if (!videoModal) return;
+      videoModal.classList.add('active');
+      videoModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeShowreel() {
+      if (!videoModal) return;
+      videoModal.classList.remove('active');
+      videoModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (showreelTrigger) {
+      showreelTrigger.addEventListener('click', openShowreel);
+      showreelTrigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openShowreel();
         }
       });
+    }
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeShowreel);
+    if (modalClose) modalClose.addEventListener('click', closeShowreel);
+    if (exploreWorkBtn) {
+      exploreWorkBtn.addEventListener('click', () => {
+        closeShowreel();
+      });
+    }
+    if (bookCallModalBtn) {
+      bookCallModalBtn.addEventListener('click', () => {
+        closeShowreel();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+        closeShowreel();
+      }
     });
 
     // FAQ Accordion Interaction
