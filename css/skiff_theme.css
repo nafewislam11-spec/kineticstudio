@@ -671,6 +671,48 @@ button {
   text-align: center;
 }
 
+/* Hero Social Proof Avatar Pill */
+.ks-hero-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ECECEB;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 5px 16px 5px 8px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.ks-hero-pill-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.ks-hero-pill-avatars img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FFF;
+  display: block;
+}
+
+.ks-hero-pill-avatars img:not(:first-child) {
+  margin-left: -6px;
+}
+
+.ks-hero-pill-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #18181B;
+}
+
+.ks-hero-pill-stars {
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
+
 .ks-hero-title {
   font-size: clamp(32px, 4.2vw, 54px);
   line-height: 1.18;
@@ -2009,45 +2051,49 @@ button {
     height: 34px;
   }
   .ks-hero-sec {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
     padding-top: 76px;
-    padding-bottom: 48px;
+    padding-bottom: 36px;
     background-size: cover;
   }
   .ks-hero-card {
-    padding: 44px 16px 28px 16px;
-    border-radius: 20px;
+    padding: 28px 14px 20px 14px;
+    border-radius: 18px;
   }
   .ks-hero-title {
-    font-size: clamp(26px, 6.8vw, 36px);
-    line-height: 1.2;
+    font-size: clamp(21px, 5.5vw, 25px);
+    line-height: 1.24;
+    letter-spacing: -0.02em;
   }
   .ks-hero-sub {
-    font-size: 15px;
-    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-top: 12px;
+    padding: 0 4px;
   }
   .ks-section,
   .ks-pricing-sec,
   .ks-faq-sec,
   .ks-portfolio-sec {
-    padding: 48px 14px;
+    padding: 40px 12px;
   }
   .ks-apps-headline,
   .ks-portfolio-header h2,
   .ks-faq-sec h2 {
-    font-size: clamp(24px, 6.5vw, 34px);
+    font-size: clamp(21px, 5.5vw, 26px);
   }
   .ks-community-sec {
-    margin: 40px auto 60px auto;
-    padding: 0 14px;
+    margin: 32px auto 48px auto;
+    padding: 0 12px;
   }
   .ks-community-card {
-    padding: 40px 16px;
-    border-radius: 20px;
+    padding: 28px 14px;
+    border-radius: 16px;
   }
   .ks-community-card h2 {
-    font-size: clamp(24px, 6.5vw, 34px);
+    font-size: clamp(21px, 5.5vw, 25px);
+    line-height: 1.25;
   }
   .ks-pricing-box {
     padding: 28px 16px !important;
@@ -3721,17 +3767,18 @@ button {
 
 @media (max-width: 600px) {
   .ks-pricing-sec {
-    padding: 60px 16px;
+    padding: 38px 12px;
   }
   .ks-package-card {
-    padding: 28px 18px;
-  }
-  .ks-metrics-strip {
-    grid-template-columns: 1fr;
     padding: 20px 16px;
   }
+  .ks-metrics-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 14px 10px !important;
+    gap: 12px 8px !important;
+  }
   .ks-metric-item::after {
-    display: none;
+    display: none !important;
   }
   .ks-process-grid,
   .ks-process-grid.six-step {
@@ -3744,10 +3791,10 @@ button {
     grid-template-columns: 1fr !important;
   }
   .ks-founder-wrap {
-    padding: 28px 18px !important;
+    padding: 22px 14px !important;
   }
   .ks-fit-card {
-    padding: 26px 18px !important;
+    padding: 18px 16px !important;
   }
 }
 
@@ -4219,6 +4266,400 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOBILE PHONE OPTIMIZATIONS (< 640px)
+   Compact cards, 2x2 stats, balanced typography & alignment
+   ══════════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* Hero Avatar Pill: 2-Row Compact Grid */
+  .ks-hero-social-pill {
+    display: inline-grid !important;
+    grid-template-columns: auto auto !important;
+    grid-template-areas:
+      "avatars stars"
+      "text text" !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px 8px !important;
+    padding: 7px 14px !important;
+    border-radius: 12px !important;
+    margin-bottom: 16px !important;
+    max-width: 94% !important;
+    box-sizing: border-box !important;
+  }
+  .ks-hero-pill-avatars {
+    grid-area: avatars !important;
+    justify-content: center !important;
+  }
+  .ks-hero-pill-avatars img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .ks-hero-pill-stars {
+    grid-area: stars !important;
+    height: 12px !important;
+  }
+  .ks-hero-pill-text {
+    grid-area: text !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  /* Hero Section, Card & Actions */
+  .ks-hero-sec {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    padding-top: 76px !important;
+    padding-bottom: 32px !important;
+  }
+  .ks-hero-card {
+    padding: 28px 14px 20px 14px !important;
+    border-radius: 18px !important;
+  }
+  .ks-hero-title {
+    font-size: clamp(21px, 5.5vw, 25px) !important;
+    line-height: 1.24 !important;
+    letter-spacing: -0.02em !important;
+  }
+  .ks-hero-sub {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+    margin-top: 12px !important;
+    padding: 0 4px !important;
+  }
+  .ks-hero-cta-wrap {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 18px auto 0 auto !important;
+    gap: 8px !important;
+  }
+  .ks-hero-btn-figma,
+  .ks-hero-btn-sec {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+    font-size: 13px !important;
+    box-sizing: border-box !important;
+  }
+  .ks-hero-microcopy {
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+    margin-top: 10px !important;
+    padding: 0 8px !important;
+  }
+
+  /* 2x2 Compact Metrics Grid */
+  .ks-metrics-wrap {
+    margin-top: 24px !important;
+  }
+  .ks-metrics-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 14px 10px !important;
+    gap: 12px 8px !important;
+    border-radius: 14px !important;
+  }
+  .ks-metric-item {
+    padding: 6px 4px !important;
+    gap: 3px !important;
+  }
+  .ks-metric-item::after {
+    display: none !important;
+  }
+  .ks-metric-num {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+  }
+  .ks-metric-label {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    color: #71717A !important;
+  }
+  .ks-client-love-row {
+    margin-top: 12px !important;
+    gap: 6px !important;
+  }
+  .ks-love-pill {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+  }
+
+  /* Section Headings & Spacing */
+  .ks-section {
+    padding: 38px 12px !important;
+  }
+  .ks-section-eyebrow {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+  }
+  .ks-section-title {
+    font-size: clamp(21px, 5.5vw, 25px) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 10px !important;
+  }
+  .ks-section-lead {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+    padding: 0 4px !important;
+  }
+
+  /* Problem Cards */
+  .ks-problem-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+  .ks-problem-card {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+    gap: 12px !important;
+  }
+  .ks-problem-x {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 7px !important;
+  }
+  .ks-problem-card h3 {
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
+  }
+  .ks-problem-card p {
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+  }
+  .ks-callout-card {
+    padding: 16px 14px !important;
+    margin-top: 16px !important;
+    border-radius: 12px !important;
+  }
+  .ks-callout-card p {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Benefits Cards */
+  .ks-benefits-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+  .ks-benefit-card {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+  .ks-benefit-icon {
+    width: 30px !important;
+    height: 30px !important;
+    margin-bottom: 10px !important;
+  }
+  .ks-benefit-card h3 {
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
+  }
+  .ks-benefit-card p {
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+  }
+
+  /* Engine / Scope Cards */
+  .ks-scope-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+  .ks-scope-card {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
+  }
+  .ks-scope-num {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+    margin-bottom: 10px !important;
+  }
+  .ks-scope-card h3 {
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
+  }
+  .ks-scope-card p {
+    font-size: 13px !important;
+    line-height: 1.48 !important;
+  }
+
+  /* Portfolio Section */
+  .ks-portfolio-sec {
+    padding: 38px 12px 24px 12px !important;
+  }
+  .ks-portfolio-header {
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+  }
+  .ks-portfolio-tabs {
+    display: flex !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 12px !important;
+  }
+  .ks-portfolio-tab {
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 7px 8px !important;
+    font-size: 11.5px !important;
+  }
+
+  /* Process Pipeline Steps */
+  .ks-pipeline-flow {
+    max-width: 100% !important;
+    padding: 0 2px !important;
+    margin-top: 20px !important;
+  }
+  .ks-pipeline-step {
+    padding: 11px 13px !important;
+    gap: 8px !important;
+    font-size: 12.5px !important;
+    border-radius: 10px !important;
+  }
+  .ks-pipeline-step .idx {
+    font-size: 11px !important;
+    width: 16px !important;
+  }
+  .ks-pipeline-step .label {
+    font-size: 12.5px !important;
+    line-height: 1.35 !important;
+  }
+  .ks-pipeline-step .tag {
+    font-size: 10px !important;
+    padding: 3px 7px !important;
+    white-space: nowrap !important;
+  }
+  .ks-pipeline-arrow {
+    margin: 3px 0 !important;
+    font-size: 12px !important;
+  }
+
+  /* Review Cards */
+  .ks-reviews-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .ks-review-card {
+    padding: 18px 16px !important;
+    border-radius: 12px !important;
+  }
+  .ks-review-card p {
+    font-size: 13px !important;
+    line-height: 1.52 !important;
+  }
+
+  /* Fit Qualification Cards */
+  .ks-fit-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+  }
+  .ks-fit-card {
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+  .ks-fit-title {
+    font-size: 17px !important;
+    margin-bottom: 12px !important;
+  }
+  .ks-fit-list {
+    gap: 9px !important;
+  }
+  .ks-fit-item {
+    font-size: 13px !important;
+    gap: 9px !important;
+    line-height: 1.45 !important;
+  }
+  .ks-fit-icon {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 10px !important;
+  }
+
+  /* Pricing / Service Cards */
+  .ks-pricing-sec {
+    padding: 38px 12px !important;
+  }
+  .ks-packages-grid {
+    gap: 16px !important;
+    margin: 0 auto 20px auto !important;
+  }
+  .ks-package-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+  .ks-package-title {
+    font-size: 19px !important;
+    margin: 6px 0 !important;
+  }
+  .ks-package-desc {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+  }
+  .ks-package-price {
+    font-size: 21px !important;
+  }
+  .ks-package-note {
+    font-size: 11.5px !important;
+  }
+  .ks-package-features li {
+    font-size: 13px !important;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+    line-height: 1.4 !important;
+  }
+  .ks-package-features .ks-pricing-check {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 9.5px !important;
+  }
+
+  /* FAQ Items */
+  .ks-faq-sec {
+    padding: 38px 12px !important;
+  }
+  .ks-faq-question {
+    padding: 14px 14px !important;
+    font-size: 14px !important;
+    gap: 10px !important;
+  }
+  .ks-faq-answer {
+    padding: 0 14px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+  .ks-faq-item.active .ks-faq-answer {
+    padding-bottom: 14px !important;
+  }
+
+  /* Community Callout */
+  .ks-community-sec {
+    margin: 28px auto 40px auto !important;
+    padding: 0 12px !important;
+  }
+  .ks-community-card {
+    padding: 28px 14px !important;
+    border-radius: 16px !important;
+  }
+  .ks-community-card h2 {
+    font-size: clamp(21px, 5.5vw, 25px) !important;
+    line-height: 1.25 !important;
+  }
+  .ks-community-card p {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+  }
+}
+
 
 
 
